@@ -1,0 +1,53 @@
+/* FrostWeb Documentation Custom Styles */
+
+:root {
+  --fw-frost: #a8d8ea;
+  --fw-ice: #6ec6e6;
+  --fw-dark: #1a1a2e;
+}
+
+/* Plugin cards on landing page */
+.plugin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.plugin-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.plugin-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.plugin-card h3 {
+  margin-top: 0;
+}
+
+/* API reference tables */
+.api-table {
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.api-table th {
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Version badge */
+.version-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}

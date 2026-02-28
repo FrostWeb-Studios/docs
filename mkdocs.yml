@@ -1,0 +1,222 @@
+site_name: FrostWeb Plugin Documentation
+site_url: https://documentation.frostweb.dev/
+site_description: Comprehensive documentation for FrostWeb UE5 game plugins
+site_author: FrostWeb Studios
+
+repo_name: FrostWeb-Studios/docs
+repo_url: https://github.com/FrostWeb-Studios/docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - mike:
+      alias_type: symlink
+      canonical_version: latest
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/FrostWeb-Studios
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/frostweb
+
+extra_css:
+  - assets/css/custom.css
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Plugins:
+    - plugins/index.md
+    - AI System:
+      - plugins/ai-system/index.md
+      - Installation: plugins/ai-system/installation.md
+      - Quick Start: plugins/ai-system/quick-start.md
+      - API Reference: plugins/ai-system/api-reference.md
+      - Blueprints: plugins/ai-system/blueprints.md
+      - Configuration: plugins/ai-system/configuration.md
+      - Tutorials: plugins/ai-system/tutorials.md
+      - FAQ: plugins/ai-system/faq.md
+      - Migration Guide: plugins/ai-system/migration.md
+      - Changelog: plugins/ai-system/changelog.md
+    - Chat System:
+      - plugins/chat-system/index.md
+      - Installation: plugins/chat-system/installation.md
+      - Quick Start: plugins/chat-system/quick-start.md
+      - API Reference: plugins/chat-system/api-reference.md
+      - Blueprints: plugins/chat-system/blueprints.md
+      - Configuration: plugins/chat-system/configuration.md
+      - Tutorials: plugins/chat-system/tutorials.md
+      - FAQ: plugins/chat-system/faq.md
+      - Migration Guide: plugins/chat-system/migration.md
+      - Changelog: plugins/chat-system/changelog.md
+    - Customization System:
+      - plugins/customization-system/index.md
+      - Installation: plugins/customization-system/installation.md
+      - Quick Start: plugins/customization-system/quick-start.md
+      - API Reference: plugins/customization-system/api-reference.md
+      - Blueprints: plugins/customization-system/blueprints.md
+      - Configuration: plugins/customization-system/configuration.md
+      - Tutorials: plugins/customization-system/tutorials.md
+      - FAQ: plugins/customization-system/faq.md
+      - Migration Guide: plugins/customization-system/migration.md
+      - Changelog: plugins/customization-system/changelog.md
+    - Dialogue System:
+      - plugins/dialogue-system/index.md
+      - Installation: plugins/dialogue-system/installation.md
+      - Quick Start: plugins/dialogue-system/quick-start.md
+      - API Reference: plugins/dialogue-system/api-reference.md
+      - Blueprints: plugins/dialogue-system/blueprints.md
+      - Configuration: plugins/dialogue-system/configuration.md
+      - Tutorials: plugins/dialogue-system/tutorials.md
+      - FAQ: plugins/dialogue-system/faq.md
+      - Migration Guide: plugins/dialogue-system/migration.md
+      - Changelog: plugins/dialogue-system/changelog.md
+    - Faction System:
+      - plugins/faction-system/index.md
+      - Installation: plugins/faction-system/installation.md
+      - Quick Start: plugins/faction-system/quick-start.md
+      - API Reference: plugins/faction-system/api-reference.md
+      - Blueprints: plugins/faction-system/blueprints.md
+      - Configuration: plugins/faction-system/configuration.md
+      - Tutorials: plugins/faction-system/tutorials.md
+      - FAQ: plugins/faction-system/faq.md
+      - Migration Guide: plugins/faction-system/migration.md
+      - Changelog: plugins/faction-system/changelog.md
+    - GAS System:
+      - plugins/gas-system/index.md
+      - Installation: plugins/gas-system/installation.md
+      - Quick Start: plugins/gas-system/quick-start.md
+      - API Reference: plugins/gas-system/api-reference.md
+      - Blueprints: plugins/gas-system/blueprints.md
+      - Configuration: plugins/gas-system/configuration.md
+      - Tutorials: plugins/gas-system/tutorials.md
+      - FAQ: plugins/gas-system/faq.md
+      - Migration Guide: plugins/gas-system/migration.md
+      - Changelog: plugins/gas-system/changelog.md
+    - Guild System:
+      - plugins/guild-system/index.md
+      - Guild Manager: plugins/guild-system/guild-manager-component.md
+      - Guild State: plugins/guild-system/guild-state-component.md
+      - Chat Integration: plugins/guild-system/chat-integration-component.md
+      - Types: plugins/guild-system/types.md
+      - Permissions: plugins/guild-system/permissions.md
+      - API Reference: plugins/guild-system/api-reference.md
+      - Events & Delegates: plugins/guild-system/events-delegates.md
+      - Configuration: plugins/guild-system/configuration.md
+      - Tutorial: plugins/guild-system/tutorial.md
+    - Inventory System:
+      - plugins/inventory-system/index.md
+      - Inventory Component: plugins/inventory-system/inventory-component.md
+      - Equipment Component: plugins/inventory-system/equipment-component.md
+      - Crafting Component: plugins/inventory-system/crafting-component.md
+      - Vendor Component: plugins/inventory-system/vendor-component.md
+      - Data Assets: plugins/inventory-system/data-assets.md
+      - Types: plugins/inventory-system/types.md
+      - API Reference: plugins/inventory-system/api-reference.md
+      - Events & Delegates: plugins/inventory-system/events-delegates.md
+      - Configuration: plugins/inventory-system/configuration.md
+      - Tutorial: plugins/inventory-system/tutorial.md
+    - Party System:
+      - plugins/party-system/index.md
+      - Installation: plugins/party-system/installation.md
+      - Quick Start: plugins/party-system/quick-start.md
+      - Party Manager: plugins/party-system/party-manager-component.md
+      - Beacon Architecture: plugins/party-system/beacon-architecture.md
+      - Types: plugins/party-system/types.md
+      - API Reference: plugins/party-system/api-reference.md
+      - Events & Delegates: plugins/party-system/events-delegates.md
+      - Configuration: plugins/party-system/configuration.md
+      - Tutorial: plugins/party-system/tutorial.md
+      - Changelog: plugins/party-system/changelog.md
+    - Quest System:
+      - plugins/quest-system/index.md
+      - Installation: plugins/quest-system/installation.md
+      - Quick Start: plugins/quest-system/quick-start.md
+      - Quest Manager: plugins/quest-system/quest-manager-component.md
+      - Data Definitions: plugins/quest-system/data-definitions.md
+      - Types: plugins/quest-system/types.md
+      - API Reference: plugins/quest-system/api-reference.md
+      - Events & Delegates: plugins/quest-system/events-delegates.md
+      - Configuration: plugins/quest-system/configuration.md
+      - Tutorial: plugins/quest-system/tutorial.md
+      - Changelog: plugins/quest-system/changelog.md
+    - Skill System:
+      - plugins/skill-system/index.md
+      - Installation: plugins/skill-system/installation.md
+      - Quick Start: plugins/skill-system/quick-start.md
+      - API Reference: plugins/skill-system/api-reference.md
+      - Blueprints: plugins/skill-system/blueprints.md
+      - Configuration: plugins/skill-system/configuration.md
+      - Tutorials: plugins/skill-system/tutorials.md
+      - FAQ: plugins/skill-system/faq.md
+      - Migration Guide: plugins/skill-system/migration.md
+      - Changelog: plugins/skill-system/changelog.md
+  - Guides:
+    - guides/architecture.md
+    - guides/contributing.md

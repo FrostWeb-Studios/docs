@@ -22,7 +22,7 @@ FrostWeb provides 11 Unreal Engine 5 plugins, each targeting a specific game sys
 | [FWInventorySystem](inventory-system/) | 1.0 | Inventory, equipment, crafting, vendors with RNG affixes and augmentation | GameplayAbilities; optionally FWSkillSystem |
 | [FWPartySystem](party-system/) | 2.0 | Beacon-based party system with invitations, join codes, and level transfer persistence | OnlineSubsystem, SocketIOClient |
 | [FWQuestSystem](quest-system/) | 3.0 | Modular quest system: tasks, conditions, rewards, party support, daily/weekly resets | GameplayAbilities |
-| [FWSkillSystem](skill-system/) | 1.0 | RS-style skill progression: 15 skills, XP curves, milestones, skill-gated content | GameplayAbilities |
+| [FWSkillSystem](skill-system/) | 1.0 | Skill progression system: 15 skills, XP curves, milestones, skill-gated content | GameplayAbilities |
 
 ---
 

@@ -14,8 +14,8 @@ Common questions about XP formulas, max levels, combat XP distribution, mileston
 
 FWSkillSystem does not hardcode any XP formula. Instead, it uses `UFWSkillXPCurve` data assets that define the cumulative XP required for each level as an array of thresholds. You can implement any curve shape -- linear, polynomial, exponential, or completely custom -- by populating the array with the appropriate values.
 
-!!! info "RS-Style Curve"
-    If you want to replicate the classic RS XP curve, calculate your thresholds using:
+!!! info "Exponential Curve"
+    For an exponential XP curve, calculate your thresholds using:
     ```
     XP(L) = floor( (1/4) * sum(floor(L + 300 * 2^(L/7)), L=1..N-1) )
     ```

@@ -121,7 +121,7 @@ Modular quest system: tasks, conditions, rewards, party support, daily/weekly re
 
 ### FWSkillSystem
 
-RS-style skill progression: 15 skills, XP curves, milestones, skill-gated content.
+Skill progression system: 15 skills, XP curves, milestones, skill-gated content.
 
 [View Documentation](plugins/skill-system/){ .md-button }
 

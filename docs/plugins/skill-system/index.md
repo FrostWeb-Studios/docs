@@ -1,6 +1,6 @@
 ---
 title: FWSkillSystem Plugin
-description: RS-style skill progression with XP curves, leveling, milestones, combat XP integration, and skill-gated content for Unreal Engine 5.
+description: Skill progression system with XP curves, leveling, milestones, combat XP integration, and skill-gated content for Unreal Engine 5.
 tags:
   - plugin
   - skill
@@ -12,7 +12,7 @@ tags:
 
 **Version:** 1.0 | **Module:** `FWSkillSystem` | **Type:** Runtime
 
-An RS-style skill progression plugin for Unreal Engine 5 that provides 15 distinct skills across three categories, configurable XP curves, milestone rewards, combat XP distribution, and a skill requirement system for gating content behind skill levels.
+A skill progression plugin for Unreal Engine 5 that provides 15 distinct skills across three categories, configurable XP curves, milestone rewards, combat XP distribution, and a skill requirement system for gating content behind skill levels.
 
 ---
 

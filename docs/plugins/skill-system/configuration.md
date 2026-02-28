@@ -142,9 +142,9 @@ The XP required to go from Level N to Level N+1 is `LevelXPThresholds[N] - Level
 
 ### Curve Design Strategies
 
-=== "RS-Style Exponential"
+=== "Exponential"
 
-    The classic RS formula uses an exponential curve where each level requires increasingly more XP:
+    An exponential curve where each level requires increasingly more XP:
 
     ```
     XP(L) = floor( (1/4) * sum(floor(L + 300 * 2^(L/7)), L=1..N-1) )

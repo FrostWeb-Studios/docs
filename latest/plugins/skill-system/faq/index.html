@@ -5523,8 +5523,8 @@
 <h3 id="what-xp-formula-does-fwskillsystem-use">What XP formula does FWSkillSystem use?<a class="headerlink" href="#what-xp-formula-does-fwskillsystem-use" title="Permanent link">&para;</a></h3>
 <p>FWSkillSystem does not hardcode any XP formula. Instead, it uses <code>UFWSkillXPCurve</code> data assets that define the cumulative XP required for each level as an array of thresholds. You can implement any curve shape -- linear, polynomial, exponential, or completely custom -- by populating the array with the appropriate values.</p>
 <div class="admonition info">
-<p class="admonition-title">RS-Style Curve</p>
-<p>If you want to replicate the classic RS XP curve, calculate your thresholds using:
+<p class="admonition-title">Exponential Curve</p>
+<p>For an exponential XP curve, calculate your thresholds using:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>XP(L) = floor( (1/4) * sum(floor(L + 300 * 2^(L/7)), L=1..N-1) )
 </span></code></pre></div>
 Then enter the resulting values into your <code>UFWSkillXPCurve</code> asset.</p>

@@ -5621,10 +5621,10 @@
 </table>
 <p>The XP required to go from Level N to Level N+1 is <code>LevelXPThresholds[N] - LevelXPThresholds[N-1]</code>.</p>
 <h3 id="curve-design-strategies">Curve Design Strategies<a class="headerlink" href="#curve-design-strategies" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">RS-Style Exponential</label><label for="__tabbed_1_2">Linear</label><label for="__tabbed_1_3">Custom</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Exponential</label><label for="__tabbed_1_2">Linear</label><label for="__tabbed_1_3">Custom</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The classic RS formula uses an exponential curve where each level requires increasingly more XP:</p>
+<p>An exponential curve where each level requires increasingly more XP:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>XP(L) = floor( (1/4) * sum(floor(L + 300 * 2^(L/7)), L=1..N-1) )
 </span></code></pre></div>
 <p>This produces a curve where early levels are quick and late levels require significant grinding.</p>

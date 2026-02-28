@@ -16,7 +16,7 @@ Guild system settings are configured in your project's `DefaultGame.ini` or via 
 ```ini
 [/Script/FWGuildSystem.FWGuildSystemSettings]
 ; Backend API base URL for guild operations
-ApiBaseUrl=https://ayndora.frostweb.dev/api/v1/guilds
+ApiBaseUrl=https://your-game-api.example.com/api/v1/guilds
 
 ; Maximum members per guild
 MaxMembersPerGuild=100

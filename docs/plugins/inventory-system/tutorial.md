@@ -539,7 +539,7 @@ void AMyCharacter::SaveInventory()
     FHttpModule& Http = FHttpModule::Get();
     TSharedRef<IHttpRequest> Request = Http.CreateRequest();
 
-    Request->SetURL(TEXT("https://ayndora.frostweb.dev/api/v1/inventory/save"));
+    Request->SetURL(TEXT("https://your-game-api.example.com/api/v1/inventory/save"));
     Request->SetVerb(TEXT("POST"));
     Request->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
     Request->SetHeader(TEXT("Authorization"),

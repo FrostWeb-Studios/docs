@@ -1,0 +1,7110 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive documentation for FrostWeb UE5 game plugins">
+      
+      
+        <meta name="author" content="FrostWeb Studios">
+      
+      
+        <link rel="canonical" href="https://documentation.frostweb.dev/latest/plugins/gas-system/api-reference/">
+      
+      
+        <link rel="prev" href="../quick-start/">
+      
+      
+        <link rel="next" href="../blueprints/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>API Reference - GAS System - FrostWeb Plugin Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FrostWeb Plugin Documentation" class="md-header__button md-logo" aria-label="FrostWeb Plugin Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FrostWeb Plugin Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference - GAS System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FrostWeb-Studios/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FrostWeb-Studios/docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Plugins
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/architecture/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FrostWeb Plugin Documentation" class="md-nav__button md-logo" aria-label="FrostWeb Plugin Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FrostWeb Plugin Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FrostWeb-Studios/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FrostWeb-Studios/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chat-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chat System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chat System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chat-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../customization-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customization System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../dialogue-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dialogue System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dialogue System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dialogue-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../faction-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faction System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Faction System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faction-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAS System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GAS System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-ability-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Ability Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Ability Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilitysystemcomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilitySystemComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilitySystemComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurable-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurable Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwgameplayability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameplayAbility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWGameplayAbility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilityset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilitySet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilitySet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwabilitysethandle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWAbilitySetHandle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute Sets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribute Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwattributesetbase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAttributeSetBase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwattributeset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAttributeSet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwgascorecomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGASCoreComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWGASCoreComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribute-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ability-lifecycle-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ability Lifecycle Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effect-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effect Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwcombomanagercomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWComboManagerComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWComboManagerComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replicated-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replicated Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilityqueuecomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilityQueueComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilityQueueComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilityinputbindingcomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilityInputBindingComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilityInputBindingComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwlinkanimlayerscomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWLinkAnimLayersComponent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-notifies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Animation Notifies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Animation Notifies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fwabilityqueuenotifystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FWAbilityQueueNotifyState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fwcombowindownotifystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FWComboWindowNotifyState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fwtriggercombonotify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FWTriggerComboNotify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwnativeaniminstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWNativeAnimInstance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modular-gameplay-actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modular Gameplay Actors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamefeature-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameFeature Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameFeature Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwgamefeatureaction_addabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameFeatureAction_AddAbilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWGameFeatureAction_AddAbilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwgamefeatureaction_addanimlayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameFeatureAction_AddAnimLayers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwgamefeatureaction_addinputmappingcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameFeatureAction_AddInputMappingContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-and-structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types and Structs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types and Structs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#efwabilitytriggerevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFWAbilityTriggerEvent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwabilityinputmapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWAbilityInputMapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwattributesetdefinition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWAttributeSetDefinition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwgameplayeffectcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWGameplayEffectContainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwgameplayeffectcontainerspec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWGameplayEffectContainerSpec
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwgameplayeffectexecutedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWGameplayEffectExecuteData
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blueprint Library
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blueprint Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwblueprintfunctionlibrary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWBlueprintFunctionLibrary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwtargettype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWTargetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Widgets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../guild-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guild System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guild System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/guild-manager-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guild Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/guild-state-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guild State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/chat-integration-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chat Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/events-delegates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events & Delegates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guild-system/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../inventory-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventory System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Inventory System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/inventory-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventory Component
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/equipment-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Equipment Component
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/crafting-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crafting Component
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/vendor-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vendor Component
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/data-assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/events-delegates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events & Delegates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inventory-system/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../party-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Party System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10" id="__nav_3_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Party System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/party-manager-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Party Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/beacon-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Beacon Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/events-delegates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events & Delegates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../party-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../quest-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quest System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_11" id="__nav_3_11_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quest System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/quest-manager-component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quest Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/data-definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Definitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/events-delegates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events & Delegates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quest-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../skill-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill System
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_12" id="__nav_3_12_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skill System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill-system/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-ability-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Ability Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Ability Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilitysystemcomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilitySystemComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilitySystemComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurable-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurable Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwgameplayability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameplayAbility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWGameplayAbility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilityset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilitySet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilitySet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwabilitysethandle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWAbilitySetHandle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute Sets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribute Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwattributesetbase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAttributeSetBase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwattributeset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAttributeSet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwgascorecomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGASCoreComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWGASCoreComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribute-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ability-lifecycle-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ability Lifecycle Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effect-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effect Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwcombomanagercomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWComboManagerComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWComboManagerComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replicated-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replicated Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilityqueuecomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilityQueueComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilityQueueComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwabilityinputbindingcomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWAbilityInputBindingComponent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWAbilityInputBindingComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-methods_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwlinkanimlayerscomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWLinkAnimLayersComponent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-notifies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Animation Notifies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Animation Notifies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fwabilityqueuenotifystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FWAbilityQueueNotifyState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fwcombowindownotifystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FWComboWindowNotifyState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fwtriggercombonotify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FWTriggerComboNotify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwnativeaniminstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWNativeAnimInstance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modular-gameplay-actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modular Gameplay Actors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamefeature-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameFeature Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameFeature Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwgamefeatureaction_addabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameFeatureAction_AddAbilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UFWGameFeatureAction_AddAbilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwgamefeatureaction_addanimlayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameFeatureAction_AddAnimLayers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwgamefeatureaction_addinputmappingcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWGameFeatureAction_AddInputMappingContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-and-structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types and Structs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types and Structs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#efwabilitytriggerevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFWAbilityTriggerEvent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwabilityinputmapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWAbilityInputMapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwattributesetdefinition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWAttributeSetDefinition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwgameplayeffectcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWGameplayEffectContainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwgameplayeffectcontainerspec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWGameplayEffectContainerSpec
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ffwgameplayeffectexecutedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FFWGameplayEffectExecuteData
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blueprint Library
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blueprint Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufwblueprintfunctionlibrary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWBlueprintFunctionLibrary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufwtargettype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UFWTargetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Widgets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    GAS System
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>Complete C++ reference for all public classes, structs, enums, and delegates in FWGASSystem.</p>
+<hr />
+<h2 id="core-ability-classes">Core Ability Classes<a class="headerlink" href="#core-ability-classes" title="Permanent link">&para;</a></h2>
+<h3 id="ufwabilitysystemcomponent">UFWAbilitySystemComponent<a class="headerlink" href="#ufwabilitysystemcomponent" title="Permanent link">&para;</a></h3>
+<p><code>#include "Abilities/FWAbilitySystemComponent.h"</code></p>
+<p>Extended Ability System Component designed for Blueprint attachment or GameFeature-based granting. Auto-grants abilities, attributes, effects, and ability sets on <code>InitAbilityActorInfo</code>.</p>
+<p><strong>Extends:</strong> <code>UAbilitySystemComponent</code> | <strong>Specifiers:</strong> <code>BlueprintSpawnableComponent</code></p>
+<h4 id="configurable-properties">Configurable Properties<a class="headerlink" href="#configurable-properties" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GrantedAbilities</code></td>
+<td><code>TArray&lt;FFWAbilityInputMapping&gt;</code></td>
+<td>Empty</td>
+<td>Abilities to grant on init, with optional input binding.</td>
+</tr>
+<tr>
+<td><code>GrantedAttributes</code></td>
+<td><code>TArray&lt;FFWAttributeSetDefinition&gt;</code></td>
+<td>Empty</td>
+<td>Attribute sets to grant, with optional DataTable init.</td>
+</tr>
+<tr>
+<td><code>GrantedEffects</code></td>
+<td><code>TArray&lt;TSubclassOf&lt;UGameplayEffect&gt;&gt;</code></td>
+<td>Empty</td>
+<td>Effects to apply on init (e.g., regen effects).</td>
+</tr>
+<tr>
+<td><code>GrantedAbilitySets</code></td>
+<td><code>TArray&lt;TSoftObjectPtr&lt;UFWAbilitySet&gt;&gt;</code></td>
+<td>Empty</td>
+<td>AbilitySet DataAssets to grant on init.</td>
+</tr>
+<tr>
+<td><code>bResetAbilitiesOnSpawn</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Re-grant abilities on each <code>InitAbilityActorInfo</code> call. Set to <code>false</code> for Player State ASCs.</td>
+</tr>
+<tr>
+<td><code>bResetAttributesOnSpawn</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Re-initialize attributes on each <code>InitAbilityActorInfo</code> call.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Signature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OnInitAbilityActorInfo</code></td>
+<td><code>FFWOnInitAbilityActorInfo</code> (no params)</td>
+<td>Fired after <code>InitAbilityActorInfo</code>, once abilities and attributes have been granted.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="key-methods">Key Methods<a class="headerlink" href="#key-methods" title="Permanent link">&para;</a></h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Grant an AbilitySet at runtime, returns a handle for later removal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GiveAbilitySet</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UFWAbilitySet</span><span class="o">*</span><span class="w"> </span><span class="n">InAbilitySet</span><span class="p">,</span><span class="w"> </span><span class="n">FFWAbilitySetHandle</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutHandle</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// Remove a previously granted AbilitySet</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">ClearAbilitySet</span><span class="p">(</span><span class="n">UPARAM</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span><span class="w"> </span><span class="n">FFWAbilitySetHandle</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InAbilitySetHandle</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// Called automatically on InitAbilityActorInfo</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">GrantDefaultAbilitiesAndAttributes</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">InOwnerActor</span><span class="p">,</span><span class="w"> </span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">InAvatarActor</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">GrantDefaultAbilitySets</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">InOwnerActor</span><span class="p">,</span><span class="w"> </span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">InAvatarActor</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">bResetAbilitiesOnSpawn</p>
+<p>When set to <code>false</code> (recommended for Player State ASCs), abilities are granted only on the first <code>InitAbilityActorInfo</code> call. Subsequent calls (e.g., after respawn) skip re-granting. Do <strong>not</strong> set to <code>true</code> for Player State ASCs if using input binding -- it will cause duplicate bindings.</p>
+</div>
+<hr />
+<h3 id="ufwgameplayability">UFWGameplayAbility<a class="headerlink" href="#ufwgameplayability" title="Permanent link">&para;</a></h3>
+<p><code>#include "Abilities/FWGameplayAbility.h"</code></p>
+<p>Base gameplay ability class extending <code>UGameplayAbility</code> with effect container support and ability queue integration.</p>
+<p><strong>Extends:</strong> <code>UGameplayAbility</code></p>
+<h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bEnableAbilityQueue</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Allows other abilities to be queued during this ability. Prefer using <code>AbilityQueueNotifyState</code> in montages for finer control.</td>
+</tr>
+<tr>
+<td><code>EffectContainerMap</code></td>
+<td><code>TMap&lt;FGameplayTag, FFWGameplayEffectContainer&gt;</code></td>
+<td>Empty</td>
+<td>Maps gameplay tags to effect containers for data-driven effect application.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="key-methods_1">Key Methods<a class="headerlink" href="#key-methods_1" title="Permanent link">&para;</a></h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Create an effect container spec from a container definition</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">virtual</span><span class="w"> </span><span class="n">FFWGameplayEffectContainerSpec</span><span class="w"> </span><span class="nf">MakeEffectContainerSpecFromContainer</span><span class="p">(</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FFWGameplayEffectContainer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Container</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayEventData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">EventData</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">OverrideGameplayLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// Look up a container by tag and create its spec</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">virtual</span><span class="w"> </span><span class="n">FFWGameplayEffectContainerSpec</span><span class="w"> </span><span class="nf">MakeEffectContainerSpec</span><span class="p">(</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">ContainerTag</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayEventData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">EventData</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">OverrideGameplayLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1">// Apply a previously created container spec</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="k">virtual</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FActiveGameplayEffectHandle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ApplyEffectContainerSpec</span><span class="p">(</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FFWGameplayEffectContainerSpec</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ContainerSpec</span><span class="p">);</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1">// Shorthand: create and apply in one call</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="k">virtual</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FActiveGameplayEffectHandle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ApplyEffectContainer</span><span class="p">(</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">ContainerTag</span><span class="p">,</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayEventData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">EventData</span><span class="p">,</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">OverrideGameplayLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ufwabilityset">UFWAbilitySet<a class="headerlink" href="#ufwabilityset" title="Permanent link">&para;</a></h3>
+<p><code>#include "Abilities/FWAbilitySet.h"</code></p>
+<p>DataAsset bundling abilities, attribute sets, effects, and owned tags for bulk granting to an ASC.</p>
+<p><strong>Extends:</strong> <code>UPrimaryDataAsset</code> | <strong>Specifiers:</strong> <code>BlueprintType</code></p>
+<h4 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GrantedAbilities</code></td>
+<td><code>TArray&lt;FFWGameFeatureAbilityMapping&gt;</code></td>
+<td>Abilities with input binding configuration.</td>
+</tr>
+<tr>
+<td><code>GrantedAttributes</code></td>
+<td><code>TArray&lt;FFWGameFeatureAttributeSetMapping&gt;</code></td>
+<td>Attribute sets with optional DataTable init.</td>
+</tr>
+<tr>
+<td><code>GrantedEffects</code></td>
+<td><code>TArray&lt;FFWGameFeatureGameplayEffectMapping&gt;</code></td>
+<td>Effects to apply with level.</td>
+</tr>
+<tr>
+<td><code>OwnedTags</code></td>
+<td><code>FGameplayTagContainer</code></td>
+<td>Tags to apply to the ASC when the set is granted.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="key-methods_2">Key Methods<a class="headerlink" href="#key-methods_2" title="Permanent link">&para;</a></h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Grant to ASC, returns handle for later removal</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GrantToAbilitySystem</span><span class="p">(</span><span class="n">UAbilitySystemComponent</span><span class="o">*</span><span class="w"> </span><span class="n">InASC</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">FFWAbilitySetHandle</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutAbilitySetHandle</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">FText</span><span class="o">*</span><span class="w"> </span><span class="n">OutErrorText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bShouldRegisterCoreDelegates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Grant to an actor (finds ASC automatically)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GrantToAbilitySystem</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">InActor</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">FFWAbilitySetHandle</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutAbilitySetHandle</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">FText</span><span class="o">*</span><span class="w"> </span><span class="n">OutErrorText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">// Static: remove a previously granted set</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">RemoveFromAbilitySystem</span><span class="p">(</span><span class="n">UAbilitySystemComponent</span><span class="o">*</span><span class="w"> </span><span class="n">InASC</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">FFWAbilitySetHandle</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InAbilitySetHandle</span><span class="p">,</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="n">FText</span><span class="o">*</span><span class="w"> </span><span class="n">OutErrorText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bShouldRegisterCoreDelegates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1">// Check if any ability in this set has input binding</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">HasInputBinding</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ffwabilitysethandle">FFWAbilitySetHandle<a class="headerlink" href="#ffwabilitysethandle" title="Permanent link">&para;</a></h3>
+<p>Handle struct for tracking what was granted by an <code>UFWAbilitySet</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Abilities</code></td>
+<td><code>TArray&lt;FGameplayAbilitySpecHandle&gt;</code></td>
+<td>Granted ability handles.</td>
+</tr>
+<tr>
+<td><code>EffectHandles</code></td>
+<td><code>TArray&lt;FActiveGameplayEffectHandle&gt;</code></td>
+<td>Active effect handles.</td>
+</tr>
+<tr>
+<td><code>Attributes</code></td>
+<td><code>TArray&lt;TObjectPtr&lt;UAttributeSet&gt;&gt;</code></td>
+<td>Granted attribute set pointers.</td>
+</tr>
+<tr>
+<td><code>OwnedTags</code></td>
+<td><code>FGameplayTagContainer</code></td>
+<td>Tags that were added.</td>
+</tr>
+<tr>
+<td><code>AbilitySetPathName</code></td>
+<td><code>FString</code></td>
+<td>Source AbilitySet path (for debug).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="attribute-sets">Attribute Sets<a class="headerlink" href="#attribute-sets" title="Permanent link">&para;</a></h2>
+<h3 id="ufwattributesetbase">UFWAttributeSetBase<a class="headerlink" href="#ufwattributesetbase" title="Permanent link">&para;</a></h3>
+<p><code>#include "Abilities/Attributes/FWAttributeSetBase.h"</code></p>
+<p>Abstract base attribute set providing shared infrastructure: <code>PreAttributeChange</code>, <code>PostGameplayEffectExecute</code>, <code>AdjustAttributeForMaxChange</code>, and clamp value support.</p>
+<p><strong>Extends:</strong> <code>UAttributeSet</code> | <strong>Specifiers:</strong> <code>Abstract</code></p>
+<p>Provides the <code>ATTRIBUTE_ACCESSORS</code> macro for defining getter/setter/init helpers.</p>
+<hr />
+<h3 id="ufwattributeset">UFWAttributeSet<a class="headerlink" href="#ufwattributeset" title="Permanent link">&para;</a></h3>
+<p><code>#include "Abilities/Attributes/FWAttributeSet.h"</code></p>
+<p>Concrete attribute set with common combat attributes. All gameplay attributes are replicated.</p>
+<p><strong>Extends:</strong> <code>UFWAttributeSetBase</code></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Replicated</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Health</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Current health.</td>
+</tr>
+<tr>
+<td><code>MaxHealth</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Maximum health.</td>
+</tr>
+<tr>
+<td><code>HealthRegenRate</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Health regen per period.</td>
+</tr>
+<tr>
+<td><code>Stamina</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Current stamina.</td>
+</tr>
+<tr>
+<td><code>MaxStamina</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Maximum stamina.</td>
+</tr>
+<tr>
+<td><code>StaminaRegenRate</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Stamina regen per period.</td>
+</tr>
+<tr>
+<td><code>Mana</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Current mana.</td>
+</tr>
+<tr>
+<td><code>MaxMana</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Maximum mana.</td>
+</tr>
+<tr>
+<td><code>ManaRegenRate</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>Yes</td>
+<td>Mana regen per period.</td>
+</tr>
+<tr>
+<td><code>Damage</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>No</td>
+<td>Meta attribute for damage calculation. Server-only.</td>
+</tr>
+<tr>
+<td><code>StaminaDamage</code></td>
+<td><code>FGameplayAttributeData</code></td>
+<td>No</td>
+<td>Meta attribute for stamina damage. Server-only.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
+<h3 id="ufwgascorecomponent">UFWGASCoreComponent<a class="headerlink" href="#ufwgascorecomponent" title="Permanent link">&para;</a></h3>
+<p><code>#include "Components/FWGASCoreComponent.h"</code></p>
+<p>Abstraction layer over the ASC providing a unified Blueprint event surface. Handles ASC owner/avatar complexity, especially for Player State-based ASC setups.</p>
+<p><strong>Extends:</strong> <code>UActorComponent</code> | <strong>Specifiers:</strong> <code>BlueprintSpawnableComponent</code></p>
+<h4 id="attribute-events">Attribute Events<a class="headerlink" href="#attribute-events" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Delegate</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OnHealthChange</code></td>
+<td><code>FFWOnDefaultAttributeChange</code></td>
+<td><code>DeltaValue</code>, <code>EventTags</code></td>
+</tr>
+<tr>
+<td><code>OnStaminaChange</code></td>
+<td><code>FFWOnDefaultAttributeChange</code></td>
+<td><code>DeltaValue</code>, <code>EventTags</code></td>
+</tr>
+<tr>
+<td><code>OnManaChange</code></td>
+<td><code>FFWOnDefaultAttributeChange</code></td>
+<td><code>DeltaValue</code>, <code>EventTags</code></td>
+</tr>
+<tr>
+<td><code>OnFervorChange</code></td>
+<td><code>FFWOnDefaultAttributeChange</code></td>
+<td><code>DeltaValue</code>, <code>EventTags</code></td>
+</tr>
+<tr>
+<td><code>OnAttributeChange</code></td>
+<td><code>FFWOnAttributeChange</code></td>
+<td><code>Attribute</code>, <code>DeltaValue</code>, <code>EventTags</code></td>
+</tr>
+<tr>
+<td><code>OnDamage</code></td>
+<td><code>FFWOnDamage</code></td>
+<td><code>DamageAmount</code>, <code>SourceCharacter</code>, <code>DamageTags</code></td>
+</tr>
+<tr>
+<td><code>OnDeath</code></td>
+<td><code>FFWOnDeath</code></td>
+<td>(none)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ability-lifecycle-events">Ability Lifecycle Events<a class="headerlink" href="#ability-lifecycle-events" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Delegate</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OnAbilityActivated</code></td>
+<td><code>FFWOnAbilityActivated</code></td>
+<td><code>Ability</code></td>
+</tr>
+<tr>
+<td><code>OnAbilityEnded</code></td>
+<td><code>FFWOnAbilityEnded</code></td>
+<td><code>Ability</code></td>
+</tr>
+<tr>
+<td><code>OnAbilityFailed</code></td>
+<td><code>FFWOnAbilityFailed</code></td>
+<td><code>Ability</code>, <code>ReasonTags</code></td>
+</tr>
+<tr>
+<td><code>OnAbilityCommit</code></td>
+<td><code>FFWOnAbilityCommit</code></td>
+<td><code>Ability</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="effect-events">Effect Events<a class="headerlink" href="#effect-events" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Delegate</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OnGameplayEffectAdded</code></td>
+<td><code>FFWOnGameplayEffectAdded</code></td>
+<td><code>AssetTags</code>, <code>GrantedTags</code>, <code>ActiveHandle</code></td>
+</tr>
+<tr>
+<td><code>OnGameplayEffectRemoved</code></td>
+<td><code>FFWOnGameplayEffectRemoved</code></td>
+<td><code>AssetTags</code>, <code>GrantedTags</code>, <code>ActiveHandle</code></td>
+</tr>
+<tr>
+<td><code>OnGameplayEffectStackChange</code></td>
+<td><code>FFWOnGameplayEffectStackChange</code></td>
+<td><code>AssetTags</code>, <code>GrantedTags</code>, <code>ActiveHandle</code>, <code>NewStackCount</code>, <code>OldStackCount</code></td>
+</tr>
+<tr>
+<td><code>OnGameplayEffectTimeChange</code></td>
+<td><code>FFWOnGameplayEffectTimeChange</code></td>
+<td><code>AssetTags</code>, <code>GrantedTags</code>, <code>ActiveHandle</code>, <code>NewStartTime</code>, <code>NewDuration</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="other-events">Other Events<a class="headerlink" href="#other-events" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Delegate</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OnGameplayTagChange</code></td>
+<td><code>FFWOnGameplayTagStackChange</code></td>
+<td><code>GameplayTag</code>, <code>NewTagCount</code></td>
+</tr>
+<tr>
+<td><code>OnCooldownStart</code></td>
+<td><code>FFWOnCooldownChanged</code></td>
+<td><code>Ability</code>, <code>CooldownTags</code>, <code>TimeRemaining</code>, <code>Duration</code></td>
+</tr>
+<tr>
+<td><code>OnCooldownEnd</code></td>
+<td><code>FFWOnCooldownEnd</code></td>
+<td><code>Ability</code>, <code>CooldownTag</code>, <code>Duration</code></td>
+</tr>
+<tr>
+<td><code>OnPreAttributeChange</code></td>
+<td><code>FFWOnPreAttributeChange</code></td>
+<td><code>AttributeSet</code>, <code>Attribute</code>, <code>NewValue</code></td>
+</tr>
+<tr>
+<td><code>OnPostGameplayEffectExecute</code></td>
+<td><code>FFWOnPostGameplayEffectExecute</code></td>
+<td><code>Attribute</code>, <code>SourceActor</code>, <code>TargetActor</code>, <code>SourceTags</code>, <code>Payload</code></td>
+</tr>
+<tr>
+<td><code>OnInitAbilityActorInfo</code></td>
+<td><code>FFWOnInitAbilityActorInfoCore</code></td>
+<td>(none)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="key-methods_3">Key Methods<a class="headerlink" href="#key-methods_3" title="Permanent link">&para;</a></h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Attribute queries</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetHealth</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetMaxHealth</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetStamina</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetMaxStamina</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetMana</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetMaxMana</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetAttributeValue</span><span class="p">(</span><span class="n">FGameplayAttribute</span><span class="w"> </span><span class="n">Attribute</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kt">float</span><span class="w"> </span><span class="nf">GetCurrentAttributeValue</span><span class="p">(</span><span class="n">FGameplayAttribute</span><span class="w"> </span><span class="n">Attribute</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">IsAlive</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1">// Attribute mutations</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetAttributeValue</span><span class="p">(</span><span class="n">FGameplayAttribute</span><span class="w"> </span><span class="n">Attribute</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">NewValue</span><span class="p">);</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ClampAttributeValue</span><span class="p">(</span><span class="n">FGameplayAttribute</span><span class="w"> </span><span class="n">Attribute</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">MinValue</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">MaxValue</span><span class="p">);</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AdjustAttributeForMaxChange</span><span class="p">(</span><span class="n">UFWAttributeSetBase</span><span class="o">*</span><span class="w"> </span><span class="n">AttributeSet</span><span class="p">,</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayAttribute</span><span class="w"> </span><span class="n">AffectedAttributeProperty</span><span class="p">,</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayAttribute</span><span class="w"> </span><span class="n">MaxAttribute</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">NewMaxValue</span><span class="p">);</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="c1">// Ability management</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GrantAbility</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Ability</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">Level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ClearAbility</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Ability</span><span class="p">);</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ClearAbilities</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">Abilities</span><span class="p">);</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="c1">// Ability activation</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">ActivateAbilityByClass</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AbilityClass</span><span class="p">,</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="n">UFWGameplayAbility</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">ActivatedAbility</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bAllowRemoteActivation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">ActivateAbilityByTags</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="n">AbilityTags</span><span class="p">,</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="n">UFWGameplayAbility</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">ActivatedAbility</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bAllowRemoteActivation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="c1">// Ability queries</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">IsUsingAbilityByClass</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AbilityClass</span><span class="p">);</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">IsUsingAbilityByTags</span><span class="p">(</span><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="n">AbilityTags</span><span class="p">);</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">GetActiveAbilitiesByClass</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AbilityToSearch</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">GetActiveAbilitiesByTags</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="n">GameplayTagContainer</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="c1">// Tag queries</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">HasAnyMatchingGameplayTags</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTagContainer</span><span class="w"> </span><span class="n">TagContainer</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">HasMatchingGameplayTag</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">TagToCheck</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="c1">// Death</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Die</span><span class="p">();</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ufwcombomanagercomponent">UFWComboManagerComponent<a class="headerlink" href="#ufwcombomanagercomponent" title="Permanent link">&para;</a></h3>
+<p><code>#include "Components/FWComboManagerComponent.h"</code></p>
+<p>Manages combo ability activation and chaining. Works with <code>UFWComboWindowNotifyState</code> and <code>UFWTriggerComboNotify</code> anim notifies.</p>
+<p><strong>Extends:</strong> <code>UActorComponent</code> | <strong>Specifiers:</strong> <code>BlueprintSpawnableComponent</code></p>
+<h4 id="replicated-properties">Replicated Properties<a class="headerlink" href="#replicated-properties" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ComboIndex</code></td>
+<td><code>int32</code></td>
+<td>Current combo step (0-based).</td>
+</tr>
+<tr>
+<td><code>bComboWindowOpened</code></td>
+<td><code>bool</code></td>
+<td>Whether the combo input window is active.</td>
+</tr>
+<tr>
+<td><code>bShouldTriggerCombo</code></td>
+<td><code>bool</code></td>
+<td>Whether the next combo should activate.</td>
+</tr>
+<tr>
+<td><code>bRequestTriggerCombo</code></td>
+<td><code>bool</code></td>
+<td>Whether a combo trigger was requested.</td>
+</tr>
+<tr>
+<td><code>bNextComboAbilityActivated</code></td>
+<td><code>bool</code></td>
+<td>Whether the next combo ability has been activated.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="key-methods_4">Key Methods<a class="headerlink" href="#key-methods_4" title="Permanent link">&para;</a></h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">IncrementCombo</span><span class="p">();</span><span class="w">     </span><span class="c1">// Increment combo counter (only if window open)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ResetCombo</span><span class="p">();</span><span class="w">         </span><span class="c1">// Reset combo counter to 0</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ActivateComboAbility</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AbilityClass</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">bAllowRemoteActivation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// Activate a combo ability</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">UGameplayAbility</span><span class="o">*</span><span class="w"> </span><span class="nf">GetCurrentActiveComboAbility</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ufwabilityqueuecomponent">UFWAbilityQueueComponent<a class="headerlink" href="#ufwabilityqueuecomponent" title="Permanent link">&para;</a></h3>
+<p><code>#include "Components/FWAbilityQueueComponent.h"</code></p>
+<p>Manages ability queuing so players can buffer the next ability during an active animation window.</p>
+<p><strong>Extends:</strong> <code>UActorComponent</code> | <strong>Specifiers:</strong> <code>BlueprintSpawnableComponent</code></p>
+<h4 id="key-methods_5">Key Methods<a class="headerlink" href="#key-methods_5" title="Permanent link">&para;</a></h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">OpenAbilityQueue</span><span class="p">();</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">CloseAbilityQueue</span><span class="p">();</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">UpdateAllowedAbilitiesForAbilityQueue</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UGameplayAbility</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">AllowedAbilities</span><span class="p">);</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetAllowAllAbilitiesForAbilityQueue</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">bAllowAllAbilities</span><span class="p">);</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">IsAbilityQueueOpened</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">const</span><span class="w"> </span><span class="n">UGameplayAbility</span><span class="o">*</span><span class="w"> </span><span class="nf">GetCurrentQueuedAbility</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ufwabilityinputbindingcomponent">UFWAbilityInputBindingComponent<a class="headerlink" href="#ufwabilityinputbindingcomponent" title="Permanent link">&para;</a></h3>
+<p><code>#include "Components/FWAbilityInputBindingComponent.h"</code></p>
+<p>Bridges Enhanced Input with GAS ability activation. Maps <code>UInputAction</code> assets to <code>FGameplayAbilitySpecHandle</code>.</p>
+<p><strong>Extends:</strong> <code>UActorComponent</code> | <strong>Specifiers:</strong> <code>BlueprintSpawnableComponent</code></p>
+<h4 id="key-methods_6">Key Methods<a class="headerlink" href="#key-methods_6" title="Permanent link">&para;</a></h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetInputBinding</span><span class="p">(</span><span class="n">UInputAction</span><span class="o">*</span><span class="w"> </span><span class="n">InputAction</span><span class="p">,</span><span class="w"> </span><span class="n">EFWAbilityTriggerEvent</span><span class="w"> </span><span class="n">TriggerEvent</span><span class="p">,</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">FGameplayAbilitySpecHandle</span><span class="w"> </span><span class="n">AbilityHandle</span><span class="p">);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ClearInputBinding</span><span class="p">(</span><span class="n">FGameplayAbilitySpecHandle</span><span class="w"> </span><span class="n">AbilityHandle</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ufwlinkanimlayerscomponent">UFWLinkAnimLayersComponent<a class="headerlink" href="#ufwlinkanimlayerscomponent" title="Permanent link">&para;</a></h3>
+<p><code>#include "Components/FWLinkAnimLayersComponent.h"</code></p>
+<p>Links animation layer interfaces to the owning character's anim instance at runtime. Used with the <code>UFWGameFeatureAction_AddAnimLayers</code> GameFeature action.</p>
+<hr />
+<h2 id="animation-notifies">Animation Notifies<a class="headerlink" href="#animation-notifies" title="Permanent link">&para;</a></h2>
+<h3 id="fwabilityqueuenotifystate">FWAbilityQueueNotifyState<a class="headerlink" href="#fwabilityqueuenotifystate" title="Permanent link">&para;</a></h3>
+<p>Anim notify state that opens and closes the ability queue window during a montage. Add to montage sections where you want to accept queued ability input.</p>
+<h3 id="fwcombowindownotifystate">FWComboWindowNotifyState<a class="headerlink" href="#fwcombowindownotifystate" title="Permanent link">&para;</a></h3>
+<p>Anim notify state that opens and closes the combo input window during a montage. Determines when the player can chain into the next combo step.</p>
+<h3 id="fwtriggercombonotify">FWTriggerComboNotify<a class="headerlink" href="#fwtriggercombonotify" title="Permanent link">&para;</a></h3>
+<p>Anim notify that triggers the next combo ability in the chain. Place at the point in the montage where the next combo should begin.</p>
+<h3 id="ufwnativeaniminstance">UFWNativeAnimInstance<a class="headerlink" href="#ufwnativeaniminstance" title="Permanent link">&para;</a></h3>
+<p>Base anim instance class providing integration points for GAS-driven animation state.</p>
+<hr />
+<h2 id="modular-gameplay-actors">Modular Gameplay Actors<a class="headerlink" href="#modular-gameplay-actors" title="Permanent link">&para;</a></h2>
+<p>Pre-built base classes implementing <code>IGameFrameworkInitStateInterface</code> for modular game feature support.</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Extends</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AFWModularCharacter</code></td>
+<td><code>ACharacter</code></td>
+<td>Character with modular init state.</td>
+</tr>
+<tr>
+<td><code>AFWModularPlayerState</code></td>
+<td><code>APlayerState</code></td>
+<td>Player state that can own the ASC.</td>
+</tr>
+<tr>
+<td><code>AFWModularPlayerStateCharacter</code></td>
+<td><code>ACharacter</code></td>
+<td>Character designed for Player State-owned ASC.</td>
+</tr>
+<tr>
+<td><code>AFWModularPlayerController</code></td>
+<td><code>APlayerController</code></td>
+<td>Controller with modular init state.</td>
+</tr>
+<tr>
+<td><code>AFWModularActor</code></td>
+<td><code>AActor</code></td>
+<td>Generic actor with modular init.</td>
+</tr>
+<tr>
+<td><code>AFWModularDefaultPawn</code></td>
+<td><code>ADefaultPawn</code></td>
+<td>Default pawn with modular init.</td>
+</tr>
+<tr>
+<td><code>AFWModularGameMode</code></td>
+<td><code>AGameModeBase</code></td>
+<td>GameMode with modular init.</td>
+</tr>
+<tr>
+<td><code>AFWModularGameState</code></td>
+<td><code>AGameStateBase</code></td>
+<td>GameState with modular init.</td>
+</tr>
+<tr>
+<td><code>AFWModularPawn</code></td>
+<td><code>APawn</code></td>
+<td>Pawn with modular init.</td>
+</tr>
+<tr>
+<td><code>AFWModularAIController</code></td>
+<td><code>AAIController</code></td>
+<td>AI Controller with modular init.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="gamefeature-actions">GameFeature Actions<a class="headerlink" href="#gamefeature-actions" title="Permanent link">&para;</a></h2>
+<h3 id="ufwgamefeatureaction_addabilities">UFWGameFeatureAction_AddAbilities<a class="headerlink" href="#ufwgamefeatureaction_addabilities" title="Permanent link">&para;</a></h3>
+<p><code>#include "GameFeatures/Actions/FWGameFeatureAction_AddAbilities.h"</code></p>
+<p>Grants abilities, attribute sets, effects, and ability sets to actors of a specified class when a Game Feature is activated.</p>
+<h4 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AbilitiesList</code></td>
+<td><code>TArray&lt;FFWGameFeatureAbilitiesEntry&gt;</code></td>
+<td>Per-actor-class list of abilities/attributes/effects/sets to grant.</td>
+</tr>
+</tbody>
+</table>
+<p>Each <code>FFWGameFeatureAbilitiesEntry</code> contains:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ActorClass</code></td>
+<td><code>TSoftClassPtr&lt;AActor&gt;</code></td>
+<td>Target actor class to receive grants.</td>
+</tr>
+<tr>
+<td><code>GrantedAbilities</code></td>
+<td><code>TArray&lt;FFWGameFeatureAbilityMapping&gt;</code></td>
+<td>Abilities with input binding.</td>
+</tr>
+<tr>
+<td><code>GrantedAttributes</code></td>
+<td><code>TArray&lt;FFWGameFeatureAttributeSetMapping&gt;</code></td>
+<td>Attribute sets.</td>
+</tr>
+<tr>
+<td><code>GrantedEffects</code></td>
+<td><code>TArray&lt;FFWGameFeatureGameplayEffectMapping&gt;</code></td>
+<td>Effects.</td>
+</tr>
+<tr>
+<td><code>GrantedAbilitySets</code></td>
+<td><code>TArray&lt;TSoftObjectPtr&lt;UFWAbilitySet&gt;&gt;</code></td>
+<td>AbilitySet DataAssets.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ufwgamefeatureaction_addanimlayers">UFWGameFeatureAction_AddAnimLayers<a class="headerlink" href="#ufwgamefeatureaction_addanimlayers" title="Permanent link">&para;</a></h3>
+<p>Adds animation layer interfaces to actors when a Game Feature is activated.</p>
+<hr />
+<h3 id="ufwgamefeatureaction_addinputmappingcontext">UFWGameFeatureAction_AddInputMappingContext<a class="headerlink" href="#ufwgamefeatureaction_addinputmappingcontext" title="Permanent link">&para;</a></h3>
+<p>Adds Input Mapping Contexts to local players when a Game Feature is activated.</p>
+<hr />
+<h2 id="types-and-structs">Types and Structs<a class="headerlink" href="#types-and-structs" title="Permanent link">&para;</a></h2>
+<h3 id="efwabilitytriggerevent">EFWAbilityTriggerEvent<a class="headerlink" href="#efwabilitytriggerevent" title="Permanent link">&para;</a></h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">UENUM</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">EFWAbilityTriggerEvent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">uint8</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">Started</span><span class="p">,</span><span class="w">     </span><span class="c1">// Activate on Action Started (recommended)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">Triggered</span><span class="w">    </span><span class="c1">// Activate on Action Triggered (use with caution)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">};</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>Triggered</code> fires every frame while the input is held. Only use for Input Actions that fire once. For sustained inputs, use <code>Started</code> and manage the held state within the ability.</p>
+</div>
+<hr />
+<h3 id="ffwabilityinputmapping">FFWAbilityInputMapping<a class="headerlink" href="#ffwabilityinputmapping" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ability</code></td>
+<td><code>TSubclassOf&lt;UGameplayAbility&gt;</code></td>
+<td>--</td>
+<td>Ability class to grant.</td>
+</tr>
+<tr>
+<td><code>Level</code></td>
+<td><code>int32</code></td>
+<td><code>1</code></td>
+<td>Ability level.</td>
+</tr>
+<tr>
+<td><code>InputAction</code></td>
+<td><code>TObjectPtr&lt;UInputAction&gt;</code></td>
+<td><code>nullptr</code></td>
+<td>Input action to bind (optional).</td>
+</tr>
+<tr>
+<td><code>TriggerEvent</code></td>
+<td><code>EFWAbilityTriggerEvent</code></td>
+<td><code>Started</code></td>
+<td>When to activate on input.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ffwattributesetdefinition">FFWAttributeSetDefinition<a class="headerlink" href="#ffwattributesetdefinition" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AttributeSet</code></td>
+<td><code>TSubclassOf&lt;UAttributeSet&gt;</code></td>
+<td>Attribute set class to grant.</td>
+</tr>
+<tr>
+<td><code>InitializationData</code></td>
+<td><code>TObjectPtr&lt;UDataTable&gt;</code></td>
+<td>DataTable for initial values (optional).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ffwgameplayeffectcontainer">FFWGameplayEffectContainer<a class="headerlink" href="#ffwgameplayeffectcontainer" title="Permanent link">&para;</a></h3>
+<p>Data-driven effect container mapping a target type to a list of effects.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TargetType</code></td>
+<td><code>TSubclassOf&lt;UFWTargetType&gt;</code></td>
+<td>How targets are resolved.</td>
+</tr>
+<tr>
+<td><code>TargetGameplayEffectClasses</code></td>
+<td><code>TArray&lt;TSubclassOf&lt;UGameplayEffect&gt;&gt;</code></td>
+<td>Effects to apply.</td>
+</tr>
+<tr>
+<td><code>bUseSetByCallerMagnitude</code></td>
+<td><code>bool</code></td>
+<td>Whether to use SetByCaller for magnitude.</td>
+</tr>
+<tr>
+<td><code>SetByCallerDataTag</code></td>
+<td><code>FGameplayTag</code></td>
+<td>Tag for SetByCaller lookup.</td>
+</tr>
+<tr>
+<td><code>SetByCallerMagnitude</code></td>
+<td><code>float</code></td>
+<td>Default magnitude value.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ffwgameplayeffectcontainerspec">FFWGameplayEffectContainerSpec<a class="headerlink" href="#ffwgameplayeffectcontainerspec" title="Permanent link">&para;</a></h3>
+<p>Runtime-resolved version of <code>FFWGameplayEffectContainer</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TargetData</code></td>
+<td><code>FGameplayAbilityTargetDataHandle</code></td>
+<td>Resolved targets.</td>
+</tr>
+<tr>
+<td><code>TargetGameplayEffectSpecs</code></td>
+<td><code>TArray&lt;FGameplayEffectSpecHandle&gt;</code></td>
+<td>Ready-to-apply effect specs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong> <code>HasValidEffects()</code>, <code>HasValidTargets()</code>, <code>AddTargets(HitResults, TargetActors)</code></p>
+<hr />
+<h3 id="ffwgameplayeffectexecutedata">FFWGameplayEffectExecuteData<a class="headerlink" href="#ffwgameplayeffectexecutedata" title="Permanent link">&para;</a></h3>
+<p>Payload passed to <code>OnPostGameplayEffectExecute</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AttributeSet</code></td>
+<td><code>UAttributeSet*</code></td>
+<td>Source attribute set.</td>
+</tr>
+<tr>
+<td><code>AbilitySystemComponent</code></td>
+<td><code>UAbilitySystemComponent*</code></td>
+<td>Owner ASC.</td>
+</tr>
+<tr>
+<td><code>DeltaValue</code></td>
+<td><code>float</code></td>
+<td>Calculated change.</td>
+</tr>
+<tr>
+<td><code>ClampMinimumValue</code></td>
+<td><code>float</code></td>
+<td>Min clamp value from config.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="blueprint-library">Blueprint Library<a class="headerlink" href="#blueprint-library" title="Permanent link">&para;</a></h2>
+<h3 id="ufwblueprintfunctionlibrary">UFWBlueprintFunctionLibrary<a class="headerlink" href="#ufwblueprintfunctionlibrary" title="Permanent link">&para;</a></h3>
+<p><code>#include "Abilities/FWBlueprintFunctionLibrary.h"</code></p>
+<p>Static Blueprint helpers for GAS operations. Available as nodes in any Blueprint graph.</p>
+<h3 id="ufwtargettype">UFWTargetType<a class="headerlink" href="#ufwtargettype" title="Permanent link">&para;</a></h3>
+<p><code>#include "Abilities/FWTargetType.h"</code></p>
+<p>Base class for target type resolution in effect containers. Subclass to implement custom targeting logic (e.g., sphere trace, cone, projectile path).</p>
+<hr />
+<h2 id="ui-widgets">UI Widgets<a class="headerlink" href="#ui-widgets" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>UFWUserWidget</code></td>
+<td>Base user widget with GAS integration.</td>
+</tr>
+<tr>
+<td><code>UFWUWHud</code></td>
+<td>HUD widget base for ability system display.</td>
+</tr>
+<tr>
+<td><code>UFWUWDebugAbilityQueue</code></td>
+<td>Debug widget showing ability queue state.</td>
+</tr>
+<tr>
+<td><code>UFWUWDebugComboWidget</code></td>
+<td>Debug widget showing combo system state.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/FrostWeb-Studios" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/frostweb" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

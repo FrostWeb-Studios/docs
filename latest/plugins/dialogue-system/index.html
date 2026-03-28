@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Comprehensive documentation for FrostWeb UE5 game plugins">
+        <meta name="description" content="Data-driven dialogue tree system with conditions, actions, branching responses, and NPC conversation management for Unreal Engine 5.">
       
       
         <meta name="author" content="FrostWeb Studios">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://documentation.frostweb.dev/latest/plugins/dialogue-system/">
       
       
-        <link rel="prev" href="../customization-system/changelog/">
+        <link rel="prev" href="../customization-system/faq/">
       
       
         <link rel="next" href="installation/">
@@ -25,11 +25,11 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>FWDialogueSystem - FrostWeb Plugin Documentation</title>
+        <title>FWDialogueSystem Plugin - FrostWeb Plugin Documentation</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fwdialoguesystem" class="md-skip">
+        <a href="#fwdialoguesystem-plugin" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FWDialogueSystem
+              FWDialogueSystem Plugin
             
           </span>
         </div>
@@ -207,18 +207,6 @@
 </div>
       
     
-    
-      <div class="md-header__source">
-        <a href="https://github.com/FrostWeb-Studios/docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-  </div>
-  <div class="md-source__repository">
-    FrostWeb-Studios/docs
-  </div>
-</a>
-      </div>
     
   </nav>
   
@@ -348,18 +336,6 @@
     </a>
     FrostWeb Plugin Documentation
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/FrostWeb-Studios/docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-  </div>
-  <div class="md-source__repository">
-    FrostWeb-Studios/docs
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -522,10 +498,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -797,62 +769,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ai-system/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ai-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -872,10 +788,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -1147,62 +1059,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chat-system/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chat-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1222,10 +1078,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -1497,62 +1349,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../customization-system/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../customization-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1574,10 +1370,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -1847,62 +1639,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1922,10 +1658,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -2197,62 +1929,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faction-system/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faction-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2272,10 +1948,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -2534,62 +2206,6 @@
     
   
     FAQ
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gas-system/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gas-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
   
 
     
@@ -3372,8 +2988,6 @@
       
         
       
-        
-      
     
     
     
@@ -3685,34 +3299,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../party-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -3732,8 +3318,6 @@
       
         
           
-        
-      
         
       
         
@@ -4065,34 +3649,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../quest-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -4112,10 +3668,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -4387,62 +3939,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../skill-system/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../skill-system/changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -4466,8 +3962,6 @@
   
     
     
-      
-        
       
         
       
@@ -4546,34 +4040,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/contributing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contributing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -4608,10 +4074,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#feature-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Feature Overview
       
     </span>
   </a>
@@ -4619,40 +4085,139 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-overview" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture Overview
+        Core Concepts
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-navigation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Navigation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#condition-and-action-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Condition and Action Classes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Condition and Action Classes">
+    <nav class="md-nav" aria-label="Core Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#dialogue-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dialogue Trees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses-and-branching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses and Branching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condition-gating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condition Gating
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-enable-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Enable the Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-dialogue-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a Dialogue Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-the-dialogue-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add the Dialogue Component
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-a-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Start a Conversation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-wire-up-your-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Wire Up Your UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#built-in-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4662,8 +4227,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#built-in-actions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4673,9 +4238,26 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#file-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility
+      
+    </span>
+  </a>
   
 </li>
       
@@ -4761,47 +4343,160 @@
                   
 
 
-  
-  
 
-
-<h1 id="fwdialoguesystem">FWDialogueSystem<a class="headerlink" href="#fwdialoguesystem" title="Permanent link">&para;</a></h1>
-<p><strong>Version 1.0</strong> | <strong>No external dependencies</strong></p>
-<p>Data-driven dialogue tree system with conditions, actions, and NPC conversation support. FWDialogueSystem provides a complete framework for creating branching dialogues where player choices can be gated by game state and trigger gameplay effects.</p>
+<h1 id="fwdialoguesystem-plugin">FWDialogueSystem Plugin<a class="headerlink" href="#fwdialoguesystem-plugin" title="Permanent link">&para;</a></h1>
+<p><strong>Version:</strong> 1.0 | <strong>Module:</strong> <code>FWDialogueSystem</code> | <strong>Type:</strong> Runtime | <strong>No external dependencies</strong></p>
+<p>A data-driven dialogue tree system for Unreal Engine 5 with conditions, actions, and NPC conversation support. FWDialogueSystem provides a complete framework for creating branching dialogues where player choices can be gated by game state and trigger gameplay effects.</p>
 <hr />
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Data-driven dialogue trees.</strong> All dialogue content is defined in <code>UFWDialogueTree</code> data assets. Writers and designers can create and edit conversations without touching code.</li>
-<li><strong>Branching responses.</strong> Each dialogue node can present multiple player responses, each leading to a different node in the tree. Build complex conversation flows with ease.</li>
-<li><strong>Condition system.</strong> Gate responses behind game state checks -- item ownership, skill levels, quest progress, currency amounts. Conditions are modular and extensible.</li>
-<li><strong>Action system.</strong> Trigger gameplay effects from dialogue -- give items, start quests, open vendor screens, grant currency. Actions are modular and extensible.</li>
-<li><strong>NPC conversation management.</strong> The dialogue component tracks the current interactor, active node, and dialogue state, handling the full conversation lifecycle.</li>
-<li><strong>Blueprint-friendly API.</strong> Start, navigate, and end dialogues entirely from Blueprints. All events are exposed for UI binding.</li>
-</ul>
+<h2 id="feature-overview">Feature Overview<a class="headerlink" href="#feature-overview" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data-Driven Trees</td>
+<td>All dialogue content is defined in <code>UFWDialogueTree</code> data assets</td>
+</tr>
+<tr>
+<td>Branching Responses</td>
+<td>Each node can present multiple player responses leading to different paths</td>
+</tr>
+<tr>
+<td>Condition System</td>
+<td>Gate responses behind game state checks (items, skills, quests, currency)</td>
+</tr>
+<tr>
+<td>Action System</td>
+<td>Trigger gameplay effects from dialogue (give items, start quests, open vendors, grant currency)</td>
+</tr>
+<tr>
+<td>NPC Conversation Management</td>
+<td>Full conversation lifecycle with interactor tracking and state management</td>
+</tr>
+<tr>
+<td>Currency Integration</td>
+<td>Built-in support for currency checks and grants within dialogue</td>
+</tr>
+<tr>
+<td>Blueprint-Friendly API</td>
+<td>Start, navigate, and end dialogues entirely from Blueprints</td>
+</tr>
+<tr>
+<td>Extensible</td>
+<td>Create custom conditions and actions by subclassing base classes</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>UFWDialogueTree (DataAsset)
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    +-- FFWDialogueNode (array)
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            |
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            +-- NodeId, SpeakerName, DialogueText
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            +-- EntryActions[] (fired when node is entered)
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            +-- FFWDialogueResponse (array)
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                    |
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    +-- ResponseText, NextNodeId
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    +-- Conditions[] (must pass for response to appear)
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                    +-- Actions[] (fired when response is selected)
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>UFWDialogueComponent (on NPC Actor)
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    |
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    +-- StartDialogue(Tree, Interactor)
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    +-- SelectResponse(Index)
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    +-- EndDialogue()
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    +-- Events: OnDialogueStarted, OnDialogueEnded, OnNodeChanged
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="dialogue-trees">Dialogue Trees<a class="headerlink" href="#dialogue-trees" title="Permanent link">&para;</a></h3>
+<p>A <code>UFWDialogueTree</code> is a data asset containing an array of <code>FFWDialogueNode</code> entries. Each node has a speaker name, dialogue text, optional entry actions, and an array of player responses. The node with <code>NodeId = 0</code> is the conversation entry point.</p>
+<h3 id="responses-and-branching">Responses and Branching<a class="headerlink" href="#responses-and-branching" title="Permanent link">&para;</a></h3>
+<p>Each <code>FFWDialogueResponse</code> contains response text, a <code>NextNodeId</code> to advance to, optional conditions that must pass for the response to appear, and optional actions that execute when selected. Setting <code>NextNodeId</code> to <code>-1</code> ends the dialogue.</p>
+<h3 id="condition-gating">Condition Gating<a class="headerlink" href="#condition-gating" title="Permanent link">&para;</a></h3>
+<p>Conditions are evaluated when the player views a node. Only responses whose conditions all pass are shown. If game state changes while a node is displayed, the available responses update on the next query.</p>
+<h3 id="action-execution">Action Execution<a class="headerlink" href="#action-execution" title="Permanent link">&para;</a></h3>
+<p>Actions fire at two points: <strong>entry actions</strong> execute when a node becomes active, and <strong>response actions</strong> execute when the player selects a response. This enables both passive effects (entering a room triggers an event) and player-driven effects (choosing to accept a quest).</p>
+<hr />
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<h3 id="1-enable-the-plugin">1. Enable the Plugin<a class="headerlink" href="#1-enable-the-plugin" title="Permanent link">&para;</a></h3>
+<p>Enable <code>FWDialogueSystem</code> in your <code>.uproject</code> file or Plugin Manager. No additional dependencies are required.</p>
+<h3 id="2-create-a-dialogue-tree">2. Create a Dialogue Tree<a class="headerlink" href="#2-create-a-dialogue-tree" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Right-click in the Content Browser.</li>
+<li>Select <strong>Miscellaneous &gt; Data Asset</strong>.</li>
+<li>Choose <code>FWDialogueTree</code> as the class.</li>
+<li>Add nodes with speaker names, dialogue text, and responses.</li>
+</ol>
+<h3 id="3-add-the-dialogue-component">3. Add the Dialogue Component<a class="headerlink" href="#3-add-the-dialogue-component" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C++</label><label for="__tabbed_1_2">Blueprint</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Add to your NPC Actor</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">DialogueComp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">UFWDialogueComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;Dialogue&quot;</span><span class="p">));</span>
 </span></code></pre></div>
-<p>The component drives the conversation state machine. Your UI reads the current node and available responses from the component, displays them, and calls <code>SelectResponse</code> when the player makes a choice.</p>
+</div>
+<div class="tabbed-block">
+<p>Add <strong>FW Dialogue Component</strong> to your NPC Actor.</p>
+</div>
+</div>
+</div>
+<h3 id="4-start-a-conversation">4. Start a Conversation<a class="headerlink" href="#4-start-a-conversation" title="Permanent link">&para;</a></h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">DialogueComp</span><span class="o">-&gt;</span><span class="n">StartDialogue</span><span class="p">(</span><span class="n">MyDialogueTree</span><span class="p">,</span><span class="w"> </span><span class="n">PlayerCharacter</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="5-wire-up-your-ui">5. Wire Up Your UI<a class="headerlink" href="#5-wire-up-your-ui" title="Permanent link">&para;</a></h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Bind to node changes for UI updates</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">DialogueComp</span><span class="o">-&gt;</span><span class="n">OnNodeChanged</span><span class="p">.</span><span class="n">AddDynamic</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">AMyHUD</span><span class="o">::</span><span class="n">HandleNodeChanged</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">// Get filtered responses for display</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FFWDialogueResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Responses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DialogueComp</span><span class="o">-&gt;</span><span class="n">GetAvailableResponses</span><span class="p">();</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// When player clicks a response button</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">DialogueComp</span><span class="o">-&gt;</span><span class="n">SelectResponse</span><span class="p">(</span><span class="n">ChosenIndex</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
-<h2 id="quick-navigation">Quick Navigation<a class="headerlink" href="#quick-navigation" title="Permanent link">&para;</a></h2>
+<h2 id="built-in-conditions">Built-In Conditions<a class="headerlink" href="#built-in-conditions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HasItem</strong></td>
+<td>Checks if the interactor possesses a specific item</td>
+</tr>
+<tr>
+<td><strong>HasCurrency</strong></td>
+<td>Checks if the interactor has enough of a currency type</td>
+</tr>
+<tr>
+<td><strong>QuestState</strong></td>
+<td>Checks the state of a quest (not started, in progress, completed)</td>
+</tr>
+<tr>
+<td><strong>SkillLevel</strong></td>
+<td>Checks if the interactor meets a minimum skill level</td>
+</tr>
+</tbody>
+</table>
+<p>Create custom conditions by subclassing <code>UFWDialogueConditionBase</code> and overriding the <code>Evaluate</code> function.</p>
+<h2 id="built-in-actions">Built-In Actions<a class="headerlink" href="#built-in-actions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GiveItem</strong></td>
+<td>Grants an item to the interactor</td>
+</tr>
+<tr>
+<td><strong>GiveCurrency</strong></td>
+<td>Grants currency to the interactor</td>
+</tr>
+<tr>
+<td><strong>StartQuest</strong></td>
+<td>Starts a quest for the interactor</td>
+</tr>
+<tr>
+<td><strong>OpenVendor</strong></td>
+<td>Opens the vendor/shop interface</td>
+</tr>
+</tbody>
+</table>
+<p>Create custom actions by subclassing <code>UFWDialogueActionBase</code> and overriding the <code>Execute</code> function.</p>
+<hr />
+<h2 id="file-reference">File Reference<a class="headerlink" href="#file-reference" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -4820,7 +4515,7 @@
 </tr>
 <tr>
 <td><a href="api-reference/">API Reference</a></td>
-<td>Full C++ and Blueprint API documentation</td>
+<td>Full function, property, and event reference</td>
 </tr>
 <tr>
 <td><a href="blueprints/">Blueprints</a></td>
@@ -4838,73 +4533,32 @@
 <td><a href="faq/">FAQ</a></td>
 <td>Common questions and troubleshooting</td>
 </tr>
-<tr>
-<td><a href="migration/">Migration Guide</a></td>
-<td>Upgrading between versions</td>
-</tr>
-<tr>
-<td><a href="changelog/">Changelog</a></td>
-<td>Version history and release notes</td>
-</tr>
 </tbody>
 </table>
 <hr />
-<h2 id="condition-and-action-classes">Condition and Action Classes<a class="headerlink" href="#condition-and-action-classes" title="Permanent link">&para;</a></h2>
-<h3 id="built-in-conditions">Built-In Conditions<a class="headerlink" href="#built-in-conditions" title="Permanent link">&para;</a></h3>
+<h2 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Class</th>
-<th>Description</th>
+<th>Engine Version</th>
+<th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>FWDlgCondition_HasItem</code></td>
-<td>Checks if the interactor possesses a specific item</td>
+<td>UE 5.4+</td>
+<td>Supported</td>
 </tr>
 <tr>
-<td><code>FWDlgCondition_SkillLevel</code></td>
-<td>Checks if the interactor meets a minimum skill level</td>
+<td>UE 5.3</td>
+<td>Supported</td>
 </tr>
 <tr>
-<td><code>FWDlgCondition_QuestState</code></td>
-<td>Checks the state of a quest (not started, in progress, completed)</td>
-</tr>
-<tr>
-<td><code>FWDlgCondition_HasCurrency</code></td>
-<td>Checks if the interactor has enough of a currency type</td>
+<td>UE 5.2 and below</td>
+<td>Not tested</td>
 </tr>
 </tbody>
 </table>
-<h3 id="built-in-actions">Built-In Actions<a class="headerlink" href="#built-in-actions" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>FWDlgAction_OpenVendor</code></td>
-<td>Opens the vendor/shop interface</td>
-</tr>
-<tr>
-<td><code>FWDlgAction_GiveItem</code></td>
-<td>Grants an item to the interactor</td>
-</tr>
-<tr>
-<td><code>FWDlgAction_StartQuest</code></td>
-<td>Starts a quest for the interactor</td>
-</tr>
-<tr>
-<td><code>FWDlgAction_GiveCurrency</code></td>
-<td>Grants currency to the interactor</td>
-</tr>
-</tbody>
-</table>
-<p>Both conditions and actions are extensible. Create new subclasses of <code>UFWDialogueConditionBase</code> or <code>UFWDialogueActionBase</code> to add game-specific logic.</p>
 
 
 
@@ -4942,33 +4596,6 @@
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/FrostWeb-Studios" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://discord.gg/frostweb" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
     </a>
   
 </div>

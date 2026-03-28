@@ -4447,10 +4447,6 @@
 <td>OnlineSubsystem</td>
 <td>Any configured OSS (Null, Steam, EOS, etc.)</td>
 </tr>
-<tr>
-<td>SocketIOClient</td>
-<td>Plugin must be installed and enabled</td>
-</tr>
 </tbody>
 </table>
 <div class="admonition note">
@@ -4483,13 +4479,9 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="p">{</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OnlineSubsystemUtils&quot;</span><span class="p">,</span>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="nt">&quot;Enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">},</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SocketIOClient&quot;</span><span class="p">,</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="nt">&quot;Enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Alternatively, enable each plugin through <strong>Edit &gt; Plugins</strong> in the Unreal Editor and restart.</p>
 <hr />
@@ -4532,7 +4524,7 @@
 <p>If the module fails to load:</p>
 <ul>
 <li>Verify the plugin folder name matches <code>FWPartySystem</code> exactly.</li>
-<li>Confirm <code>OnlineSubsystem</code>, <code>OnlineSubsystemUtils</code>, and <code>SocketIOClient</code> are all enabled.</li>
+<li>Confirm <code>OnlineSubsystem</code> and <code>OnlineSubsystemUtils</code> are both enabled.</li>
 <li>Regenerate project files and perform a full rebuild.</li>
 <li>Check the Output Log for unresolved symbol errors, which typically indicate a missing <code>Build.cs</code> dependency.</li>
 </ul>

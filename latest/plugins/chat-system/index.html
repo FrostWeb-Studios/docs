@@ -4285,7 +4285,7 @@
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Multi-Channel Chat</strong> -- Local (say), Party, Guild, Whisper, System, Global, and Emote channels with independent history and unread tracking.</li>
-<li><strong>Socket.IO Transport</strong> -- WebSocket-based real-time messaging via the SocketIOClient plugin. Supports automatic reconnection with exponential backoff.</li>
+<li><strong>Socket.IO Transport</strong> -- WebSocket-based real-time messaging via a built-in lightweight Socket.IO v4 client using UE5's native WebSockets. No external plugin required. Supports automatic reconnection with exponential backoff.</li>
 <li><strong>Slash Commands</strong> -- Built-in command parser for <code>/w</code> (whisper), <code>/r</code> (reply), <code>/p</code> (party), <code>/g</code> (guild), <code>/s</code> (say), <code>/gl</code> (global), <code>/e</code> (emote), and <code>/help</code>.</li>
 <li><strong>State Management</strong> -- Per-channel message history with configurable ring buffers, unread counts, and player name caching.</li>
 <li><strong>Presence System</strong> -- Player zone and position tracking with periodic updates for "players nearby" and "friends online" features.</li>
@@ -4306,8 +4306,8 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>              |            |            |
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>              +-----+------+            |
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    |                   |
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>              Slash Commands      Socket.IO Client
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>              Channel Routing     (SocketIOClient Plugin)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>              Slash Commands      Built-in Socket.IO v4 Client
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>              Channel Routing     (UE5 Native WebSockets)
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>              Validation               |
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                                  Chat Server
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                                  (Socket.IO)
@@ -4429,27 +4429,12 @@
 </ol>
 <hr />
 <h2 id="plugin-dependencies">Plugin Dependencies<a class="headerlink" href="#plugin-dependencies" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Plugin</th>
-<th style="text-align: center;">Required</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SocketIOClient</td>
-<td style="text-align: center;">Yes</td>
-<td>Socket.IO WebSocket client for real-time communication</td>
-</tr>
-</tbody>
-</table>
+<p>FWChatSystem has no external plugin dependencies. It includes a built-in lightweight Socket.IO v4 client implemented on top of UE5's native WebSocket module.</p>
 <hr />
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>
-<li><a href="installation/">Installation</a> -- Enable the plugin and configure SocketIOClient</li>
+<li><a href="installation/">Installation</a> -- Enable the plugin and add module dependencies</li>
 <li><a href="quick-start/">Quick Start</a> -- Get chat running in under 10 minutes</li>
 <li><a href="api-reference/">API Reference</a> -- Component, struct, and enum documentation</li>
 <li><a href="blueprints/">Blueprints</a> -- Blueprint node reference</li>

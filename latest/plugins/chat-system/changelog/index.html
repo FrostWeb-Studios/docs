@@ -4169,7 +4169,7 @@
 <ul>
 <li><strong>UFWChatStateComponent</strong> -- Local chat state management with per-channel message history ring buffers, unread count tracking, player name caching with configurable TTL, whisper reply target tracking, party info storage, and player presence caching.</li>
 <li><strong>UFWChatRouterComponent</strong> -- Chat input entry point with slash command parsing (<code>/s</code>, <code>/p</code>, <code>/g</code>, <code>/w</code>, <code>/r</code>, <code>/e</code>, <code>/help</code>), channel-based message routing, input validation, default channel management, and local system/error message injection.</li>
-<li><strong>UFWSocketIOChatTransportComponent</strong> -- Socket.IO WebSocket transport layer with JWT authentication, automatic reconnection with exponential backoff, per-channel message sending (local, global, whisper, party, guild, emote), presence updates, party room sync/leave, guild room sync/leave, DM conversations, and configurable external Socket.IO client support.</li>
+<li><strong>UFWSocketIOChatTransportComponent</strong> -- Socket.IO WebSocket transport layer with a built-in lightweight Socket.IO v4 client using UE5's native WebSockets module, JWT authentication, automatic reconnection with exponential backoff, per-channel message sending (local, global, whisper, party, guild, emote), presence updates, party room sync/leave, guild room sync/leave, and DM conversations.</li>
 </ul>
 <h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4241,7 +4241,7 @@
 <li>Multi-window chat support via IFWChatUIController interface</li>
 <li>Input mode management (GameOnly/GameAndUI switching)</li>
 <li>Local system and error message injection</li>
-<li>External Socket.IO client support for custom lifecycle management</li>
+<li>Built-in lightweight Socket.IO v4 client using UE5's native WebSockets module (no external plugin required)</li>
 </ul>
 
 

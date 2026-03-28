@@ -4,7 +4,7 @@ title: FWCustomizationSystem
 
 # FWCustomizationSystem
 
-**Version 1.0** | **No external dependencies**
+**No external dependencies**
 
 Data-driven character customization with race/gender support, dynamic material instances, and unlock tracking. FWCustomizationSystem gives you a complete pipeline for building character creators and in-game appearance changes without writing material or mesh-switching logic by hand.
 
@@ -14,9 +14,9 @@ Data-driven character customization with race/gender support, dynamic material i
 
 - **Race and gender support.** Define distinct body types, meshes, and texture sets per race/gender combination. Ships with Human, Dwarf, and Orc race presets.
 - **Dynamic Material Instances (DMI).** Five material slots -- Head, Eye, Body, Hair, and Facials -- are created at runtime and driven by data. Swap skin tones, eye colors, hair colors, tattoos, and scars without duplicating materials.
-- **Data-driven customization database.** All options are defined as `UPrimaryDataAsset` entries in a central `UFWCustomizationDatabase`. Artists add new hairstyles, face options, or tusk variants without touching code.
+- **Data-driven customization database.** All options are defined as DataAsset entries in a central `UFWCustomizationDatabase`. Artists add new hairstyles, face options, or tusk variants without touching code.
 - **Compact replication profile.** The `FFWCustomizationProfile` struct packs a full appearance loadout into approximately 8 bytes, making it efficient for multiplayer replication.
-- **Unlock tracking.** Each customization option can specify unlock requirements (quest completion, achievement, currency purchase) via `FFWUnlockRequirement`.
+- **Unlock tracking.** `UFWCustomizationUnlockSubsystem` manages unlock state with persistence, requirement checks, and integration hooks for quest/achievement/currency systems.
 - **Blueprint-friendly API.** Every setter, getter, and event is exposed to Blueprints, so UI designers can build character creators entirely in UMG.
 
 ---
@@ -33,13 +33,22 @@ UFWCustomizationDatabase (DataAsset)
     |       +-- Tusks, Earrings, Piercings
     |
     +-- Used by UFWCustomizationComponent
+    |       |
+    |       +-- Profile Management (Get/Set/Apply)
+    |       +-- Option Accessors (per-slot getters)
+    |       +-- Creates DMIs (Head, Eye, Body, Hair, Facials)
+    |       +-- Swaps meshes (Hair, Facial Hair, Tusks, Earrings, Piercings)
+    |       +-- Broadcasts events (OnSlotChanged, OnProfileApplied, ...)
+    |
+    +-- UFWCustomizationUnlockSubsystem
             |
-            +-- Creates DMIs (Head, Eye, Body, Hair, Facials)
-            +-- Swaps meshes (Hair, Facial Hair, Tusks, Earrings, Piercings)
-            +-- Broadcasts events (OnSlotChanged, OnProfileApplied, ...)
+            +-- Unlock Checks and Unlocking
+            +-- Integration Hooks (quest, achievement, currency)
+            +-- Persistence
+            +-- Events
 ```
 
-The component reads from a `UFWCustomizationDatabase`, resolves the active `UFWRaceConfig` for the character's race, and applies the selected options by updating DMI parameters and swapping static/skeletal mesh components.
+The component reads from a `UFWCustomizationDatabase`, resolves the active `UFWRaceConfig` for the character's race, and applies the selected options by updating DMI parameters and swapping static/skeletal mesh components. The unlock subsystem manages which options are available based on player progression.
 
 ---
 
@@ -49,13 +58,11 @@ The component reads from a `UFWCustomizationDatabase`, resolves the active `UFWR
 |---|---|
 | [Installation](installation.md) | Add the plugin to your project |
 | [Quick Start](quick-start.md) | Get a character customization running in 10 minutes |
-| [API Reference](api-reference.md) | Full C++ and Blueprint API documentation |
+| [API Reference](api-reference.md) | Class, function, and property reference |
 | [Blueprints](blueprints.md) | Blueprint integration patterns and examples |
 | [Configuration](configuration.md) | Database setup, race configs, and customization options |
 | [Tutorials](tutorials.md) | Step-by-step guide: Building a Character Creator |
 | [FAQ](faq.md) | Common questions and troubleshooting |
-| [Migration Guide](migration.md) | Upgrading between versions |
-| [Changelog](changelog.md) | Version history and release notes |
 
 ---
 

@@ -9,7 +9,7 @@ hide:
 
 **The official documentation for FrostWeb Studios Unreal Engine 5 plugins.**
 
-FrostWeb Studios develops MMO-grade Unreal Engine 5 plugins available on [Fab.com](https://fab.com). These plugins are modular, fully replicated, and designed for production multiplayer games. Want to see them in action? [Play our free demo](https://ayndora.frostweb.studio).
+FrostWeb Studios develops MMO-grade Unreal Engine 5 plugins available on [Fab.com](https://fab.com). These plugins are modular, fully replicated, and designed for production multiplayer games.
 
 ---
 

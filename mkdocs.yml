@@ -3,9 +3,6 @@ site_url: https://documentation.frostweb.dev/
 site_description: Comprehensive documentation for FrostWeb UE5 game plugins
 site_author: FrostWeb Studios
 
-repo_name: FrostWeb-Studios/docs
-repo_url: https://github.com/FrostWeb-Studios/docs
-
 theme:
   name: material
   palette:
@@ -43,8 +40,7 @@ theme:
     - content.code.copy
     - content.code.annotate
     - content.tabs.link
-  icon:
-    repo: fontawesome/brands/github
+  icon: {}
 
 plugins:
   - search
@@ -79,11 +75,7 @@ markdown_extensions:
 extra:
   version:
     provider: mike
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/FrostWeb-Studios
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/frostweb
+  social: []
 
 extra_css:
   - assets/css/custom.css
@@ -102,8 +94,6 @@ nav:
       - Configuration: plugins/ai-system/configuration.md
       - Tutorials: plugins/ai-system/tutorials.md
       - FAQ: plugins/ai-system/faq.md
-      - Migration Guide: plugins/ai-system/migration.md
-      - Changelog: plugins/ai-system/changelog.md
     - Chat System:
       - plugins/chat-system/index.md
       - Installation: plugins/chat-system/installation.md
@@ -113,8 +103,6 @@ nav:
       - Configuration: plugins/chat-system/configuration.md
       - Tutorials: plugins/chat-system/tutorials.md
       - FAQ: plugins/chat-system/faq.md
-      - Migration Guide: plugins/chat-system/migration.md
-      - Changelog: plugins/chat-system/changelog.md
     - Customization System:
       - plugins/customization-system/index.md
       - Installation: plugins/customization-system/installation.md
@@ -124,8 +112,6 @@ nav:
       - Configuration: plugins/customization-system/configuration.md
       - Tutorials: plugins/customization-system/tutorials.md
       - FAQ: plugins/customization-system/faq.md
-      - Migration Guide: plugins/customization-system/migration.md
-      - Changelog: plugins/customization-system/changelog.md
     - Dialogue System:
       - plugins/dialogue-system/index.md
       - Installation: plugins/dialogue-system/installation.md
@@ -135,8 +121,6 @@ nav:
       - Configuration: plugins/dialogue-system/configuration.md
       - Tutorials: plugins/dialogue-system/tutorials.md
       - FAQ: plugins/dialogue-system/faq.md
-      - Migration Guide: plugins/dialogue-system/migration.md
-      - Changelog: plugins/dialogue-system/changelog.md
     - Faction System:
       - plugins/faction-system/index.md
       - Installation: plugins/faction-system/installation.md
@@ -146,8 +130,6 @@ nav:
       - Configuration: plugins/faction-system/configuration.md
       - Tutorials: plugins/faction-system/tutorials.md
       - FAQ: plugins/faction-system/faq.md
-      - Migration Guide: plugins/faction-system/migration.md
-      - Changelog: plugins/faction-system/changelog.md
     - GAS System:
       - plugins/gas-system/index.md
       - Installation: plugins/gas-system/installation.md
@@ -157,8 +139,6 @@ nav:
       - Configuration: plugins/gas-system/configuration.md
       - Tutorials: plugins/gas-system/tutorials.md
       - FAQ: plugins/gas-system/faq.md
-      - Migration Guide: plugins/gas-system/migration.md
-      - Changelog: plugins/gas-system/changelog.md
     - Guild System:
       - plugins/guild-system/index.md
       - Guild Manager: plugins/guild-system/guild-manager-component.md
@@ -193,7 +173,6 @@ nav:
       - Events & Delegates: plugins/party-system/events-delegates.md
       - Configuration: plugins/party-system/configuration.md
       - Tutorial: plugins/party-system/tutorial.md
-      - Changelog: plugins/party-system/changelog.md
     - Quest System:
       - plugins/quest-system/index.md
       - Installation: plugins/quest-system/installation.md
@@ -205,7 +184,6 @@ nav:
       - Events & Delegates: plugins/quest-system/events-delegates.md
       - Configuration: plugins/quest-system/configuration.md
       - Tutorial: plugins/quest-system/tutorial.md
-      - Changelog: plugins/quest-system/changelog.md
     - Skill System:
       - plugins/skill-system/index.md
       - Installation: plugins/skill-system/installation.md
@@ -215,8 +193,5 @@ nav:
       - Configuration: plugins/skill-system/configuration.md
       - Tutorials: plugins/skill-system/tutorials.md
       - FAQ: plugins/skill-system/faq.md
-      - Migration Guide: plugins/skill-system/migration.md
-      - Changelog: plugins/skill-system/changelog.md
   - Guides:
     - guides/architecture.md
-    - guides/contributing.md

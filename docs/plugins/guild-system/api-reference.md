@@ -1,6 +1,6 @@
 ---
 title: Guild System API Reference
-description: Complete API reference for all BlueprintCallable functions, delegates, and static utilities in FWGuildSystem.
+description: Complete API reference for all functions, properties, and delegates in FWGuildSystem.
 ---
 
 # Guild System API Reference
@@ -11,110 +11,145 @@ Complete function and delegate reference for the FWGuildSystem plugin, organized
 
 ## UFWGuildManagerComponent
 
-### BlueprintCallable Functions
+The primary interface for all guild operations. Attach to your Player Controller or a replicated actor.
 
-| Function | Category | Parameters | Returns | Description |
-|---|---|---|---|---|
-| `CreateGuild` | Lifecycle | `GuildName: FString`, `Description: FString` | `void` | Creates a new guild with the caller as leader. |
-| `DisbandGuild` | Lifecycle | -- | `void` | Permanently disbands the guild. Requires `Disband` permission. |
-| `InvitePlayer` | Members | `TargetPlayerId: FString` | `void` | Sends a guild invitation. Requires `Invite` permission. |
-| `KickMember` | Members | `MemberId: FString` | `void` | Removes a member. Requires `Kick` permission. |
-| `PromoteMember` | Members | `MemberId: FString` | `void` | Promotes to next rank. Requires `Promote` permission. |
-| `DemoteMember` | Members | `MemberId: FString` | `void` | Demotes to next rank. Requires `Demote` permission. |
-| `EditGuildInfo` | Config | `NewName: FString`, `NewDescription: FString` | `void` | Updates guild name/description. Requires `EditInfo` permission. |
-| `EditGuildRanks` | Config | `NewRanks: TArray<FFWGuildRank>` | `void` | Replaces rank hierarchy. Requires `EditRanks` permission. |
-| `SearchGuilds` | Search | `Query: FString`, `Page: int32 = 0`, `PageSize: int32 = 20` | `void` | Searches guilds by name. |
-| `ViewAuditLog` | Audit | `Page: int32 = 0`, `PageSize: int32 = 50` | `void` | Retrieves paginated audit log. Requires `ViewAuditLog` permission. |
+### Configuration
 
-### Delegates
+| Function | Parameters | Description |
+|---|---|---|
+| `SetApiBaseUrl` | `Url: FString` | Sets the backend API base URL |
+| `SetAuthToken` | `Token: FString` | Sets the authentication token for API requests |
+| `SetLocalPlayerId` | `PlayerId: FString` | Sets the local player's unique ID |
+| `SetGuildStateComponent` | `StateComponent: UFWGuildStateComponent*` | Links the state component for automatic cache updates |
+
+### Guild Operations
+
+| Function | Parameters | Description |
+|---|---|---|
+| `CreateGuild` | `GuildName: FString`, `Description: FString` | Creates a new guild with the caller as leader |
+| `FetchMyGuild` | -- | Fetches the current player's guild from the backend |
+| `DisbandGuild` | -- | Permanently disbands the guild. Requires `Disband` permission |
+| `SearchGuilds` | `Query: FString`, `Page: int32`, `PageSize: int32` | Searches guilds by name |
+| `EditGuildInfo` | `NewName: FString`, `NewDescription: FString` | Updates guild name/description. Requires `EditInfo` permission |
+
+### Member Management
+
+| Function | Parameters | Description |
+|---|---|---|
+| `InvitePlayer` | `TargetPlayerId: FString` | Sends a guild invitation. Requires `Invite` permission |
+| `KickMember` | `MemberId: FString` | Removes a member. Requires `Kick` permission |
+| `PromoteMember` | `MemberId: FString` | Promotes to the next rank. Requires `Promote` permission |
+| `DemoteMember` | `MemberId: FString` | Demotes to the next rank. Requires `Demote` permission |
+
+### Invitation Management
+
+| Function | Parameters | Description |
+|---|---|---|
+| `AcceptInvitation` | `InvitationId: FString` | Accepts a pending guild invitation |
+| `DeclineInvitation` | `InvitationId: FString` | Declines a pending guild invitation |
+
+### Rank Management
+
+| Function | Parameters | Description |
+|---|---|---|
+| `EditGuildRanks` | `NewRanks: TArray<FFWGuildRank>` | Replaces the rank hierarchy. Requires `EditRanks` permission |
+
+### Audit Log
+
+| Function | Parameters | Description |
+|---|---|---|
+| `ViewAuditLog` | `Page: int32`, `PageSize: int32` | Retrieves a paginated audit log. Requires `ViewAuditLog` permission |
+
+### Events
 
 | Delegate | Signature | Description |
 |---|---|---|
-| `OnGuildCreated` | `(EFWGuildOperationResult Result, const FFWGuildDetails& Details)` | Guild creation completed. |
-| `OnGuildDisbanded` | `(EFWGuildOperationResult Result)` | Guild disband completed. |
-| `OnPlayerInvited` | `(EFWGuildOperationResult Result, const FString& TargetPlayerId)` | Invitation sent. |
-| `OnMemberKicked` | `(EFWGuildOperationResult Result, const FString& MemberId)` | Member removal completed. |
-| `OnMemberPromoted` | `(EFWGuildOperationResult Result, const FString& MemberId, const FFWGuildRank& NewRank)` | Promotion completed. |
-| `OnMemberDemoted` | `(EFWGuildOperationResult Result, const FString& MemberId, const FFWGuildRank& NewRank)` | Demotion completed. |
-| `OnGuildInfoEdited` | `(EFWGuildOperationResult Result)` | Info edit completed. |
-| `OnGuildRanksEdited` | `(EFWGuildOperationResult Result)` | Rank edit completed. |
-| `OnGuildSearchCompleted` | `(const FFWGuildSearchResult& Result)` | Search results received. |
-| `OnAuditLogReceived` | `(const TArray<FFWGuildAuditLogEntry>& Entries, int32 TotalEntries, int32 CurrentPage)` | Audit log page received. |
-| `OnGuildOperationFailed` | `(EFWGuildOperationResult Result, const FString& Message)` | Generic operation failure. |
+| `OnGuildCreated` | `(EFWGuildOperationResult Result, FFWGuildDetails Details)` | Guild creation completed |
+| `OnGuildDisbanded` | `(EFWGuildOperationResult Result)` | Guild disband completed |
+| `OnGuildFetched` | `(EFWGuildOperationResult Result, FFWGuildDetails Details)` | Guild fetch completed |
+| `OnPlayerInvited` | `(EFWGuildOperationResult Result, FString TargetPlayerId)` | Invitation sent |
+| `OnMemberKicked` | `(EFWGuildOperationResult Result, FString MemberId)` | Member removal completed |
+| `OnMemberPromoted` | `(EFWGuildOperationResult Result, FString MemberId, FFWGuildRank NewRank)` | Promotion completed |
+| `OnMemberDemoted` | `(EFWGuildOperationResult Result, FString MemberId, FFWGuildRank NewRank)` | Demotion completed |
+| `OnGuildInfoEdited` | `(EFWGuildOperationResult Result)` | Info edit completed |
+| `OnGuildRanksEdited` | `(EFWGuildOperationResult Result)` | Rank edit completed |
+| `OnGuildSearchCompleted` | `(TArray<FFWGuildInfo> Results, int32 TotalResults, int32 CurrentPage)` | Search results received |
+| `OnAuditLogReceived` | `(TArray<FFWGuildAuditLogEntry> Entries, int32 TotalEntries, int32 CurrentPage)` | Audit log page received |
+| `OnGuildOperationFailed` | `(EFWGuildOperationResult Result, FString Message)` | Generic operation failure |
 
 ---
 
 ## UFWGuildStateComponent
 
-### BlueprintPure Functions
+Read-only local cache of the current guild state. Automatically updated by `UFWGuildManagerComponent`.
+
+### Guild Queries
 
 | Function | Returns | Description |
 |---|---|---|
-| `IsInGuild` | `bool` | Whether the owning player belongs to a guild. |
-| `GetGuildInfo` | `const FFWGuildInfo&` | Basic guild summary. |
-| `GetGuildDetails` | `const FFWGuildDetails&` | Full guild data with ranks and members. |
-| `GetMyRank` | `const FFWGuildRank&` | Current player's rank. |
-| `HasPermission` | `bool` | Checks a permission flag against current rank. |
-| `GetMembers` | `const TArray<FFWGuildMember>&` | Full member list. |
-| `GetRanks` | `const TArray<FFWGuildRank>&` | Rank hierarchy. |
-| `GetPendingInvitations` | `const TArray<FFWGuildInvitation>&` | Pending invitations for the player. |
-| `GetMemberCount` | `int32` | Total member count. |
-| `GetOnlineMemberCount` | `int32` | Online member count. |
-| `FindMemberById` | `const FFWGuildMember*` | Looks up member by player ID. |
+| `IsInGuild` | `bool` | Whether the owning player belongs to a guild |
+| `GetGuildInfo` | `FFWGuildInfo` | Basic guild summary |
+| `GetGuildDetails` | `FFWGuildDetails` | Full guild data with ranks and members |
 
-### Delegates
+### Member Queries
+
+| Function | Returns | Description |
+|---|---|---|
+| `GetMembers` | `TArray<FFWGuildMember>` | Full member list |
+| `GetMemberCount` | `int32` | Total member count |
+| `GetOnlineMemberCount` | `int32` | Online member count |
+| `FindMemberById` | `FFWGuildMember` | Looks up a member by player ID |
+
+### Permission Checks
+
+| Function | Parameters | Returns | Description |
+|---|---|---|---|
+| `HasPermission` | `Permission: EFWGuildPermission` | `bool` | Checks a permission flag against the current player's rank |
+
+### Rank Queries
+
+| Function | Returns | Description |
+|---|---|---|
+| `GetMyRank` | `FFWGuildRank` | Current player's rank |
+| `GetRanks` | `TArray<FFWGuildRank>` | Full rank hierarchy |
+| `GetPendingInvitations` | `TArray<FFWGuildInvitation>` | Pending invitations for the player |
+
+### Events
 
 | Delegate | Signature | Description |
 |---|---|---|
-| `OnGuildStateChanged` | `()` | Any guild state mutation. |
-| `OnMemberOnlineStatusChanged` | `(const FString& PlayerId, bool bIsOnline)` | Member online/offline change. |
-| `OnInvitationReceived` | `(const FFWGuildInvitation& Invitation)` | New invitation received. |
-| `OnInvitationExpired` | `(const FString& InvitationId)` | Invitation expired. |
+| `OnGuildStateChanged` | `()` | Fires on any guild state mutation |
+| `OnMemberOnlineStatusChanged` | `(FString PlayerId, bool bIsOnline)` | Member online/offline status change |
+| `OnInvitationReceived` | `(FFWGuildInvitation Invitation)` | New invitation received |
+| `OnInvitationExpired` | `(FString InvitationId)` | Invitation expired |
 
 ---
 
 ## UFWGuildChatIntegrationComponent
 
-### BlueprintCallable Functions
+Optional bridge between the guild system and FWChatSystem. Requires FWChatSystem to be loaded; silently disables itself when unavailable.
+
+### Functions
 
 | Function | Parameters | Returns | Description |
 |---|---|---|---|
-| `SetChatChannelPrefix` | `Prefix: FString` | `void` | Sets the guild channel name prefix. |
-| `SendGuildMessage` | `Message: FString` | `void` | Sends a player message to guild chat. |
-| `SendGuildSystemMessage` | `Message: FString` | `void` | Sends a system message to guild chat. |
+| `SetChatChannelPrefix` | `Prefix: FString` | `void` | Sets the guild channel name prefix |
+| `SendGuildMessage` | `Message: FString` | `void` | Sends a player message to guild chat |
+| `SendGuildSystemMessage` | `Message: FString` | `void` | Sends a system message to guild chat |
+| `GetGuildChannelName` | -- | `FString` | Returns the full guild chat channel name |
+| `IsChatSystemAvailable` | -- | `bool` | Whether FWChatSystem is loaded |
 
-### BlueprintPure Functions
-
-| Function | Returns | Description |
-|---|---|---|
-| `GetGuildChannelName` | `FString` | Full guild chat channel name. |
-| `IsChatSystemAvailable` | `bool` | Whether FWChatSystem is loaded. |
-
-### Delegates
+### Events
 
 | Delegate | Signature | Description |
 |---|---|---|
-| `OnGuildChatMessageReceived` | `(const FString& SenderId, const FString& Message)` | Chat message received. |
-| `OnGuildChatChannelCreated` | `(const FString& ChannelName)` | Channel created. |
-| `OnGuildChatChannelDestroyed` | `(const FString& ChannelName)` | Channel destroyed. |
+| `OnGuildChatMessageReceived` | `(FString SenderId, FString Message)` | Chat message received in guild channel |
+| `OnGuildChatChannelCreated` | `(FString ChannelName)` | Guild chat channel created |
+| `OnGuildChatChannelDestroyed` | `(FString ChannelName)` | Guild chat channel destroyed |
 
 ---
 
-## FFWGuildTypeUtils (Static)
-
-| Function | Parameters | Returns | Description |
-|---|---|---|---|
-| `PermissionsToString` | `Permissions: uint8` | `FString` | Human-readable permission list. |
-| `ParseGuildDetails` | `JsonString: FString`, `OutDetails: FFWGuildDetails&` | `bool` | Parses JSON to guild details. |
-| `SerializeGuildDetails` | `Details: const FFWGuildDetails&` | `FString` | Serializes guild details to JSON. |
-| `GetDefaultRanks` | -- | `TArray<FFWGuildRank>` | Returns default 4-rank hierarchy. |
-| `CanActOnRank` | `SourceRank: FFWGuildRank`, `TargetRank: FFWGuildRank` | `bool` | Checks rank priority for actions. |
-| `GetResultMessage` | `Result: EFWGuildOperationResult` | `FText` | User-facing result message. |
-| `UpdateTypeToString` | `UpdateType: EFWGuildUpdateType` | `FString` | Display string for update type. |
-
----
-
-## Operation Flow Diagram
+## Operation Flow
 
 The following shows the typical flow for a guild operation:
 
@@ -122,19 +157,19 @@ The following shows the typical flow for a guild operation:
 Player Action
     |
     v
-UFWGuildManagerComponent (BlueprintCallable)
+UFWGuildManagerComponent
     |
     +--> Permission check via UFWGuildStateComponent::HasPermission()
     |       |
     |       +--> Denied: OnGuildOperationFailed delegate fires
     |
-    +--> HTTP request to backend API
+    +--> Backend request
             |
             +--> Success: Operation-specific delegate fires
             |               |
             |               +--> UFWGuildStateComponent updates cached state
             |               |
-            |               +--> UFWGuildChatIntegrationComponent posts system message
+            |               +--> UFWGuildChatIntegrationComponent posts system message (if available)
             |               |
             |               +--> OnGuildStateChanged fires (UI refresh)
             |
@@ -148,15 +183,11 @@ UFWGuildManagerComponent (BlueprintCallable)
 All operations follow the same error handling pattern:
 
 1. **Local validation** -- permission checks, state preconditions.
-2. **Network request** -- HTTP call to the backend API.
+2. **Backend request** -- async call to the backend.
 3. **Result delegate** -- operation-specific delegate with `EFWGuildOperationResult`.
 4. **Fallback delegate** -- `OnGuildOperationFailed` fires for any non-success result.
 
-```cpp
-// Both the specific and generic delegates fire on failure
-GuildManager->OnMemberKicked.AddDynamic(this, &AMyPC::HandleKickResult);
-GuildManager->OnGuildOperationFailed.AddDynamic(this, &AMyPC::HandleAnyError);
-```
+Both the specific and generic delegates fire on failure, so you can handle errors at either granularity.
 
 !!! tip "UI Error Display"
-    Use `FFWGuildTypeUtils::GetResultMessage()` to convert result codes to localized user-facing text for display in UI popups.
+    Use `GetResultMessage()` to convert result codes to localized user-facing text for display in UI popups.

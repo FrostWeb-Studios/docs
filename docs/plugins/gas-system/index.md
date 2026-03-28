@@ -4,7 +4,7 @@ title: FW GAS System
 
 # FW GAS System
 
-**Version 1.0** | **Category:** Gameplay | **Loading Phase:** PreDefault | **Dependencies:** GameplayAbilities, ModularGameplay, GameFeatures, EnhancedInput
+**Category:** Gameplay | **Loading Phase:** PreDefault | **Dependencies:** GameplayAbilities, ModularGameplay, GameFeatures, EnhancedInput
 
 An integrated Gameplay Ability System framework providing a complete foundation for ability-driven gameplay. FWGASSystem wraps Unreal's GAS with opinionated components for ability granting, input binding, combo systems, ability queuing, modular gameplay actors, and GameFeature actions -- reducing boilerplate and accelerating development.
 
@@ -14,14 +14,15 @@ An integrated Gameplay Ability System framework providing a complete foundation 
 
 - **Streamlined ASC setup.** `UFWAbilitySystemComponent` auto-grants abilities, attributes, effects, and ability sets from editor-configurable arrays. No manual initialization code required.
 - **EnhancedInput binding.** `UFWAbilityInputBindingComponent` bridges GAS ability activation with UE5's Enhanced Input system. Bind abilities to Input Actions with configurable trigger events.
-- **Combo system.** `UFWComboManagerComponent` with `FWComboWindowNotifyState` and `FWTriggerComboNotify` anim notifies enable montage-driven combo chains with network replication.
-- **Ability queuing.** `UFWAbilityQueueComponent` with `FWAbilityQueueNotifyState` allows players to queue the next ability during an active animation window.
+- **Combo system.** `UFWComboManagerComponent` with combo window and trigger anim notifies enables montage-driven combo chains with network replication.
+- **Ability queuing.** `UFWAbilityQueueComponent` allows players to queue the next ability during an active animation window.
 - **Data-driven ability sets.** `UFWAbilitySet` DataAssets bundle abilities, attributes, effects, and owned tags for bulk granting and removal with handle-based lifecycle management.
-- **Modular gameplay actors.** Pre-built base classes (`AFWModularCharacter`, `AFWModularPlayerState`, etc.) with `IGameFrameworkInitStateInterface` support for modular game feature integration.
-- **GameFeature actions.** `UFWGameFeatureAction_AddAbilities`, `UFWGameFeatureAction_AddAnimLayers`, `UFWGameFeatureAction_AddInputMappingContext` for clean feature-driven content injection.
-- **Core component abstraction.** `UFWGASCoreComponent` provides a unified event surface for attribute changes, ability lifecycle, effect tracking, cooldowns, and death -- abstracting away ASC owner/avatar complexity.
+- **Modular gameplay actors.** 12 pre-built base classes with `IGameFrameworkInitStateInterface` support for modular game feature integration.
+- **GameFeature actions.** Actions for adding abilities, animation layers, and input mapping contexts through the Game Features framework.
+- **Core component abstraction.** `UFWGASCoreComponent` provides a unified event surface with 20+ events for attribute changes, ability lifecycle, effect tracking, cooldowns, and death -- abstracting away ASC owner/avatar complexity.
 - **Built-in attribute set.** `UFWAttributeSet` ships with Health, Stamina, Mana (each with Max and RegenRate), plus Damage and StaminaDamage meta attributes.
-- **Effect containers.** `FFWGameplayEffectContainer` and `FFWGameplayEffectContainerSpec` simplify targeting and effect application patterns.
+- **Effect containers.** Simplified targeting and effect application patterns via data-driven effect containers.
+- **Developer settings.** `UFWGASDeveloperSettings` for project-wide GAS configuration.
 
 ---
 
@@ -29,19 +30,16 @@ An integrated Gameplay Ability System framework providing a complete foundation 
 
 ```
 UFWAbilitySystemComponent (extends UAbilitySystemComponent)
- +-- GrantedAbilities (FFWAbilityInputMapping[])
- +-- GrantedAttributes (FFWAttributeSetDefinition[])
- +-- GrantedEffects (TSubclassOf<UGameplayEffect>[])
- +-- GrantedAbilitySets (TSoftObjectPtr<UFWAbilitySet>[])
+ +-- DefaultAbilities, DefaultAttributes, StartupEffects
+ +-- GrantedAbilitySets
+ +-- ReplicationMode configuration
  +-- Auto-grants on InitAbilityActorInfo
 
 UFWGASCoreComponent (per-actor abstraction)
- +-- Attribute change events (Health, Stamina, Mana, Fervor, generic)
- +-- Ability lifecycle events (Activated, Ended, Failed, Committed)
- +-- Effect tracking events (Added, Removed, Stack/Time Change)
- +-- Tag change events
- +-- Cooldown events
- +-- Death system
+ +-- Attribute queries (GetHealth, GetMaxHealth, GetStamina, etc.)
+ +-- Ability management (Grant, Clear, Activate)
+ +-- Attribute modification (Set, Clamp, Adjust)
+ +-- 20+ events (Attribute, Ability, Effect, Tag, Cooldown, Death)
 
 UFWComboManagerComponent
  +-- ComboIndex (replicated)
@@ -68,32 +66,14 @@ GameFeature Actions
 
 ---
 
-## Module Structure
-
-| Directory | Contents |
-|-----------|----------|
-| `Source/FWGASSystem/Public/Abilities/` | ASC, GameplayAbility, AbilitySet, Types, TargetType, Blueprint Library |
-| `Source/FWGASSystem/Public/Abilities/Attributes/` | AttributeSetBase, AttributeSet |
-| `Source/FWGASSystem/Public/Components/` | GASCoreComponent, AbilityQueue, ComboManager, InputBinding, LinkAnimLayers |
-| `Source/FWGASSystem/Public/Animations/` | Anim notifies (AbilityQueue, ComboWindow, TriggerCombo), NativeAnimInstance |
-| `Source/FWGASSystem/Public/GameFeatures/` | GameFeature actions and types |
-| `Source/FWGASSystem/Public/ModularGameplayActors/` | Modular base classes |
-| `Source/FWGASSystem/Public/UI/` | Debug widgets (AbilityQueue, Combo, HUD), UserWidget base |
-| `Source/FWGASSystem/Public/Core/Settings/` | Developer settings |
-| `Source/FWGASSystem/Public/Subsystems/` | Console manager subsystem |
-
----
-
 ## Quick Links
 
 | Page | Description |
 |------|-------------|
 | [Installation](installation.md) | Adding the plugin and its dependencies |
 | [Quick Start](quick-start.md) | Get abilities working in under 10 minutes |
-| [API Reference](api-reference.md) | Complete C++ class and struct reference |
+| [API Reference](api-reference.md) | Class, function, and property reference |
 | [Blueprints](blueprints.md) | Blueprint-exposed functions and events |
 | [Configuration](configuration.md) | Developer settings and DataAsset configuration |
 | [Tutorials](tutorials.md) | Step-by-step guide: Creating a Combat Ability with Combos |
 | [FAQ](faq.md) | Common questions and troubleshooting |
-| [Migration Guide](migration.md) | Upgrading between versions |
-| [Changelog](changelog.md) | Version history |

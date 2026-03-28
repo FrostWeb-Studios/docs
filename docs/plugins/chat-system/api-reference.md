@@ -4,7 +4,7 @@ title: API Reference - FWChatSystem
 
 # API Reference
 
-Complete C++ API documentation for all FWChatSystem classes, structs, enums, delegates, and interfaces.
+Component, struct, enum, delegate, and interface documentation for FWChatSystem.
 
 ---
 
@@ -12,21 +12,7 @@ Complete C++ API documentation for all FWChatSystem classes, structs, enums, del
 
 ### EFWChatChannel
 
-Chat channel types for message routing. Defined in `FWChatTypes.h`.
-
-```cpp
-UENUM(BlueprintType)
-enum class EFWChatChannel : uint8
-{
-    Local,
-    Party,
-    Guild,
-    Whisper,
-    System,
-    Global,
-    Emote
-};
-```
+Chat channel types for message routing.
 
 | Value | Slash Command | Description |
 |-------|:-------------:|-------------|
@@ -35,24 +21,12 @@ enum class EFWChatChannel : uint8
 | `Guild` | `/g` | Guild chat |
 | `Whisper` | `/w <name>` | Direct message to a specific player |
 | `System` | -- | System messages (announcements, errors) |
-| `Global` | -- | Global/world chat |
+| `Global` | `/gl` | Global/world chat |
 | `Emote` | `/e` | Emote actions |
 
 ### EFWChatConnectionState
 
-Connection state for the chat transport. Defined in `FWChatTypes.h`.
-
-```cpp
-UENUM(BlueprintType)
-enum class EFWChatConnectionState : uint8
-{
-    Disconnected,
-    Connecting,
-    Connected,
-    Reconnecting,
-    Failed
-};
-```
+Connection state for the chat transport.
 
 | Value | Description |
 |-------|-------------|
@@ -64,23 +38,7 @@ enum class EFWChatConnectionState : uint8
 
 ### EFWChatSendResult
 
-Result of sending a chat message. Defined in `FWChatTypes.h`.
-
-```cpp
-UENUM(BlueprintType)
-enum class EFWChatSendResult : uint8
-{
-    Success,
-    NotConnected,
-    RateLimited,
-    TargetNotFound,
-    InvalidMessage,
-    NotInParty,
-    NotInGuild,
-    Muted,
-    Failed
-};
-```
+Result of sending a chat message.
 
 | Value | Description |
 |-------|-------------|
@@ -100,43 +58,7 @@ enum class EFWChatSendResult : uint8
 
 ### FFWChatMessage
 
-A chat message with all associated metadata. Defined in `FWChatTypes.h`.
-
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatMessage
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    EFWChatChannel Channel = EFWChatChannel::Local;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString SenderId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString SenderDisplayName;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString TargetId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString TargetDisplayName;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString Body;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    int64 Timestamp = 0;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString ZoneId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FVector Position = FVector::ZeroVector;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    bool bIsOutgoing = false;
-};
-```
+A chat message with all associated metadata.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -151,66 +73,31 @@ struct FWCHATSYSTEM_API FFWChatMessage
 | `Position` | `FVector` | World position where message was sent (local chat) |
 | `bIsOutgoing` | `bool` | Whether this is an outgoing message from the local player |
 
-#### Utility Methods
+**Utility Methods:**
 
-```cpp
-FString GetFormattedTime() const;
-bool IsSystemMessage() const;
-bool IsPrivateMessage() const;
-```
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `GetFormattedTime` | `FString` | Returns a formatted time string |
+| `IsSystemMessage` | `bool` | Returns `true` if this is a system message |
+| `IsPrivateMessage` | `bool` | Returns `true` if this is a whisper |
 
-### FFWChatOutgoingMessage
+### FFWChatConfig
 
-Outgoing message request to be sent via transport. Defined in `FWChatTypes.h`.
+Configuration for the chat system.
 
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatOutgoingMessage
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    EFWChatChannel Channel = EFWChatChannel::Local;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString Target;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString Body;
-};
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `Channel` | `EFWChatChannel` | The channel to send on |
-| `Target` | `FString` | Target player name or ID (for whispers) |
-| `Body` | `FString` | Message content |
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `MaxHistoryPerChannel` | `int32` | `100` | Maximum messages per channel ring buffer (10--1000) |
+| `MaxMessageLength` | `int32` | `500` | Maximum message length allowed (1--2000) |
+| `NameCacheDuration` | `float` | `300.0` | Player name cache TTL in seconds (min 60) |
+| `PresenceUpdateInterval` | `float` | `5.0` | How often to send presence updates in seconds (min 1.0) |
+| `MaxReconnectAttempts` | `int32` | `10` | Maximum reconnection attempts before giving up |
+| `ReconnectBaseDelay` | `float` | `1.0` | Base delay for reconnection backoff in seconds (min 0.5) |
+| `ReconnectMaxDelay` | `float` | `30.0` | Maximum reconnection delay in seconds (min 5.0) |
 
 ### FFWChatPresence
 
-Player presence information. Defined in `FWChatTypes.h`.
-
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatPresence
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString PlayerId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString DisplayName;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString ZoneId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FVector Position = FVector::ZeroVector;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    bool bIsOnline = false;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    int64 LastUpdate = 0;
-};
-```
+Player presence information.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -223,25 +110,7 @@ struct FWCHATSYSTEM_API FFWChatPresence
 
 ### FFWChatPartyInfo
 
-Party information from the chat server. Defined in `FWChatTypes.h`.
-
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatPartyInfo
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString PartyId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    TArray<FString> MemberIds;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    TArray<FString> MemberNames;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString LeaderId;
-};
-```
+Party information from the chat server.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -252,117 +121,32 @@ struct FWCHATSYSTEM_API FFWChatPartyInfo
 
 ### FFWChatTokenResponse
 
-Chat token response from the API. Defined in `FWChatTypes.h`.
-
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatTokenResponse
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString Token;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString ServerUrl;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    int64 ExpiresAt = 0;
-};
-```
+Token response used to connect to the chat server.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `Token` | `FString` | JWT token for chat server authentication |
+| `Token` | `FString` | Authentication token for the chat server |
 | `ServerUrl` | `FString` | Chat server URL to connect to |
 | `ExpiresAt` | `int64` | Token expiration timestamp (Unix seconds) |
 
-### FFWChatConfig
-
-Configuration for the chat system. Defined in `FWChatTypes.h`.
-
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatConfig
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat", meta = (ClampMin = "10", ClampMax = "1000"))
-    int32 MaxHistoryPerChannel = 100;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat", meta = (ClampMin = "1", ClampMax = "2000"))
-    int32 MaxMessageLength = 500;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat", meta = (ClampMin = "60"))
-    float NameCacheDuration = 300.0f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat", meta = (ClampMin = "1.0"))
-    float PresenceUpdateInterval = 5.0f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat", meta = (ClampMin = "0"))
-    int32 MaxReconnectAttempts = 10;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat", meta = (ClampMin = "0.5"))
-    float ReconnectBaseDelay = 1.0f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat", meta = (ClampMin = "5.0"))
-    float ReconnectMaxDelay = 30.0f;
-};
-```
-
-| Field | Type | Default | Description |
-|-------|------|---------|-------------|
-| `MaxHistoryPerChannel` | `int32` | `100` | Maximum messages per channel ring buffer |
-| `MaxMessageLength` | `int32` | `500` | Maximum message length allowed |
-| `NameCacheDuration` | `float` | `300.0` | Player name cache TTL in seconds |
-| `PresenceUpdateInterval` | `float` | `5.0` | How often to send presence updates (seconds) |
-| `MaxReconnectAttempts` | `int32` | `10` | Maximum reconnection attempts before giving up |
-| `ReconnectBaseDelay` | `float` | `1.0` | Base delay for reconnection backoff (seconds) |
-| `ReconnectMaxDelay` | `float` | `30.0` | Maximum reconnection delay (seconds) |
-
 ### FFWChatWindowHandle
 
-Thin handle identifying a chat window. Defined in `FWChatTypes.h`.
-
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatWindowHandle
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FName Name;
-
-    bool IsValid() const;
-    static FFWChatWindowHandle Invalid();
-};
-```
+Thin handle identifying a chat window.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `Name` | `FName` | The underlying FName identifier |
 
+**Utility Methods:**
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `IsValid` | `bool` | Returns `true` if the handle is valid |
+| `Invalid` | `FFWChatWindowHandle` | Static method returning an invalid handle |
+
 ### FFWChatWindowInfo
 
-Descriptor for an open chat window (tab). Defined in `FWChatTypes.h`.
-
-```cpp
-USTRUCT(BlueprintType)
-struct FWCHATSYSTEM_API FFWChatWindowInfo
-{
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FFWChatWindowHandle Handle;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    EFWChatChannel Channel = EFWChatChannel::Local;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString Title;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString WhisperTargetId;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Chat")
-    FString WhisperTargetName;
-
-    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Chat")
-    bool bIsPrimary = false;
-};
-```
+Descriptor for an open chat window (tab).
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -379,751 +163,204 @@ struct FWCHATSYSTEM_API FFWChatWindowInfo
 
 ### FFWChatTypeUtils
 
-Static utility functions for chat types. Defined in `FWChatTypes.h`.
+Static utility functions for chat types.
 
-```cpp
-struct FWCHATSYSTEM_API FFWChatTypeUtils
-{
-    static FString ChannelToEventType(EFWChatChannel Channel);
-    static EFWChatChannel EventTypeToChannel(const FString& EventType);
-    static FString GetChannelDisplayName(EFWChatChannel Channel);
-    static FString GetChannelDefaultColor(EFWChatChannel Channel);
-};
-```
-
-| Method | Description |
-|--------|-------------|
-| `ChannelToEventType` | Convert channel enum to Socket.IO event type string |
-| `EventTypeToChannel` | Convert Socket.IO event type string to channel enum |
-| `GetChannelDisplayName` | Get the human-readable name for a channel |
-| `GetChannelDefaultColor` | Get the default color for a channel (hex string) |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `ChannelToEventType` | `FString` | Convert channel enum to Socket.IO event type string |
+| `EventTypeToChannel` | `EFWChatChannel` | Convert Socket.IO event type string to channel enum |
+| `GetChannelDisplayName` | `FString` | Get the human-readable name for a channel |
+| `GetChannelDefaultColor` | `FString` | Get the default color for a channel (hex string) |
 
 ---
 
-## Delegates
-
-### UFWChatStateComponent Delegates
-
-| Delegate | Signature | Description |
-|----------|-----------|-------------|
-| `FOnChatMessageReceived` | `(const FFWChatMessage& Message)` | New message added to history |
-| `FOnChatUnreadCountChanged` | `(EFWChatChannel Channel, int32 UnreadCount)` | Unread count changed |
-| `FOnChatPresenceUpdated` | `(const FFWChatPresence& Presence)` | Player presence updated |
-| `FOnChatPartyUpdated` | `(const FFWChatPartyInfo& PartyInfo)` | Party info changed |
-| `FOnLastWhisperTargetChanged` | `(const FString& TargetName)` | Last whisper target changed |
-
-### UFWChatRouterComponent Delegates
-
-| Delegate | Signature | Description |
-|----------|-----------|-------------|
-| `FOnChatHelpRequested` | `()` | `/help` command invoked |
-| `FOnChatMessageDisplay` | `(const FFWChatMessage& Message)` | Message ready for UI display |
-| `FOnChatInputSubmitted` | `(const FString& RawInput, EFWChatChannel Channel)` | Chat input submitted |
-| `FOnChatFocusChanged` | `(bool bIsFocused)` | Chat input focus changed |
-| `FOnActiveChannelChanged` | `(EFWChatChannel OldChannel, EFWChatChannel NewChannel)` | Active channel changed |
-| `FOnChatWindowRequested` | `(const FFWChatWindowInfo& WindowInfo)` | UI should create a chat window |
-| `FOnChatWindowClosed` | `(const FFWChatWindowHandle& Handle)` | UI should destroy a chat window |
-| `FOnFocusedWindowChanged` | `(const FFWChatWindowHandle& OldHandle, const FFWChatWindowHandle& NewHandle)` | Focused window changed |
-
-### UFWSocketIOChatTransportComponent Delegates
-
-| Delegate | Signature | Description |
-|----------|-----------|-------------|
-| `FOnChatConnectionStateChanged` | `(EFWChatConnectionState OldState, EFWChatConnectionState NewState)` | Connection state changed |
-| `FOnChatTransportMessageReceived` | `(const FFWChatMessage& Message)` | Message received from server |
-| `FOnChatSystemNotice` | `(const FString& Code, const FString& Text)` | System notice received |
-| `FOnChatTransportPartyUpdated` | `(const FFWChatPartyInfo& PartyInfo)` | Party info updated from server |
-| `FOnChatTransportGuildRosterReceived` | `(const FString& GuildId, USIOJsonValue* RosterData)` | Guild roster data received |
-| `FOnChatTransportGuildUpdateReceived` | `(USIOJsonValue* UpdateData)` | Guild update event received |
-| `FOnChatTransportError` | `(const FString& Code, const FString& Message)` | Error from chat server |
-
----
-
-## Classes
-
-### UFWChatStateComponent
-
-`UActorComponent` | Header: `Components/FWChatStateComponent.h`
-
-Manages local chat state including message history, unread counts, player name cache, and party information. Purely local -- does not replicate.
-
-```cpp
-UCLASS(ClassGroup = (Chat), meta = (BlueprintSpawnableComponent, DisplayName = "Chat State Component"))
-class FWCHATSYSTEM_API UFWChatStateComponent : public UActorComponent
-```
-
-#### Message History
-
-##### AddMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|History")
-void AddMessage(const FFWChatMessage& Message);
-```
-
-Adds a message to the history. Called by the transport component when messages arrive.
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `Message` | `const FFWChatMessage&` | The message to add |
-
-##### GetMessagesForChannel
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|History")
-TArray<FFWChatMessage> GetMessagesForChannel(EFWChatChannel Channel) const;
-```
-
-**Returns:** Array of messages for the specified channel, sorted oldest to newest.
-
-##### GetAllMessages
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|History")
-TArray<FFWChatMessage> GetAllMessages() const;
-```
-
-**Returns:** Array of all messages across all channels, sorted by timestamp.
-
-##### GetRecentMessages
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|History")
-TArray<FFWChatMessage> GetRecentMessages(int32 Count = 50) const;
-```
-
-**Returns:** Array of the last `Count` messages across all channels.
-
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `Count` | `int32` | `50` | Maximum number of messages to return |
-
-##### ClearChannelHistory
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|History")
-void ClearChannelHistory(EFWChatChannel Channel);
-```
-
-Clears message history for a specific channel.
-
-##### ClearAllHistory
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|History")
-void ClearAllHistory();
-```
-
-Clears all message history across all channels.
-
-#### Unread Counts
-
-##### GetUnreadCount
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Unread")
-int32 GetUnreadCount(EFWChatChannel Channel) const;
-```
-
-**Returns:** Number of unread messages for the specified channel.
-
-##### GetTotalUnreadCount
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Unread")
-int32 GetTotalUnreadCount() const;
-```
-
-**Returns:** Total unread count across all channels.
-
-##### MarkChannelAsRead
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Unread")
-void MarkChannelAsRead(EFWChatChannel Channel);
-```
-
-Marks all messages in a channel as read. Broadcasts `OnUnreadCountChanged`.
-
-##### MarkAllAsRead
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Unread")
-void MarkAllAsRead();
-```
-
-Marks all messages across all channels as read.
-
-#### Player Name Cache
-
-##### GetCachedPlayerName
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Players")
-bool GetCachedPlayerName(const FString& PlayerId, FString& OutDisplayName) const;
-```
-
-**Returns:** `true` if the name was found in cache.
-
-##### CachePlayerName
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Players")
-void CachePlayerName(const FString& PlayerId, const FString& DisplayName);
-```
-
-Caches a player's display name with a TTL defined by `FFWChatConfig::NameCacheDuration`.
-
-##### ClearNameCache
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Players")
-void ClearNameCache();
-```
-
-Clears the entire player name cache.
-
-#### Whisper State
-
-##### GetLastWhisperTarget
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Whisper")
-FString GetLastWhisperTarget() const;
-```
-
-**Returns:** The last player who whispered us (for `/r` reply).
-
-##### GetLastWhisperSent
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Whisper")
-FString GetLastWhisperSent() const;
-```
-
-**Returns:** The last player we whispered to.
-
-##### SetLastWhisperTarget
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Whisper")
-void SetLastWhisperTarget(const FString& SenderName);
-```
-
-Sets the last whisper target. Called when receiving a whisper.
-
-##### SetLastWhisperSent
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Whisper")
-void SetLastWhisperSent(const FString& RecipientName);
-```
-
-Sets the last whisper sent. Called when sending a whisper.
-
-#### Party Info
-
-##### GetPartyInfo
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Party")
-const FFWChatPartyInfo& GetPartyInfo() const;
-```
-
-**Returns:** The current party info.
-
-##### IsInParty
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Party")
-bool IsInParty() const;
-```
-
-**Returns:** `true` if the player is currently in a party.
-
-##### UpdatePartyInfo
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Party")
-void UpdatePartyInfo(const FFWChatPartyInfo& PartyInfo);
-```
-
-Updates the party info. Called by transport when party data arrives.
-
-##### ClearPartyInfo
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Party")
-void ClearPartyInfo();
-```
-
-Clears the party info. Called when leaving a party.
+## Components
+
+### UFWSocketIOChatTransportComponent
+
+Socket.IO WebSocket transport layer. Handles connection, authentication, message sending/receiving, and presence updates.
+
+#### Connection
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `Connect(ServerUrl, AuthToken)` | `void` | Connects to the chat server with the given URL and auth token |
+| `ConnectWithTokenResponse(TokenResponse)` | `void` | Connects using an `FFWChatTokenResponse` |
+| `Disconnect()` | `void` | Disconnects from the chat server |
+| `GetConnectionState()` | `EFWChatConnectionState` | Returns the current connection state |
+| `IsConnected()` | `bool` | Returns `true` if connected to the chat server |
+
+#### Sending
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `SendMessage(Message)` | `EFWChatSendResult` | Sends an outgoing chat message |
+| `SendLocalMessage(Body)` | `EFWChatSendResult` | Sends a local/say message |
+| `SendGlobalMessage(Body)` | `EFWChatSendResult` | Sends a global/world message |
+| `SendWhisper(TargetName, Body)` | `EFWChatSendResult` | Sends a whisper to a player |
+| `SendPartyMessage(Body)` | `EFWChatSendResult` | Sends a party message |
+| `SendGuildMessage(Body)` | `EFWChatSendResult` | Sends a guild message |
+| `SendEmote(EmoteText)` | `EFWChatSendResult` | Sends an emote action |
 
 #### Presence
 
-##### UpdatePresence
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `UpdatePresence(ZoneId, Position)` | `void` | Updates the player's presence (zone and position) |
+| `SyncParty(PartyId)` | `void` | Joins a party chat room |
+| `LeaveParty()` | `void` | Leaves the current party chat |
+| `SyncGuild(GuildId)` | `void` | Joins a guild chat room |
+| `LeaveGuildChat()` | `void` | Leaves the current guild chat room |
+| `OpenDmConversation(TargetPlayerId)` | `void` | Opens a DM conversation with a player |
 
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Presence")
-void UpdatePresence(const FFWChatPresence& Presence);
-```
+#### Integration
 
-Updates a player's presence info.
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `SetChatStateComponent(StateComponent)` | `void` | Sets the chat state component for automatic message forwarding |
+| `SetSocketIOClient(ClientComponent)` | `void` | Sets an external Socket.IO client component instead of creating one internally |
+| `SetGuildProvider(Provider)` | `void` | Sets the guild provider interface for receiving guild updates (C++ only) |
 
-##### GetPresence
+#### Events
 
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Presence")
-bool GetPresence(const FString& PlayerId, FFWChatPresence& OutPresence) const;
-```
+| Delegate | Signature | Description |
+|----------|-----------|-------------|
+| `OnConnectionStateChanged` | `(EFWChatConnectionState OldState, EFWChatConnectionState NewState)` | Connection state changed |
+| `OnMessageReceived` | `(const FFWChatMessage& Message)` | Message received from server |
+| `OnSystemNotice` | `(const FString& Code, const FString& Text)` | System notice received |
+| `OnPartyUpdated` | `(const FFWChatPartyInfo& PartyInfo)` | Party info updated from server |
+| `OnGuildRosterReceived` | `(const FString& GuildId, USIOJsonValue* RosterData)` | Guild roster data received |
+| `OnGuildUpdateReceived` | `(USIOJsonValue* UpdateData)` | Guild update event received |
+| `OnError` | `(const FString& Code, const FString& Message)` | Error from chat server |
 
-**Returns:** `true` if presence was found for the player.
+---
 
-##### GetPlayersInZone
+### UFWChatStateComponent
 
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Presence")
-TArray<FFWChatPresence> GetPlayersInZone(const FString& ZoneId) const;
-```
+Manages local chat state including message history, unread counts, player name cache, and party information. Purely local -- does not replicate.
 
-**Returns:** Array of presence info for all online players in the specified zone.
+#### Message History
 
-#### Configuration
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `AddMessage(Message)` | `void` | Adds a message to history (called by transport on arrival) |
+| `GetMessagesForChannel(Channel)` | `TArray<FFWChatMessage>` | Returns messages for a channel, sorted oldest to newest |
+| `GetAllMessages()` | `TArray<FFWChatMessage>` | Returns all messages across all channels, sorted by timestamp |
+| `GetRecentMessages(Count)` | `TArray<FFWChatMessage>` | Returns the last `Count` messages (default 50) across all channels |
+| `ClearChannelHistory(Channel)` | `void` | Clears message history for a specific channel |
+| `ClearAllHistory()` | `void` | Clears all message history across all channels |
 
-##### GetConfig
+#### Unread Tracking
 
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Config")
-const FFWChatConfig& GetConfig() const;
-```
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `GetUnreadCount(Channel)` | `int32` | Returns unread message count for a channel |
+| `GetTotalUnreadCount()` | `int32` | Returns total unread count across all channels |
+| `MarkChannelAsRead(Channel)` | `void` | Marks all messages in a channel as read |
+| `MarkAllAsRead()` | `void` | Marks all messages across all channels as read |
 
-**Returns:** The chat configuration struct.
+#### Player Cache
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `GetCachedPlayerName(PlayerId, OutDisplayName)` | `bool` | Returns `true` if name was found in cache |
+| `CachePlayerName(PlayerId, DisplayName)` | `void` | Caches a player's display name with a configurable TTL |
+| `ClearNameCache()` | `void` | Clears the entire player name cache |
+
+#### Whisper Tracking
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `GetLastWhisperTarget()` | `FString` | Returns the last player who whispered us (for `/r` reply) |
+| `GetLastWhisperSent()` | `FString` | Returns the last player we whispered to |
+| `SetLastWhisperTarget(SenderName)` | `void` | Sets the last whisper target (called when receiving a whisper) |
+| `SetLastWhisperSent(RecipientName)` | `void` | Sets the last whisper sent (called when sending a whisper) |
+
+#### Party & Presence
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `GetPartyInfo()` | `const FFWChatPartyInfo&` | Returns the current party info |
+| `IsInParty()` | `bool` | Returns `true` if the player is in a party |
+| `UpdatePartyInfo(PartyInfo)` | `void` | Updates the party info (called by transport) |
+| `ClearPartyInfo()` | `void` | Clears the party info (called when leaving a party) |
+| `UpdatePresence(Presence)` | `void` | Updates a player's presence info |
+| `GetPresence(PlayerId, OutPresence)` | `bool` | Returns `true` if presence was found for the player |
+| `GetPlayersInZone(ZoneId)` | `TArray<FFWChatPresence>` | Returns presence info for all online players in a zone |
+| `GetConfig()` | `const FFWChatConfig&` | Returns the chat configuration struct |
+
+#### Events
+
+| Delegate | Signature | Description |
+|----------|-----------|-------------|
+| `OnMessageReceived` | `(const FFWChatMessage& Message)` | New message added to history |
+| `OnUnreadCountChanged` | `(EFWChatChannel Channel, int32 UnreadCount)` | Unread count changed |
+| `OnPresenceUpdated` | `(const FFWChatPresence& Presence)` | Player presence updated |
+| `OnPartyUpdated` | `(const FFWChatPartyInfo& PartyInfo)` | Party info changed |
+| `OnLastWhisperTargetChanged` | `(const FString& TargetName)` | Last whisper target changed |
 
 ---
 
 ### UFWChatRouterComponent
 
-`UActorComponent` | Header: `Components/FWChatRouterComponent.h`
-
 Main chat entry point. Handles slash command parsing, message routing, input validation, and integration between transport and state components.
-
-```cpp
-UCLASS(ClassGroup = (Chat), meta = (BlueprintSpawnableComponent, DisplayName = "Chat Router"))
-class FWCHATSYSTEM_API UFWChatRouterComponent : public UActorComponent
-```
-
-#### Component Setup
-
-##### SetTransportComponent
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-void SetTransportComponent(UFWSocketIOChatTransportComponent* Transport);
-```
-
-##### SetStateComponent
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-void SetStateComponent(UFWChatStateComponent* State);
-```
-
-##### GetTransportComponent
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Router")
-UFWSocketIOChatTransportComponent* GetTransportComponent() const;
-```
-
-##### GetStateComponent
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Router")
-UFWChatStateComponent* GetStateComponent() const;
-```
 
 #### Input Processing
 
-##### SubmitChatInput
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult SubmitChatInput(const FString& RawInput,
-    EFWChatChannel DefaultChannel = EFWChatChannel::Local);
-```
-
-Submits raw chat input for processing and routing. Handles slash commands and routes to appropriate channel.
-
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `RawInput` | `const FString&` | -- | The user's raw input text |
-| `DefaultChannel` | `EFWChatChannel` | `Local` | Default channel if no command is specified |
-
-**Returns:** `EFWChatSendResult` indicating success or failure reason.
-
-##### SendMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult SendMessage(const FString& Body, EFWChatChannel Channel,
-    const FString& Target = TEXT(""));
-```
-
-Sends a message on a specific channel, bypassing command parsing.
-
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `Body` | `const FString&` | -- | The message body |
-| `Channel` | `EFWChatChannel` | -- | The channel to send on |
-| `Target` | `const FString&` | `""` | Optional target for whispers |
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `SubmitChatInput(RawInput, DefaultChannel)` | `EFWChatSendResult` | Submits raw chat input for processing. Parses slash commands and routes to the appropriate channel. `DefaultChannel` defaults to `Local`. |
+| `SendMessage(Body, Channel, Target)` | `EFWChatSendResult` | Sends a message on a specific channel, bypassing command parsing. `Target` is optional (for whispers). |
 
 #### Slash Commands
 
-##### Whisper
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult Whisper(const FString& TargetName, const FString& Body);
-```
-
-Sends a whisper to a player.
-
-##### Reply
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult Reply(const FString& Body);
-```
-
-Replies to the last whisper received.
-
-##### PartyChat
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult PartyChat(const FString& Body);
-```
-
-Sends a party message.
-
-##### GuildChat
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult GuildChat(const FString& Body);
-```
-
-Sends a guild message.
-
-##### Say
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult Say(const FString& Body);
-```
-
-Sends a local/say message.
-
-##### GlobalChat
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult GlobalChat(const FString& Body);
-```
-
-Sends a global/world message.
-
-##### Emote
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-EFWChatSendResult Emote(const FString& EmoteText);
-```
-
-Sends an emote action.
-
-#### Default Channel
-
-##### GetDefaultChannel
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Router")
-EFWChatChannel GetDefaultChannel() const;
-```
-
-**Returns:** The current default channel.
-
-##### SetDefaultChannel
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-void SetDefaultChannel(EFWChatChannel Channel);
-```
-
-Sets the default channel for messages without a command.
-
-#### System Messages
-
-##### AddLocalSystemMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-void AddLocalSystemMessage(const FString& Text);
-```
-
-Adds a local system message (not sent to server). Useful for client-side notifications.
-
-##### AddLocalErrorMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Router")
-void AddLocalErrorMessage(const FString& Text);
-```
-
-Adds a local error message. Displayed in the System channel.
-
-#### Command Parsing
-
-##### ParseSlashCommand
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Router")
-static bool ParseSlashCommand(const FString& Input, FString& OutCommand, FString& OutArguments);
-```
-
-Parses a slash command from input.
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `Input` | `const FString&` | The raw input |
-| `OutCommand` | `FString&` | The extracted command (without slash) |
-| `OutArguments` | `FString&` | The remaining arguments |
-
-**Returns:** `true` if a command was found.
-
-##### GetHelpText
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Router")
-static FString GetHelpText();
-```
-
-**Returns:** Help text for all available commands.
-
----
-
-### UFWSocketIOChatTransportComponent
-
-`UActorComponent` | Header: `Components/FWSocketIOChatTransportComponent.h`
-
-Socket.IO WebSocket transport layer. Handles connection, authentication, message sending/receiving, and presence updates.
-
-```cpp
-UCLASS(ClassGroup = (Chat), meta = (BlueprintSpawnableComponent, DisplayName = "Socket.IO Chat Transport"))
-class FWCHATSYSTEM_API UFWSocketIOChatTransportComponent : public UActorComponent
-```
-
-#### Connection Management
-
-##### Connect
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void Connect(const FString& ServerUrl, const FString& AuthToken);
-```
-
-Connects to the chat server with the given token.
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `ServerUrl` | `const FString&` | The WebSocket URL of the chat server |
-| `AuthToken` | `const FString&` | The JWT token for authentication |
-
-##### ConnectWithTokenResponse
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void ConnectWithTokenResponse(const FFWChatTokenResponse& TokenResponse);
-```
-
-Connects using a token response from the API.
-
-##### Disconnect
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void Disconnect();
-```
-
-Disconnects from the chat server.
-
-##### GetConnectionState
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Transport")
-EFWChatConnectionState GetConnectionState() const;
-```
-
-**Returns:** The current connection state.
-
-##### IsConnected
-
-```cpp
-UFUNCTION(BlueprintPure, Category = "Chat|Transport")
-bool IsConnected() const;
-```
-
-**Returns:** `true` if connected to the chat server.
-
-#### Message Sending
-
-##### SendMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-EFWChatSendResult SendMessage(const FFWChatOutgoingMessage& Message);
-```
-
-Sends a chat message.
-
-##### SendLocalMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-EFWChatSendResult SendLocalMessage(const FString& Body);
-```
-
-##### SendGlobalMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-EFWChatSendResult SendGlobalMessage(const FString& Body);
-```
-
-##### SendWhisper
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-EFWChatSendResult SendWhisper(const FString& TargetName, const FString& Body);
-```
-
-##### SendPartyMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-EFWChatSendResult SendPartyMessage(const FString& Body);
-```
-
-##### SendGuildMessage
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-EFWChatSendResult SendGuildMessage(const FString& Body);
-```
-
-##### SendEmote
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-EFWChatSendResult SendEmote(const FString& EmoteText);
-```
-
-#### Presence
-
-##### UpdatePresence
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void UpdatePresence(const FString& ZoneId, const FVector& Position);
-```
-
-Updates the player's presence (zone and position).
-
-#### Party
-
-##### SyncParty
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void SyncParty(const FString& PartyId);
-```
-
-Joins a party chat room.
-
-##### LeaveParty
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void LeaveParty();
-```
-
-Leaves the current party chat.
-
-#### Direct Messages
-
-##### OpenDmConversation
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void OpenDmConversation(const FString& TargetPlayerId);
-```
-
-Opens a DM conversation with a player.
-
-#### Guild
-
-##### SyncGuild
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void SyncGuild(const FString& GuildId);
-```
-
-Joins a guild chat room.
-
-##### LeaveGuildChat
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void LeaveGuildChat();
-```
-
-Leaves the current guild chat room.
-
-##### SetGuildProvider
-
-```cpp
-void SetGuildProvider(IFWChatGuildProvider* Provider);
-```
-
-Sets the guild provider interface for receiving guild updates. C++ only.
-
-#### State Integration
-
-##### SetChatStateComponent
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void SetChatStateComponent(UFWChatStateComponent* StateComponent);
-```
-
-Sets the chat state component for automatic message forwarding.
-
-##### SetSocketIOClient
-
-```cpp
-UFUNCTION(BlueprintCallable, Category = "Chat|Transport")
-void SetSocketIOClient(USocketIOClientComponent* ClientComponent);
-```
-
-Sets an external Socket.IO client component instead of creating one internally.
-
-#### Configuration Properties
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `PresenceUpdateInterval` | `float` | -- | Presence update interval in seconds |
-| `MaxReconnectAttempts` | `int32` | -- | Maximum reconnection attempts |
+Built-in commands parsed by the router:
+
+| Command | Method | Description |
+|---------|--------|-------------|
+| `/w <name> <msg>` | `Whisper(TargetName, Body)` | Send a whisper to a player |
+| `/r <msg>` | `Reply(Body)` | Reply to the last whisper received |
+| `/p <msg>` | `PartyChat(Body)` | Send a party message |
+| `/g <msg>` | `GuildChat(Body)` | Send a guild message |
+| `/s <msg>` | `Say(Body)` | Send a local/say message |
+| `/gl <msg>` | `GlobalChat(Body)` | Send a global/world message |
+| `/e <text>` | `Emote(EmoteText)` | Send an emote action |
+| `/help` | -- | Displays help text for all commands |
+
+All slash command methods return `EFWChatSendResult`.
+
+#### Channel Management
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `GetDefaultChannel()` | `EFWChatChannel` | Returns the current default channel |
+| `SetDefaultChannel(Channel)` | `void` | Sets the default channel for messages without a command |
+| `AddLocalSystemMessage(Text)` | `void` | Adds a local system message (not sent to server) |
+| `AddLocalErrorMessage(Text)` | `void` | Adds a local error message displayed in the System channel |
+| `ParseSlashCommand(Input, OutCommand, OutArguments)` | `bool` | Static. Parses a slash command from input. Returns `true` if a command was found. |
+| `GetHelpText()` | `FString` | Static. Returns help text for all available commands. |
+
+#### Component Setup
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `SetTransportComponent(Transport)` | `void` | Sets the transport component |
+| `SetStateComponent(State)` | `void` | Sets the state component |
+| `GetTransportComponent()` | `UFWSocketIOChatTransportComponent*` | Returns the transport component |
+| `GetStateComponent()` | `UFWChatStateComponent*` | Returns the state component |
+
+#### Events
+
+| Delegate | Signature | Description |
+|----------|-----------|-------------|
+| `OnHelpRequested` | `()` | `/help` command invoked |
+| `OnMessageDisplay` | `(const FFWChatMessage& Message)` | Message ready for UI display |
+| `OnInputSubmitted` | `(const FString& RawInput, EFWChatChannel Channel)` | Chat input submitted |
+| `OnFocusChanged` | `(bool bIsFocused)` | Chat input focus changed |
+| `OnActiveChannelChanged` | `(EFWChatChannel OldChannel, EFWChatChannel NewChannel)` | Active channel changed |
+| `OnWindowRequested` | `(const FFWChatWindowInfo& WindowInfo)` | UI should create a chat window |
+| `OnWindowClosed` | `(const FFWChatWindowHandle& Handle)` | UI should destroy a chat window |
+| `OnFocusedWindowChanged` | `(const FFWChatWindowHandle& OldHandle, const FFWChatWindowHandle& NewHandle)` | Focused window changed |
 
 ---
 
@@ -1131,56 +368,42 @@ Sets an external Socket.IO client component instead of creating one internally.
 
 ### IFWChatGuildProvider
 
-Header: `IFWChatGuildProvider.h`
-
-Interface for external guild system integration with the chat transport.
-
-```cpp
-class FWCHATSYSTEM_API IFWChatGuildProvider
-{
-public:
-    virtual void OnGuildRosterReceived(const FString& GuildId, USIOJsonValue* RosterData) = 0;
-    virtual void OnGuildUpdateReceived(USIOJsonValue* UpdateData) = 0;
-    virtual void OnGuildInfoUpdated(const FString& GuildId, USIOJsonValue* InfoData) = 0;
-    virtual void OnGuildChatReceived(const FString& GuildId, USIOJsonValue* MessageData) = 0;
-};
-```
+Interface for external guild system integration with the chat transport. Implement this in your guild subsystem and pass it to the transport via `SetGuildProvider()`.
 
 | Method | Description |
 |--------|-------------|
-| `OnGuildRosterReceived` | Called when the guild roster is received from the server |
-| `OnGuildUpdateReceived` | Called on member join/leave, rank change, etc. |
-| `OnGuildInfoUpdated` | Called on name, MOTD, description changes |
-| `OnGuildChatReceived` | Called when a guild chat message is received |
+| `OnGuildRosterReceived(GuildId, RosterData)` | Called when the guild roster is received from the server |
+| `OnGuildUpdateReceived(UpdateData)` | Called on member join/leave, rank change, etc. |
+| `OnGuildInfoUpdated(GuildId, InfoData)` | Called on name, MOTD, description changes |
+| `OnGuildChatReceived(GuildId, MessageData)` | Called when a guild chat message is received |
 
 ### IFWChatUIController
 
-Header: `IFWChatUIController.h`
-
 Interface for UI-layer chat focus management and multi-window lifecycle. Implement on your PlayerController.
 
-```cpp
-class FWCHATSYSTEM_API IFWChatUIController
-{
-public:
-    // Input Focus
-    virtual void ActivateChatInput(EFWChatChannel Channel = EFWChatChannel::Local) = 0;
-    virtual void DeactivateChatInput() = 0;
-    virtual bool IsChatInputActive() const = 0;
-    virtual void SubmitChatText(const FString& Text) = 0;
+#### Input Focus
 
-    // Channel Selection
-    virtual void SetActiveChatChannel(EFWChatChannel Channel) = 0;
-    virtual EFWChatChannel GetActiveChatChannel() const = 0;
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `ActivateChatInput(Channel)` | `void` | Activates chat input, optionally setting the channel (default `Local`) |
+| `DeactivateChatInput()` | `void` | Deactivates chat input |
+| `IsChatInputActive()` | `bool` | Returns `true` if chat input is currently active |
+| `SubmitChatText(Text)` | `void` | Submits chat text from the UI |
 
-    // Window Management
-    virtual FFWChatWindowHandle RequestChatWindow(EFWChatChannel Channel,
-        const FString& TargetName = TEXT("")) = 0;
-    virtual void CloseChatWindow(const FFWChatWindowHandle& Handle) = 0;
-    virtual bool GetChatWindowInfo(const FFWChatWindowHandle& Handle,
-        FFWChatWindowInfo& OutInfo) const = 0;
-    virtual TArray<FFWChatWindowInfo> GetAllChatWindows() const = 0;
-    virtual void SetFocusedChatWindow(const FFWChatWindowHandle& Handle) = 0;
-    virtual FFWChatWindowHandle GetFocusedChatWindow() const = 0;
-};
-```
+#### Channel Selection
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `SetActiveChatChannel(Channel)` | `void` | Sets the active chat channel |
+| `GetActiveChatChannel()` | `EFWChatChannel` | Returns the currently active channel |
+
+#### Window Management
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `RequestChatWindow(Channel, TargetName)` | `FFWChatWindowHandle` | Requests a new chat window for a channel. `TargetName` is optional (for whisper windows). |
+| `CloseChatWindow(Handle)` | `void` | Closes a chat window |
+| `GetChatWindowInfo(Handle, OutInfo)` | `bool` | Returns `true` if the window exists, fills `OutInfo` |
+| `GetAllChatWindows()` | `TArray<FFWChatWindowInfo>` | Returns all open chat windows |
+| `SetFocusedChatWindow(Handle)` | `void` | Sets the focused chat window |
+| `GetFocusedChatWindow()` | `FFWChatWindowHandle` | Returns the currently focused chat window handle |

@@ -4,7 +4,7 @@ title: FWChatSystem
 
 # FWChatSystem
 
-**Version 1.0** | MMO-ready chat system for Unreal Engine 5
+MMO-ready chat system for Unreal Engine 5.
 
 FWChatSystem provides a complete in-game chat framework built for multiplayer and MMO games. It handles message routing across multiple channels, whisper/DM conversations, party and guild chat, player presence tracking, and slash command parsing -- all transported over Socket.IO WebSockets for real-time communication.
 
@@ -14,7 +14,7 @@ FWChatSystem provides a complete in-game chat framework built for multiplayer an
 
 - **Multi-Channel Chat** -- Local (say), Party, Guild, Whisper, System, Global, and Emote channels with independent history and unread tracking.
 - **Socket.IO Transport** -- WebSocket-based real-time messaging via the SocketIOClient plugin. Supports automatic reconnection with exponential backoff.
-- **Slash Commands** -- Built-in command parser for `/w` (whisper), `/r` (reply), `/p` (party), `/g` (guild), `/s` (say), `/e` (emote), and `/help`.
+- **Slash Commands** -- Built-in command parser for `/w` (whisper), `/r` (reply), `/p` (party), `/g` (guild), `/s` (say), `/gl` (global), `/e` (emote), and `/help`.
 - **State Management** -- Per-channel message history with configurable ring buffers, unread counts, and player name caching.
 - **Presence System** -- Player zone and position tracking with periodic updates for "players nearby" and "friends online" features.
 - **Party Integration** -- Party chat room management with sync/leave lifecycle.
@@ -25,6 +25,8 @@ FWChatSystem provides a complete in-game chat framework built for multiplayer an
 ---
 
 ## Architecture
+
+FWChatSystem uses a **three independent components** pattern. Each component has a single responsibility and can be attached to your Player Controller independently:
 
 ```
                      Player Controller
@@ -40,7 +42,7 @@ FWChatSystem provides a complete in-game chat framework built for multiplayer an
               Channel Routing     (SocketIOClient Plugin)
               Validation               |
                                   Chat Server
-                                  (FrostWeb ChatServer)
+                                  (Socket.IO)
 
     IFWChatUIController          IFWChatGuildProvider
     (UI Focus/Windows)           (Guild Integration)
@@ -52,7 +54,7 @@ FWChatSystem provides a complete in-game chat framework built for multiplayer an
 |-----------|------|
 | **UFWChatRouterComponent** | Entry point for all chat input. Parses slash commands, routes messages to channels, validates input, integrates transport and state. |
 | **UFWChatStateComponent** | Local state management. Stores message history per channel, tracks unread counts, caches player names, holds party/presence info. |
-| **UFWSocketIOChatTransportComponent** | Network layer. Connects to the chat server via Socket.IO, sends/receives messages, manages reconnection, handles presence updates. |
+| **UFWSocketIOChatTransportComponent** | Network layer. Connects to a Socket.IO chat server, sends/receives messages, manages reconnection, handles presence updates. |
 
 ### Interfaces
 
@@ -76,14 +78,14 @@ FWChatSystem supports seven built-in chat channels:
 | Guild | `/g` | Guild chat, visible to guild members only |
 | Whisper | `/w <name>` | Direct message to a specific player |
 | System | -- | Server announcements, error messages, notifications |
-| Global | -- | World/global chat, visible to all connected players |
+| Global | `/gl` | World/global chat, visible to all connected players |
 | Emote | `/e` | Emote actions (e.g., "/e dances") |
 
 ### Message Flow
 
 1. Player types text into the chat input.
 2. `UFWChatRouterComponent::SubmitChatInput()` parses the text for slash commands.
-3. The router determines the target channel and constructs an `FFWChatOutgoingMessage`.
+3. The router determines the target channel and constructs an outgoing message.
 4. The message is sent via `UFWSocketIOChatTransportComponent::SendMessage()`.
 5. The transport serializes the message to JSON and emits it over Socket.IO.
 6. The chat server broadcasts the message to appropriate recipients.
@@ -94,11 +96,11 @@ FWChatSystem supports seven built-in chat channels:
 
 ### Authentication
 
-The chat transport authenticates using JWT tokens obtained from the game's API:
+The chat transport uses token-based authentication to connect to the chat server:
 
-1. Client requests a chat token from the game API endpoint (e.g., `POST /api/v1/chat/token`).
-2. The API returns an `FFWChatTokenResponse` containing the JWT token, server URL, and expiration.
-3. Client calls `ConnectWithTokenResponse()` to connect and authenticate in a single step.
+1. Your game client obtains a chat token from your game API.
+2. The token response contains an authentication token, server URL, and expiration.
+3. Call `ConnectWithTokenResponse()` to connect and authenticate in a single step.
 
 ---
 
@@ -110,25 +112,13 @@ The chat transport authenticates using JWT tokens obtained from the game's API:
 
 ---
 
-## Module Dependencies
-
-```csharp title="FWChatSystem.Build.cs"
-// Public
-Core, CoreUObject, Engine, SocketIOClient, SIOJson
-
-// Private
-NetCore
-```
-
----
-
 ## Next Steps
 
 <div class="grid cards" markdown>
 
 - [Installation](installation.md) -- Enable the plugin and configure SocketIOClient
 - [Quick Start](quick-start.md) -- Get chat running in under 10 minutes
-- [API Reference](api-reference.md) -- Full C++ class and method documentation
+- [API Reference](api-reference.md) -- Component, struct, and enum documentation
 - [Blueprints](blueprints.md) -- Blueprint node reference
 - [Configuration](configuration.md) -- Chat config, reconnection, and history settings
 - [Tutorials](tutorials.md) -- Build a complete MMO chat UI

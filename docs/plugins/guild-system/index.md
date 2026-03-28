@@ -1,6 +1,6 @@
 ---
 title: FWGuildSystem Plugin
-description: Full-featured guild system with ranks, permissions, invitations, and HTTP API integration for Unreal Engine 5.
+description: Full-featured guild system with ranks, permissions, invitations, and backend integration for Unreal Engine 5.
 tags:
   - plugin
   - guild
@@ -10,9 +10,9 @@ tags:
 
 # FWGuildSystem Plugin
 
-**Version:** 1.0 | **Module:** `FWGuildSystem` | **Type:** Runtime
+**Module:** `FWGuildSystem` | **Type:** Runtime
 
-A comprehensive guild system plugin for Unreal Engine 5 that provides guild creation, rank hierarchies with granular permissions, member management, invitation workflows, audit logging, and HTTP API integration for backend persistence.
+A comprehensive guild system plugin for Unreal Engine 5 that provides guild creation, rank hierarchies with granular permissions, member management, invitation workflows, audit logging, and backend persistence.
 
 ---
 
@@ -25,7 +25,7 @@ A comprehensive guild system plugin for Unreal Engine 5 that provides guild crea
 | Member Management | Invite, kick, promote, and demote guild members |
 | Invitation Workflow | Send, accept, decline, and expire invitations |
 | Audit Logging | Track all guild operations with timestamps and actor info |
-| HTTP API Integration | Full backend persistence via REST endpoints |
+| Backend Integration | Full backend persistence via the Guild Manager Component |
 | Chat Integration | Optional sync with FWChatSystem for guild channels |
 | Blueprint Support | All operations exposed to Blueprint via callable functions and delegates |
 
@@ -42,19 +42,13 @@ A comprehensive guild system plugin for Unreal Engine 5 that provides guild crea
 
 ---
 
-## Plugin Architecture
+## Components
 
-```
-FWGuildSystem
-├── Components/
-│   ├── UFWGuildManagerComponent      // Blueprint-facing guild operations
-│   ├── UFWGuildStateComponent        // Local guild state cache
-│   └── UFWGuildChatIntegrationComponent  // Optional chat bridge
-├── Types/
-│   └── FWGuildTypes.h                // Enums, structs, bitmasks
-└── Utils/
-    └── FFWGuildTypeUtils             // Static helper functions
-```
+| Component | Purpose |
+|---|---|
+| **UFWGuildManagerComponent** | Primary Blueprint-facing API for all guild operations: configuration, guild lifecycle, member management, invitations, rank management, and audit log retrieval |
+| **UFWGuildStateComponent** | Read-only local cache of guild state. Provides guild queries, member queries, permission checks, rank queries, and state-change events |
+| **UFWGuildChatIntegrationComponent** | Optional bridge between the guild system and FWChatSystem for real-time guild chat events |
 
 ---
 
@@ -64,7 +58,7 @@ FWGuildSystem
 
 In your `.uproject` file or via the Plugin Manager, enable `FWGuildSystem`.
 
-### 2. Add Components to Your Player Controller or Pawn
+### 2. Add Components to Your Player Controller
 
 ```cpp
 UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Guild")
@@ -74,7 +68,16 @@ UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Guild")
 TObjectPtr<UFWGuildStateComponent> GuildState;
 ```
 
-### 3. Create a Guild
+### 3. Configure the Manager
+
+```cpp
+GuildManager->SetApiBaseUrl(TEXT("https://your-api.example.com"));
+GuildManager->SetAuthToken(AuthToken);
+GuildManager->SetLocalPlayerId(PlayerId);
+GuildManager->SetGuildStateComponent(GuildState);
+```
+
+### 4. Create a Guild
 
 === "C++"
 
@@ -87,33 +90,47 @@ TObjectPtr<UFWGuildStateComponent> GuildState;
 
     Call **Create Guild** on the Guild Manager Component, then bind the **On Guild Created** event to handle the result.
 
-### 4. Configure Rank Permissions
+---
 
-```cpp
-FFWGuildRank OfficerRank;
-OfficerRank.Name = TEXT("Officer");
-OfficerRank.Permissions = static_cast<uint8>(
-    EFWGuildPermission::Invite |
-    EFWGuildPermission::Kick |
-    EFWGuildPermission::ViewAuditLog
-);
-```
+## Permissions System
+
+FWGuildSystem uses a bitmask-based permission model. Each rank holds a `uint8` permissions field where individual bits map to specific abilities.
+
+| Permission | Value | Description |
+|---|---|---|
+| None | 0 | No permissions |
+| Invite | 1 | Can send guild invitations |
+| Kick | 2 | Can remove members |
+| Promote | 4 | Can promote members |
+| Demote | 8 | Can demote members |
+| EditInfo | 16 | Can edit guild name and description |
+| EditRanks | 32 | Can modify rank hierarchy |
+| Disband | 64 | Can disband the guild |
+| ViewAuditLog | 128 | Can view the guild audit log |
+
+Combine permissions with bitwise OR. For example, an Officer rank with Invite, Kick, and ViewAuditLog would have a permissions value of `1 | 2 | 128 = 131`.
 
 ---
 
-## File Reference
+## Core Types
+
+| Type | Kind | Description |
+|---|---|---|
+| `FFWGuildInfo` | Struct | Basic guild summary (ID, name, member count) |
+| `FFWGuildRank` | Struct | Rank definition with name, priority, and permissions bitmask |
+| `FFWGuildMember` | Struct | Member data including player ID, display name, rank, and join date |
+| `FFWGuildInvitation` | Struct | Invitation record with sender, target, status, and expiry |
+| `FFWGuildDetails` | Struct | Full guild data including info, ranks, members, and metadata |
+| `EFWGuildOperationResult` | Enum | Result codes for all guild operations (Success, NotInGuild, InsufficientPermission, etc.) |
+| `EFWGuildUpdateType` | Enum | Identifies which aspect of guild state changed |
+
+---
+
+## Page Reference
 
 | Page | Description |
 |---|---|
-| [Guild Manager Component](guild-manager-component.md) | Primary API for all guild operations |
-| [Guild State Component](guild-state-component.md) | Local state management and caching |
-| [Chat Integration Component](chat-integration-component.md) | Optional FWChatSystem bridge |
-| [Types Reference](types.md) | Enums, structs, and bitmask definitions |
-| [API Reference](api-reference.md) | Complete function and delegate reference |
-| [Configuration](configuration.md) | Plugin settings and project configuration |
-| [Events and Delegates](events-delegates.md) | All multicast delegates and event types |
-| [Permissions Guide](permissions.md) | Rank permission system deep dive |
-| [Tutorial: Setting Up a Guild System](tutorial.md) | Step-by-step implementation guide |
+| [API Reference](api-reference.md) | Complete function, property, and delegate reference |
 
 ---
 
@@ -126,4 +143,4 @@ OfficerRank.Permissions = static_cast<uint8>(
 | UE 5.2 and below | Not tested |
 
 !!! warning "Dedicated Server"
-    Guild operations that communicate with the HTTP API should only execute on the server or in a client-authoritative context with proper validation. The `UFWGuildManagerComponent` handles authority checks internally when used on replicated actors.
+    Guild operations that communicate with the backend should only execute on the server or in a client-authoritative context with proper validation. The `UFWGuildManagerComponent` handles authority checks internally when used on replicated actors.

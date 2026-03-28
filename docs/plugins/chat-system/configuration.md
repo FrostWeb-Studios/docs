@@ -153,17 +153,9 @@ The transport component accepts two connection methods:
 !!! info "Token Refresh"
     FWChatSystem does not automatically refresh expired tokens. Monitor `OnConnectionStateChanged` for the `Failed` state and request a new token from your API before reconnecting.
 
-### External Socket.IO Client
+### Built-in Socket.IO Client
 
-By default, the transport creates its own internal `USocketIOClientComponent`. If you need the Socket.IO client to be created as a default subobject on an Actor for proper lifecycle management, create it externally and pass it in:
-
-```cpp
-// In your Actor's constructor
-SocketIOClient = CreateDefaultSubobject<USocketIOClientComponent>(TEXT("SocketIO"));
-
-// In BeginPlay
-ChatTransport->SetSocketIOClient(SocketIOClient);
-```
+The transport component uses FWChatSystem's built-in lightweight Socket.IO v4 client, which is implemented on top of UE5's native WebSocket module. No external Socket.IO plugin is needed. The client is created and managed internally by the transport component.
 
 ---
 

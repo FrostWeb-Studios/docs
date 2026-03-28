@@ -86,7 +86,7 @@ FWAISystem ──────── FWFactionSystem
     :
 FWGASSystem
 
-FWChatSystem ────── SocketIOClient (third-party)
+FWChatSystem           (no external dependencies)
 
 FWGuildSystem - - - FWChatSystem (optional)
 
@@ -97,7 +97,6 @@ FWInventorySystem ── GameplayAbilities
 FWSkillSystem
 
 FWPartySystem ────── OnlineSubsystem
-                  ── SocketIOClient (third-party)
 
 FWQuestSystem ────── GameplayAbilities
 
@@ -117,14 +116,14 @@ FWFactionSystem        (no external dependencies)
     | Plugin | Hard Dependencies | Optional Dependencies |
     |---|---|---|
     | FWAISystem | FWFactionSystem | FWGASSystem |
-    | FWChatSystem | SocketIOClient | -- |
+    | FWChatSystem | -- | -- |
     | FWCustomizationSystem | -- | -- |
     | FWDialogueSystem | -- | -- |
     | FWFactionSystem | -- | -- |
     | FWGASSystem | GameplayAbilities, ModularGameplay, GameFeatures, EnhancedInput | -- |
     | FWGuildSystem | -- | FWChatSystem |
     | FWInventorySystem | GameplayAbilities | FWSkillSystem |
-    | FWPartySystem | OnlineSubsystem, SocketIOClient | -- |
+    | FWPartySystem | OnlineSubsystem | -- |
     | FWQuestSystem | GameplayAbilities | -- |
     | FWSkillSystem | GameplayAbilities | -- |
 

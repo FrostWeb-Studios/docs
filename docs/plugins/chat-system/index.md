@@ -13,7 +13,7 @@ FWChatSystem provides a complete in-game chat framework built for multiplayer an
 ## Features
 
 - **Multi-Channel Chat** -- Local (say), Party, Guild, Whisper, System, Global, and Emote channels with independent history and unread tracking.
-- **Socket.IO Transport** -- WebSocket-based real-time messaging via the SocketIOClient plugin. Supports automatic reconnection with exponential backoff.
+- **Socket.IO Transport** -- WebSocket-based real-time messaging via a built-in lightweight Socket.IO v4 client using UE5's native WebSockets. No external plugin required. Supports automatic reconnection with exponential backoff.
 - **Slash Commands** -- Built-in command parser for `/w` (whisper), `/r` (reply), `/p` (party), `/g` (guild), `/s` (say), `/gl` (global), `/e` (emote), and `/help`.
 - **State Management** -- Per-channel message history with configurable ring buffers, unread counts, and player name caching.
 - **Presence System** -- Player zone and position tracking with periodic updates for "players nearby" and "friends online" features.
@@ -38,8 +38,8 @@ FWChatSystem uses a **three independent components** pattern. Each component has
               |            |            |
               +-----+------+            |
                     |                   |
-              Slash Commands      Socket.IO Client
-              Channel Routing     (SocketIOClient Plugin)
+              Slash Commands      Built-in Socket.IO v4 Client
+              Channel Routing     (UE5 Native WebSockets)
               Validation               |
                                   Chat Server
                                   (Socket.IO)
@@ -106,9 +106,7 @@ The chat transport uses token-based authentication to connect to the chat server
 
 ## Plugin Dependencies
 
-| Plugin | Required | Purpose |
-|--------|:--------:|---------|
-| SocketIOClient | Yes | Socket.IO WebSocket client for real-time communication |
+FWChatSystem has no external plugin dependencies. It includes a built-in lightweight Socket.IO v4 client implemented on top of UE5's native WebSocket module.
 
 ---
 
@@ -116,7 +114,7 @@ The chat transport uses token-based authentication to connect to the chat server
 
 <div class="grid cards" markdown>
 
-- [Installation](installation.md) -- Enable the plugin and configure SocketIOClient
+- [Installation](installation.md) -- Enable the plugin and add module dependencies
 - [Quick Start](quick-start.md) -- Get chat running in under 10 minutes
 - [API Reference](api-reference.md) -- Component, struct, and enum documentation
 - [Blueprints](blueprints.md) -- Blueprint node reference

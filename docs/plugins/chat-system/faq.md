@@ -10,7 +10,7 @@ title: FAQ - FWChatSystem
 
 ### What protocol does FWChatSystem use?
 
-FWChatSystem uses Socket.IO over WebSockets for real-time bidirectional communication. Socket.IO handles transport negotiation, automatic reconnection, and event-based messaging. The underlying WebSocket connection is managed by the SocketIOClient plugin.
+FWChatSystem uses Socket.IO over WebSockets for real-time bidirectional communication. Socket.IO handles transport negotiation, automatic reconnection, and event-based messaging. The plugin includes a built-in lightweight Socket.IO v4 client implemented on top of UE5's native WebSocket module -- no external plugin is required.
 
 ### What happens if the connection drops?
 
@@ -26,7 +26,7 @@ No. FWChatSystem does not automatically refresh expired JWT tokens. Monitor the 
 
 ### Can I use a custom Socket.IO client component?
 
-Yes. Call `SetSocketIOClient()` on the transport component to provide an externally created `USocketIOClientComponent`. This is useful when the Socket.IO client needs to be created via `CreateDefaultSubobject` on an Actor for proper lifecycle initialization.
+FWChatSystem uses its own built-in Socket.IO v4 client by default. If you need to customize connection behavior, configure the transport component's connection settings (server URL, auth token, reconnection parameters) through its public API rather than replacing the client.
 
 ### Can I use FWChatSystem without a Socket.IO server?
 

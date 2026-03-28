@@ -40,7 +40,6 @@ A production-ready, beacon-based party system for Unreal Engine 5 that persists 
 |---|---|---|
 | `OnlineSubsystem` | **Required** | Provides unique net ID resolution for party members |
 | `OnlineSubsystemUtils` | **Required** | Utility functions for online identity handling |
-| `SocketIOClient` | **Required** | Used for real-time party event synchronization |
 | `FWChatSystem` | **Optional** | Enables automatic party chat channel creation and teardown |
 
 !!! info "Optional Chat Integration"

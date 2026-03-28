@@ -11,8 +11,7 @@ Get a working in-game chat system running in under 10 minutes.
 ## Prerequisites
 
 - FWChatSystem plugin [installed and enabled](installation.md)
-- SocketIOClient plugin installed and enabled
-- A running Socket.IO chat server to connect to
+- A running Socket.IO chat server to connect to (the plugin includes a built-in Socket.IO v4 client)
 - A Player Controller class for your game
 
 ---

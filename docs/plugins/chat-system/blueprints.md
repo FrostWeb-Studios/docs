@@ -359,7 +359,7 @@ Connect With Token Response
 | Node | Type | Description |
 |------|------|-------------|
 | **Set Chat State Component** | Callable | Auto-forward messages to state |
-| **Set Socket IO Client** | Callable | Use external Socket.IO client |
+| **Set Socket IO Client** | Callable | Provide a pre-configured built-in Socket.IO client |
 
 ### Event Dispatchers
 

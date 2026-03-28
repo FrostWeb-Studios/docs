@@ -16,7 +16,6 @@ This page covers how to install and enable FWPartySystem in your Unreal Engine 5
 | Unreal Engine | 5.3 or later |
 | Project Type | C++ (Blueprint-only projects are not supported) |
 | OnlineSubsystem | Any configured OSS (Null, Steam, EOS, etc.) |
-| SocketIOClient | Plugin must be installed and enabled |
 
 !!! note "OnlineSubsystem Configuration"
     FWPartySystem requires an active OnlineSubsystem for unique player identity resolution. For local development and testing, `OnlineSubsystemNull` is sufficient. For production, configure your target platform's OSS (Steam, EOS, etc.).
@@ -55,10 +54,6 @@ Add the plugin and its dependencies to your `.uproject` file:
         },
         {
             "Name": "OnlineSubsystemUtils",
-            "Enabled": true
-        },
-        {
-            "Name": "SocketIOClient",
             "Enabled": true
         }
     ]
@@ -127,7 +122,7 @@ LogModuleManager: Loading module FWPartySystem
     If the module fails to load:
 
     - Verify the plugin folder name matches `FWPartySystem` exactly.
-    - Confirm `OnlineSubsystem`, `OnlineSubsystemUtils`, and `SocketIOClient` are all enabled.
+    - Confirm `OnlineSubsystem` and `OnlineSubsystemUtils` are both enabled.
     - Regenerate project files and perform a full rebuild.
     - Check the Output Log for unresolved symbol errors, which typically indicate a missing `Build.cs` dependency.
 

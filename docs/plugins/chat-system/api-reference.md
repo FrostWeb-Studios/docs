@@ -218,7 +218,7 @@ Socket.IO WebSocket transport layer. Handles connection, authentication, message
 | Method | Returns | Description |
 |--------|---------|-------------|
 | `SetChatStateComponent(StateComponent)` | `void` | Sets the chat state component for automatic message forwarding |
-| `SetSocketIOClient(ClientComponent)` | `void` | Sets an external Socket.IO client component instead of creating one internally |
+| `SetSocketIOClient(ClientComponent)` | `void` | Sets a pre-configured built-in Socket.IO client instead of creating one internally |
 | `SetGuildProvider(Provider)` | `void` | Sets the guild provider interface for receiving guild updates (C++ only) |
 
 #### Events

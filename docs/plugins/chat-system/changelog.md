@@ -14,7 +14,7 @@ All notable changes to FWChatSystem are documented in this file.
 
 - **UFWChatStateComponent** -- Local chat state management with per-channel message history ring buffers, unread count tracking, player name caching with configurable TTL, whisper reply target tracking, party info storage, and player presence caching.
 - **UFWChatRouterComponent** -- Chat input entry point with slash command parsing (`/s`, `/p`, `/g`, `/w`, `/r`, `/e`, `/help`), channel-based message routing, input validation, default channel management, and local system/error message injection.
-- **UFWSocketIOChatTransportComponent** -- Socket.IO WebSocket transport layer with JWT authentication, automatic reconnection with exponential backoff, per-channel message sending (local, global, whisper, party, guild, emote), presence updates, party room sync/leave, guild room sync/leave, DM conversations, and configurable external Socket.IO client support.
+- **UFWSocketIOChatTransportComponent** -- Socket.IO WebSocket transport layer with a built-in lightweight Socket.IO v4 client using UE5's native WebSockets module, JWT authentication, automatic reconnection with exponential backoff, per-channel message sending (local, global, whisper, party, guild, emote), presence updates, party room sync/leave, guild room sync/leave, and DM conversations.
 
 ### Interfaces
 
@@ -86,4 +86,4 @@ All notable changes to FWChatSystem are documented in this file.
 - Multi-window chat support via IFWChatUIController interface
 - Input mode management (GameOnly/GameAndUI switching)
 - Local system and error message injection
-- External Socket.IO client support for custom lifecycle management
+- Built-in lightweight Socket.IO v4 client using UE5's native WebSockets module (no external plugin required)

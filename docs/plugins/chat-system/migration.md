@@ -20,7 +20,7 @@ When upgrading FWChatSystem to a future version, follow these steps:
 
 1. **Back up your project.** Create a full backup or ensure your changes are committed to version control before upgrading.
 2. **Review the [Changelog](changelog.md)** for the target version. Pay attention to any breaking changes, deprecated APIs, or renamed classes.
-3. **Check plugin dependencies.** If a new version requires a newer version of SocketIOClient, upgrade that plugin first.
+3. **Check plugin dependencies.** Review the changelog for any changes to engine module requirements.
 
 ### Upgrade Process
 
@@ -70,6 +70,6 @@ If the chat server protocol changes:
 
 ## Version Compatibility Matrix
 
-| FWChatSystem | Unreal Engine | SocketIOClient |
-|:------------:|:-------------:|:--------------:|
-| 1.0 | 5.4+ | 2.0+ |
+| FWChatSystem | Unreal Engine |
+|:------------:|:-------------:|
+| 1.0 | 5.4+ |

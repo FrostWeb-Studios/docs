@@ -13,14 +13,14 @@ FrostWeb provides 11 Unreal Engine 5 plugins, each targeting a specific game sys
 | Plugin | Description | Dependencies |
 |---|---|---|
 | [FWAISystem](ai-system/) | MMO-style NPC behavior: threat tables, leashing, patrol, spawning, instance scaling | FWFactionSystem; optionally FWGASSystem |
-| [FWChatSystem](chat-system/) | Socket.IO chat with channels, party/guild chat, whisper, and presence | SocketIOClient |
+| [FWChatSystem](chat-system/) | Socket.IO chat with channels, party/guild chat, whisper, and presence | -- |
 | [FWCustomizationSystem](customization-system/) | Character customization: race/gender, skin tones, hair, tattoos, DMI materials | None |
 | [FWDialogueSystem](dialogue-system/) | Data-driven dialogue trees with conditions, actions, and NPC conversations | None |
 | [FWFactionSystem](faction-system/) | Dynamic faction reputation with AI integration and configurable persistence | None |
 | [FWGASSystem](gas-system/) | Integrated Gameplay Ability System framework with combos, queuing, and modular gameplay | GameplayAbilities, ModularGameplay, GameFeatures, EnhancedInput |
 | [FWGuildSystem](guild-system/) | Full guild management: ranks, permissions, invitations, HTTP API integration | Optionally FWChatSystem |
 | [FWInventorySystem](inventory-system/) | Inventory, equipment, crafting, vendors with RNG affixes and augmentation | GameplayAbilities; optionally FWSkillSystem |
-| [FWPartySystem](party-system/) | Beacon-based party system with invitations, join codes, and level transfer persistence | OnlineSubsystem, SocketIOClient |
+| [FWPartySystem](party-system/) | Beacon-based party system with invitations, join codes, and level transfer persistence | OnlineSubsystem |
 | [FWQuestSystem](quest-system/) | Modular quest system: tasks, conditions, rewards, party support, daily/weekly resets | GameplayAbilities |
 | [FWSkillSystem](skill-system/) | Skill progression system: 15 skills, XP curves, milestones, skill-gated content | GameplayAbilities |
 

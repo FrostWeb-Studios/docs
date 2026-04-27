@@ -3,7 +3,8 @@ name: Deploy Documentation
 on:
   push:
     branches:
-      - main
+      - LIVE
+  workflow_dispatch:
 
 permissions:
   contents: write

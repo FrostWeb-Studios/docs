@@ -1,0 +1,29 @@
+name: Security
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: "27 4 * * 1"
+
+permissions:
+  contents: read
+
+# CodeQL omitted: CodeQL has no first-party support for this repo's language.
+# Gitleaks + dependency review still apply.
+jobs:
+  secret-scan:
+    permissions:
+      contents: read
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-gitleaks.yml@main
+
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@main
+    with:
+      fail-on-severity: high

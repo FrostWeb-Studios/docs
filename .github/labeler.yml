@@ -1,0 +1,58 @@
+# Default org-wide labeler config — applies labels based on changed paths.
+# Override per-repo as needed.
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.md"
+          - "docs/**"
+          - "README*"
+          - "CONTRIBUTING*"
+          - "CODE_OF_CONDUCT*"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+          - ".github/dependabot.yml"
+          - "Dockerfile*"
+          - "**/Dockerfile*"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/package.json"
+          - "**/package-lock.json"
+          - "**/go.mod"
+          - "**/go.sum"
+          - "**/composer.json"
+          - "**/composer.lock"
+          - "**/Gemfile"
+          - "**/Gemfile.lock"
+
+go:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.go"
+          - "**/go.mod"
+
+npm:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.ts"
+          - "**/*.tsx"
+          - "**/*.js"
+          - "**/*.jsx"
+          - "**/package.json"
+
+php:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.php"
+          - "**/composer.json"
+
+ruby:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.rb"
+          - "**/Gemfile"

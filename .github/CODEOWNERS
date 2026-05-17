@@ -1,2 +1,3 @@
 # Default ownership for FrostWeb Studios repositories.
-* @FrostWeb-Studios/maintainers
+# @maintainers is on every rule so admins can always satisfy code-owner review.
+* @FrostWeb-Studios/community @FrostWeb-Studios/maintainers

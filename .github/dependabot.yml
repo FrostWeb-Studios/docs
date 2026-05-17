@@ -1,0 +1,15 @@
+# Synced from FrostWeb-Studios/.github workflow-templates/frostweb-dependabot.yml
+# Grouping bundles minor + patch updates into one PR per ecosystem per week.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels: [dependencies, ci]
+    open-pull-requests-limit: 5
+    groups:
+      ci-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      # major bumps stay as individual PRs (riskier, review separately)

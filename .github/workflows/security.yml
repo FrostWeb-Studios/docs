@@ -17,13 +17,13 @@ jobs:
   secret-scan:
     permissions:
       contents: read
-    uses: FrostWeb-Studios/.github/.github/workflows/reusable-gitleaks.yml@a703743f414d3c6a0137bf6c689475d2f9b10606 # v1
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-gitleaks.yml@48fce465455790ee70ec74339b41a2adeca86806 # v1
 
   dependency-review:
     if: github.event_name == 'pull_request'
     permissions:
       contents: read
       pull-requests: write
-    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@a703743f414d3c6a0137bf6c689475d2f9b10606 # v1
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@48fce465455790ee70ec74339b41a2adeca86806 # v1
     with:
       fail-on-severity: high

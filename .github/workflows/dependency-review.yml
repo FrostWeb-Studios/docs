@@ -1,0 +1,32 @@
+name: Dependency Review
+
+# PR-only supply-chain check. Cheap (~30-60s) and catches vulnerable
+# transitive deps being added in a PR. Codeql/gitleaks moved to a weekly
+# schedule in security.yml, but dependency-review still belongs here
+# because PR time is when new dependencies are introduced.
+
+on:
+  pull_request:
+    branches: [master, main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'LICENSE*'
+      - '.gitignore'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: dep-review-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@0c9ded516572a76447533bb6a1dcc5f0551a0c5f # v1
+    with:
+      fail-on-severity: high

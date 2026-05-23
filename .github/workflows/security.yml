@@ -1,29 +1,25 @@
 name: Security
 
+# Weekly + manual only. PR-time dependency-review is in its own file
+# (dependency-review.yml). Gitleaks moved off PR triggers — the weekly
+# schedule catches the same things without taxing every PR.
+
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
   schedule:
     - cron: "27 4 * * 1"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
-# CodeQL omitted: CodeQL has no first-party support for this repo's language.
-# Gitleaks + dependency review still apply.
+concurrency:
+  group: security-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+# CodeQL omitted: this repo's language isn't supported by the upstream
+# CodeQL action. Gitleaks still applies.
 jobs:
   secret-scan:
     permissions:
       contents: read
     uses: FrostWeb-Studios/.github/.github/workflows/reusable-gitleaks.yml@0c9ded516572a76447533bb6a1dcc5f0551a0c5f # v1
-
-  dependency-review:
-    if: github.event_name == 'pull_request'
-    permissions:
-      contents: read
-      pull-requests: write
-    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@0c9ded516572a76447533bb6a1dcc5f0551a0c5f # v1
-    with:
-      fail-on-severity: high

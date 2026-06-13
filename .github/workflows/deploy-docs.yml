@@ -8,6 +8,10 @@ on:
 
 permissions:
   contents: write
+  # pages: write and id-token: write are intentionally absent:
+  # mike deploy --push writes to the gh-pages git branch directly,
+  # so only contents: write is required. id-token: write (OIDC)
+  # is only needed for the actions/deploy-pages flow, which is not used here.
 
 jobs:
   deploy:

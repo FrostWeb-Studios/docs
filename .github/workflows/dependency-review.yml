@@ -13,6 +13,8 @@ on:
       - 'docs/**'
       - 'LICENSE*'
       - '.gitignore'
+      # requirements.txt is intentionally NOT excluded — pip Dependabot PRs
+      # must pass this check before merging.
 
 permissions:
   contents: read

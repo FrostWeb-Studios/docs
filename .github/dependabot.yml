@@ -13,3 +13,17 @@ updates:
         patterns: ["*"]
         update-types: ["minor", "patch"]
       # major bumps stay as individual PRs (riskier, review separately)
+
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    versioning-strategy: increase  # bump minimum to match the latest compatible version
+    open-pull-requests-limit: 3
+    labels: [dependencies]
+    groups:
+      pip-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      # major bumps stay as individual PRs

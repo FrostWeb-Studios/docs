@@ -13,6 +13,8 @@ on:
       - 'docs/**'
       - 'LICENSE*'
       - '.gitignore'
+      # requirements.txt is intentionally NOT excluded — pip Dependabot PRs
+      # must pass this check before merging.
 
 permissions:
   contents: read
@@ -24,6 +26,10 @@ concurrency:
 
 jobs:
   review:
+    # Requires GHAS (dependency graph). Without it the action errors with
+    # "Dependency review is not supported on this repository." continue-on-error
+    # keeps the job advisory until GHAS is enabled at the repo/org level.
+    continue-on-error: true
     permissions:
       contents: read
       pull-requests: write

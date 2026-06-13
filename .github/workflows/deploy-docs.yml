@@ -8,8 +8,8 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
+  pages: write      # required for GitHub Pages OIDC deployment
+  id-token: write   # required for OIDC token to authenticate with Pages
 
 jobs:
   deploy:

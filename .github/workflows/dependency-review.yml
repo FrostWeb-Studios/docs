@@ -33,6 +33,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@0c9ded516572a76447533bb6a1dcc5f0551a0c5f # v1
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@1d9b0a001d985e3613a6949c3cd491124a040dce # v1
     with:
       fail-on-severity: high

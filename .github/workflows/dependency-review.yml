@@ -26,6 +26,7 @@ concurrency:
 
 jobs:
   review:
+    continue-on-error: true  # reusable wf detects private repos need GHAS but doesn't apply continue-on-error to the step itself
     permissions:
       contents: read
       pull-requests: write

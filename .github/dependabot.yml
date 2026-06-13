@@ -13,3 +13,14 @@ updates:
         patterns: ["*"]
         update-types: ["minor", "patch"]
       # major bumps stay as individual PRs (riskier, review separately)
+
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels: [dependencies]
+    groups:
+      pip-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      # major bumps stay as individual PRs

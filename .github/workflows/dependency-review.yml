@@ -26,10 +26,8 @@ concurrency:
 
 jobs:
   review:
-    # Private repo without GHAS — dependency graph is unavailable, so the
-    # action always errors. continue-on-error keeps the PR unblocked while
-    # still surfacing the result as an annotation.
-    continue-on-error: true
+    # Requires GHAS (dependency graph). Without it the action errors; enable
+    # GHAS at the repo/org level before merging workflows that depend on this.
     permissions:
       contents: read
       pull-requests: write

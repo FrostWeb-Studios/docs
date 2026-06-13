@@ -8,11 +8,8 @@ on:
 
 permissions:
   contents: write
-  # NOTE: pages: write and id-token: write are NOT included here.
-  # This workflow uses "mike deploy --push" which writes directly to the
-  # gh-pages git branch and only needs contents: write. Those two permissions
-  # are only required for the actions/deploy-pages + actions/configure-pages
-  # flow, which this workflow does not use.
+  pages: write      # required for GitHub Pages OIDC deployment
+  id-token: write   # required for OIDC token to authenticate with Pages
 
 jobs:
   deploy:

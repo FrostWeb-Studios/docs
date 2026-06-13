@@ -26,11 +26,10 @@ concurrency:
 
 jobs:
   review:
-    # continue-on-error is intentionally absent: this job must be able to fail
-    # so it can be used as a required branch-protection check for pip Dependabot PRs.
-    # Private repos without GHAS will see the reusable workflow emit a notice and
-    # exit non-zero; those repos should add continue-on-error: true locally if
-    # they want to suppress that failure.
+    # Private repo without GHAS — dependency graph is unavailable, so the
+    # action always errors. continue-on-error keeps the PR unblocked while
+    # still surfacing the result as an annotation.
+    continue-on-error: true
     permissions:
       contents: read
       pull-requests: write

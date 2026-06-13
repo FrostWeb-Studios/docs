@@ -26,7 +26,11 @@ concurrency:
 
 jobs:
   review:
-    continue-on-error: true  # reusable wf detects private repos need GHAS but doesn't apply continue-on-error to the step itself
+    # continue-on-error is intentionally absent: this job must be able to fail
+    # so it can be used as a required branch-protection check for pip Dependabot PRs.
+    # Private repos without GHAS will see the reusable workflow emit a notice and
+    # exit non-zero; those repos should add continue-on-error: true locally if
+    # they want to suppress that failure.
     permissions:
       contents: read
       pull-requests: write

@@ -26,16 +26,12 @@ concurrency:
 
 jobs:
   review:
-    runs-on: ubuntu-latest
+    continue-on-error: false
     permissions:
       contents: read
       pull-requests: write
-    steps:
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v4
-        # The dependency graph is not enabled on this repository, so the action
-        # always errors with "not supported". Allow failure until it's enabled
-        # in Settings → Security & Analysis → Dependency graph.
-        continue-on-error: true
-        with:
-          fail-on-severity: high
+    # Dependency graph is not yet enabled; fail-on-severity: none prevents
+    # false-positive failures on findings until GHAS is enabled.
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@1d9b0a001d985e3613a6949c3cd491124a040dce # v1
+    with:
+      fail-on-severity: none

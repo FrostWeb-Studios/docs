@@ -26,10 +26,9 @@ concurrency:
 
 jobs:
   review:
-    # Requires GHAS (dependency graph). Without it the action errors with
-    # "Dependency review is not supported on this repository." continue-on-error
-    # keeps the job advisory until GHAS is enabled at the repo/org level.
-    continue-on-error: true
+    # Requires GHAS (dependency graph). The reusable workflow handles the
+    # "not supported on this repository" case via continue-on-error keyed
+    # off the PR base repo visibility (private repos skip the failure).
     permissions:
       contents: read
       pull-requests: write

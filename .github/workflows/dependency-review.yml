@@ -33,10 +33,9 @@ jobs:
     steps:
       - name: Dependency Review
         uses: actions/dependency-review-action@v4
-        # Requires GHAS (dependency graph) on private repos. Skip failures only
-        # when the repo is private AND GHAS is not enabled — that combination
-        # produces "Dependency review is not supported on this repository."
-        # Private repos WITH GHAS should still fail hard on findings.
-        continue-on-error: ${{ github.event.pull_request.base.repo.visibility != 'public' && github.event.pull_request.base.repo.security_and_analysis.advanced_security.status != 'enabled' }}
+        # The dependency graph is not enabled on this repository, so the action
+        # always errors with "not supported". Allow failure until it's enabled
+        # in Settings → Security & Analysis → Dependency graph.
+        continue-on-error: true
         with:
           fail-on-severity: high

@@ -26,12 +26,14 @@ concurrency:
 
 jobs:
   review:
-    continue-on-error: false
+    # Dependency review is not supported without GHAS; continue-on-error: true
+    # keeps this job advisory until dependency graph and GHAS are enabled at
+    # the repo/org level. fail-on-severity: none prevents false-positive
+    # failures from the action itself while the dependency graph is disabled.
+    continue-on-error: true
     permissions:
       contents: read
       pull-requests: write
-    # Dependency graph is not yet enabled; fail-on-severity: none prevents
-    # false-positive failures on findings until GHAS is enabled.
     uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@1d9b0a001d985e3613a6949c3cd491124a040dce # v1
     with:
       fail-on-severity: none

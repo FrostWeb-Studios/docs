@@ -26,11 +26,9 @@ concurrency:
 
 jobs:
   review:
-    # Dependency review is not supported without GHAS; continue-on-error: true
-    # keeps this job advisory until dependency graph and GHAS are enabled at
-    # the repo/org level. fail-on-severity: none prevents false-positive
-    # failures from the action itself while the dependency graph is disabled.
-    continue-on-error: true
+    # fail-on-severity: none (below) prevents false-positive failures from the
+    # action itself while the dependency graph is disabled. continue-on-error
+    # is NOT supported on reusable-workflow caller jobs and must not be used here.
     permissions:
       contents: read
       pull-requests: write

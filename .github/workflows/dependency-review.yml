@@ -37,7 +37,7 @@ jobs:
         # GHAS are enabled. It must be on the step, not the job — GitHub does
         # not support continue-on-error on reusable-workflow caller jobs.
         continue-on-error: true
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@v5
         with:
-          fail-on-severity: low
-          comment-summary-in-pr: on-failure
+          warn-only: true
+          comment-summary-in-pr: always

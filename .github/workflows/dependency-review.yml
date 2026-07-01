@@ -26,12 +26,14 @@ concurrency:
 
 jobs:
   review:
-    # Dependency review is not supported without GHAS; fail-on-severity: none
-    # keeps this job advisory until the dependency graph and GHAS are enabled
-    # at the repo/org level.
+    # Dependency review is not supported without GHAS; use the lowest valid
+    # severity threshold (low) so the job is advisory until the dependency
+    # graph and GHAS are enabled at the repo/org level. Without GHAS the
+    # action finds no vulnerabilities and always passes regardless of this
+    # setting. ("none" was removed as a valid value in dependency-review-action v4.)
     permissions:
       contents: read
       pull-requests: write
     uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@1d9b0a001d985e3613a6949c3cd491124a040dce # v1
     with:
-      fail-on-severity: none
+      fail-on-severity: low

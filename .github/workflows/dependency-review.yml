@@ -19,7 +19,6 @@ on:
 permissions:
   contents: read
   pull-requests: write
-  security-events: write
 
 concurrency:
   group: dep-review-${{ github.workflow }}-${{ github.ref }}
@@ -28,17 +27,9 @@ concurrency:
 jobs:
   review:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-      security-events: write
     steps:
       - uses: actions/checkout@v7
       - name: Dependency Review
-        # continue-on-error keeps this advisory until the dependency graph and
-        # GHAS are enabled. It must be on the step, not the job — GitHub does
-        # not support continue-on-error on reusable-workflow caller jobs.
-        continue-on-error: true
         uses: actions/dependency-review-action@v5
         with:
           warn-only: true

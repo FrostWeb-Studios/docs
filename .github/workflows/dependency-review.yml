@@ -19,6 +19,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  security-events: write
 
 concurrency:
   group: dep-review-${{ github.workflow }}-${{ github.ref }}
@@ -30,6 +31,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      security-events: write
     steps:
       - uses: actions/checkout@v7
       - name: Dependency Review

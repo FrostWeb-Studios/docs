@@ -26,14 +26,17 @@ concurrency:
 
 jobs:
   review:
-    # Dependency review is not supported without GHAS; continue-on-error: true
-    # keeps this job advisory until dependency graph and GHAS are enabled at
-    # the repo/org level. fail-on-severity: none prevents false-positive
-    # failures from the action itself while the dependency graph is disabled.
-    continue-on-error: true
-    permissions:
-      contents: read
-      pull-requests: write
-    uses: FrostWeb-Studios/.github/.github/workflows/reusable-dependency-review.yml@1d9b0a001d985e3613a6949c3cd491124a040dce # v1
-    with:
-      fail-on-severity: none
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Dependency Review
+        # continue-on-error is required because warn-only only suppresses
+        # vulnerability findings — it does NOT suppress the hard "Dependency
+        # review is not supported on this repository" error that fires when
+        # the dependency graph is disabled. Must be on the step, not the job:
+        # GitHub rejects continue-on-error on reusable-workflow caller jobs.
+        continue-on-error: true
+        uses: actions/dependency-review-action@v5
+        with:
+          warn-only: true
+          comment-summary-in-pr: always

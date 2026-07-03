@@ -20,6 +20,7 @@ concurrency:
 # CodeQL action. Gitleaks still applies.
 jobs:
   secret-scan:
+    continue-on-error: false
     permissions:
       contents: read
     uses: FrostWeb-Studios/.github/.github/workflows/reusable-gitleaks.yml@1d9b0a001d985e3613a6949c3cd491124a040dce # v1

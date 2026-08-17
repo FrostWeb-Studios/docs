@@ -5135,8 +5135,8 @@
 <p>With AND logic. All conditions must return <code>true</code> for the response to appear. If any condition returns <code>false</code>, the entire response is hidden.</p>
 <h3 id="how-do-i-implement-or-logic-for-conditions">How do I implement OR logic for conditions?<a class="headerlink" href="#how-do-i-implement-or-logic-for-conditions" title="Permanent link">&para;</a></h3>
 <p>Create separate responses that lead to the same <code>NextNodeId</code>. Each response has its own condition set. If either response's conditions pass, the player sees that path.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Response A: &quot;I can pay in gold&quot; (Condition: HasCurrency Gold &gt;= 100) --&gt; Node 5
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Response B: &quot;I can pay in gems&quot; (Condition: HasItem Gems &gt;= 3)      --&gt; Node 5
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Response A: "I can pay in gold" (Condition: HasCurrency Gold &gt;= 100) --&gt; Node 5
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Response B: "I can pay in gems" (Condition: HasItem Gems &gt;= 3)      --&gt; Node 5
 </span></code></pre></div>
 <h3 id="can-conditions-modify-game-state">Can conditions modify game state?<a class="headerlink" href="#can-conditions-modify-game-state" title="Permanent link">&para;</a></h3>
 <p>No. The <code>Evaluate</code> method is <code>const</code> and should be side-effect-free. Use actions for state changes, not conditions.</p>

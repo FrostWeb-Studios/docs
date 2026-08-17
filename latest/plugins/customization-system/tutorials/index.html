@@ -5077,17 +5077,17 @@
 </ul>
 <p>Set this reference when the widget is initialized (passed from the character creator game mode or HUD).</p>
 <h4 id="33-implement-race-selection">3.3 Implement Race Selection<a class="headerlink" href="#33-implement-race-selection" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>On Race Button Clicked (e.g., &quot;Human&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>On Race Button Clicked (e.g., "Human")
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    |
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    +-- CustomizationComp &gt; Set Race (Human)
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    |
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    +-- CustomizationComp &gt; Refresh Visuals
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    |
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    +-- Call &quot;RefreshAllSlotPanels&quot; (custom function)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    +-- Call "RefreshAllSlotPanels" (custom function)
 </span></code></pre></div>
 <p>When the race changes, the available options change entirely, so you must rebuild your slot panels to reflect the new race config's arrays.</p>
 <h4 id="34-implement-gender-selection">3.4 Implement Gender Selection<a class="headerlink" href="#34-implement-gender-selection" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>On Gender Button Clicked (e.g., &quot;Female&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>On Gender Button Clicked (e.g., "Female")
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    |
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    +-- CustomizationComp &gt; Set Gender (Female)
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    |
@@ -5095,7 +5095,7 @@
 </span></code></pre></div>
 <h4 id="35-implement-slot-navigation-nextprevious">3.5 Implement Slot Navigation (Next/Previous)<a class="headerlink" href="#35-implement-slot-navigation-nextprevious" title="Permanent link">&para;</a></h4>
 <p>For each customization slot, create next/previous buttons:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>On &quot;Next Skin Tone&quot; Clicked
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>On "Next Skin Tone" Clicked
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    |
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    +-- CurrentIndex = CustomizationComp &gt; Get Slot Selection (SkinTone)
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    |

@@ -5519,7 +5519,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[On Interact] --&gt; [Get (Skill Progression)] --&gt; [Meets Requirement: SkillReq_Mining30]
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    --&gt; [Branch]
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        True --&gt; [Open Door]
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        False --&gt; [Show &quot;Requires Mining Level 30&quot; UI]
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        False --&gt; [Show "Requires Mining Level 30" UI]
 </span></code></pre></div>
 <h3 id="pattern-xp-progress-bar">Pattern: XP Progress Bar<a class="headerlink" href="#pattern-xp-progress-bar" title="Permanent link">&para;</a></h3>
 <p>Bind a progress bar widget to the <strong>Get Skill Level Progress</strong> node:</p>
@@ -5534,7 +5534,7 @@
 <h3 id="pattern-skill-level-display">Pattern: Skill Level Display<a class="headerlink" href="#pattern-skill-level-display" title="Permanent link">&para;</a></h3>
 <p>Combine <strong>Get Skill Level</strong> with <strong>Get Skill Display Name</strong> for UI text:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[On Skill XP Gained] --&gt; [Get Skill Display Name: SkillType]
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    --&gt; [Format Text: &quot;{Name}: Level {Level}&quot;]
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    --&gt; [Format Text: "{Name}: Level {Level}"]
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    &lt;-- [Get Skill Level: SkillType]
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    --&gt; [Set Text on SkillLabel]
 </span></code></pre></div>

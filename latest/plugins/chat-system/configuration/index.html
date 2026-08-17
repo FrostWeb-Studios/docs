@@ -4995,7 +4995,7 @@
 <h3 id="channel-display-names">Channel Display Names<a class="headerlink" href="#channel-display-names" title="Permanent link">&para;</a></h3>
 <p>Use <code>FFWChatTypeUtils::GetChannelDisplayName()</code> to get human-readable channel names:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">FString</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FFWChatTypeUtils</span><span class="o">::</span><span class="n">GetChannelDisplayName</span><span class="p">(</span><span class="n">EFWChatChannel</span><span class="o">::</span><span class="n">Guild</span><span class="p">);</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// Returns &quot;Guild&quot;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// Returns "Guild"</span>
 </span></code></pre></div>
 <hr />
 <h2 id="server-connection-settings">Server Connection Settings<a class="headerlink" href="#server-connection-settings" title="Permanent link">&para;</a></h2>
@@ -5005,8 +5005,8 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">FFWChatTokenResponse</span><span class="w"> </span><span class="n">Token</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">Token</span><span class="p">.</span><span class="n">Token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;eyJhbGciOiJIUzI1NiIs...&quot;</span><span class="p">;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">Token</span><span class="p">.</span><span class="n">ServerUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wss://chat.example.com&quot;</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">Token</span><span class="p">.</span><span class="n">Token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"eyJhbGciOiJIUzI1NiIs..."</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">Token</span><span class="p">.</span><span class="n">ServerUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"wss://chat.example.com"</span><span class="p">;</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">Token</span><span class="p">.</span><span class="n">ExpiresAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1709290800</span><span class="p">;</span>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">ChatTransport</span><span class="o">-&gt;</span><span class="n">ConnectWithTokenResponse</span><span class="p">(</span><span class="n">Token</span><span class="p">);</span>
@@ -5014,8 +5014,8 @@
 </div>
 <div class="tabbed-block">
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">ChatTransport</span><span class="o">-&gt;</span><span class="n">Connect</span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;wss://chat.example.com&quot;</span><span class="p">),</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;eyJhbGciOiJIUzI1NiIs...&quot;</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"wss://chat.example.com"</span><span class="p">),</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"eyJhbGciOiJIUzI1NiIs..."</span><span class="p">)</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">);</span>
 </span></code></pre></div>
 </div>

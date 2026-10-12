@@ -32,7 +32,7 @@ jobs:
       # both code-owner teams, so this review satisfies the review requirement;
       # auto-merge then merges once any required check is green.
       - name: Approve
-        run: gh pr review "$PR_URL" --approve --body "Dependabot bump: approved by the auto-merge workflow; merges when checks are green."
+        run: gh pr review "$PR_URL" --approve --body "Dependabot bump approved by the auto-merge workflow. Merges when checks are green."
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.LIVE_PROMOTE_PAT }}

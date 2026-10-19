@@ -188,7 +188,7 @@ Collection of all skill definitions. Assigned in project settings or directly on
 
 **Inherits:** `UDataAsset`
 
-Defines the XP required for each level using an RS-style formula. Supports per-skill overrides via `UFWSkillDefinition`.
+Defines the XP required for each level using an exponential formula in which the XP per level roughly doubles every seven levels. Supports per-skill overrides via `UFWSkillDefinition`.
 
 | Property | Type | Description |
 |---|---|---|

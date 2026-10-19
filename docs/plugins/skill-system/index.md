@@ -60,7 +60,7 @@ Skills that advance through crafting and construction activities.
 
 | Feature | Description |
 |---|---|
-| XP Curve System | Data-driven XP requirements per level with RS-style formula, per-skill overrides, and configurable grind/compression factors |
+| XP Curve System | Data-driven XP requirements per level with an exponential default formula, per-skill overrides, and configurable grind/compression factors |
 | Skill Leveling | Track XP, compute levels, and broadcast events on level-up |
 | Combat XP Integration | Automatically distribute XP to combat skills based on damage dealt, with configurable XPPerDamage and KillBonusMultiplier |
 | Milestone Rewards | Define rewards triggered at specific skill levels via milestone definitions and the milestone component |
@@ -100,7 +100,7 @@ UFWSkillMilestoneComponent (per-actor)
 Data Assets
  +-- UFWSkillDefinition (per-skill configuration)
  +-- UFWSkillDatabase (collection of all skill definitions)
- +-- UFWSkillXPCurve (XP-per-level curve with RS-style formula)
+ +-- UFWSkillXPCurve (XP-per-level curve, exponential default formula)
  +-- UFWSkillMilestoneDefinition (milestone reward definitions)
 
 Configuration

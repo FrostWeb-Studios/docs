@@ -19,7 +19,7 @@ All notable changes to FWQuestSystem are documented on this page.
 - **Daily and weekly reset system.** `EFWQuestRepeatType::Daily` and `EFWQuestRepeatType::Weekly` with configurable reset times managed by `UFWQuestStateSubsystem`. Automatic reset scheduling with server-authoritative time tracking.
 - **Quest priority system.** `EFWQuestPriority` (Low, Normal, High, Urgent) for UI sorting and notification filtering.
 - **Expanded quest categories.** Added `World`, `Dungeon`, `Guild`, `Event`, `Profession`, and `Challenge` to `EFWQuestCategory`.
-- **UFWQuestStateSubsystem.** New World Subsystem that manages quest state persistence, reset scheduling, and cross-player coordination at the world level.
+- **UFWQuestStateSubsystem.** New `UWorldSubsystem` that manages quest state persistence, reset scheduling, and cross-player coordination at the world level.
 - **JSON serialization.** Full quest state serialization via `SaveQuestState` and `LoadQuestState` on the state subsystem. Versioned JSON format with active quests, completed history, and reset timestamps.
 - **Completion count tracking.** `FFWQuestInstance::CompletionCount` tracks how many times a repeatable quest has been completed.
 - **New condition types.** `FWCondition_Time` (time window checks), `FWCondition_And` (boolean AND combinator), `FWCondition_Or` (boolean OR combinator), `FWCondition_Custom` (Blueprint-defined).

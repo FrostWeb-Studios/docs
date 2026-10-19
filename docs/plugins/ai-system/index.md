@@ -6,7 +6,7 @@ title: FWAISystem
 
 MMO-style NPC behavior framework for Unreal Engine 5.
 
-FWAISystem provides a complete NPC behavior framework built for massively multiplayer games. It implements industry-standard mechanics found in games like World of Warcraft, Final Fantasy XIV, and Guild Wars 2 -- threat tables, leashing, patrol behavior, zone-based spawning, and difficulty-based instance scaling.
+FWAISystem provides a complete NPC behavior framework built for massively multiplayer games. It implements the standard MMO building blocks -- threat tables, leashing, patrol behavior, zone-based spawning, and difficulty-based instance scaling.
 
 ---
 

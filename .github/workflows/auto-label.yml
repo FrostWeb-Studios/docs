@@ -1,8 +1,9 @@
 name: Auto Label PRs
 
+# Opened PRs only: release-drafter groups release notes by these labels.
 on:
   pull_request_target:
-    types: [opened, synchronize, reopened]
+    types: [opened]
 
 permissions:
   contents: read

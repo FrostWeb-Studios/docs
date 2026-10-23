@@ -8,13 +8,23 @@ name: Dependency Review
 on:
   pull_request:
     branches: [master, main]
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - 'LICENSE*'
-      - '.gitignore'
       # requirements.txt is intentionally NOT excluded — pip Dependabot PRs
       # must pass this check before merging.
+    # Only when dependencies change: the review reads the dependency diff, nothing else.
+    paths:
+      - '**/package.json'
+      - '**/package-lock.json'
+      - '**/go.mod'
+      - '**/go.sum'
+      - '**/*.gradle'
+      - '**/*.gradle.kts'
+      - '**/libs.versions.toml'
+      - '**/requirements*.txt'
+      - '**/Gemfile'
+      - '**/Gemfile.lock'
+      - '**/composer.json'
+      - '**/composer.lock'
+      - '.github/workflows/**'
 
 permissions:
   contents: read

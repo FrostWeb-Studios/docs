@@ -22,4 +22,4 @@ jobs:
   secret-scan:
     permissions:
       contents: read
-    uses: FrostWeb-Studios/.github/.github/workflows/reusable-gitleaks.yml@1d9b0a001d985e3613a6949c3cd491124a040dce # v1
+    uses: FrostWeb-Studios/.github/.github/workflows/reusable-gitleaks.yml@978455dce6b6771d178b654db0d318db9c03b59d # v1
